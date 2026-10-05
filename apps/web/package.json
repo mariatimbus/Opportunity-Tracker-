@@ -1,0 +1,6 @@
+{
+  "name": "@opportunity-tracker/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Next.js frontend for the Opportunity Tracker platform (placeholder — Next.js not installed yet)"
+}

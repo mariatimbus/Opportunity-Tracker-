@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16
+    container_name: opportunity-tracker-db
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-opportunity_tracker}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+# More services (api, web, ai, ingestion) will be added in later milestones.
+
+volumes:
+  pgdata:
