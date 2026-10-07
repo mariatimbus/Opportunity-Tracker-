@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from ..core.database import get_db
 from ..core.errors import APIError
 from ..core.security import decode_access_token
-from ..models import User
+from ..models import Profile, User
 
 # tokenUrl points at the login route so /docs shows the Authorize button.
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login", auto_error=False)
@@ -43,3 +43,13 @@ def get_current_user(
             code="account_disabled",
         )
     return user
+
+
+def get_or_create_profile(db: Session, user: User) -> Profile:
+    """Return the user's profile, creating an empty row on first use (bootstrap)."""
+    if user.profile is None:
+        profile = Profile(user_id=user.id)
+        db.add(profile)
+        db.flush()
+        return profile
+    return user.profile

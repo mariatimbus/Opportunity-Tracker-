@@ -5,7 +5,7 @@ import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .api import auth, health
+from .api import auth, health, profile
 from .core.config import get_settings
 from .core.errors import install_exception_handlers
 
@@ -27,5 +27,7 @@ def create_app() -> FastAPI:
     install_exception_handlers(app)
     app.include_router(health.router)
     app.include_router(auth.router, prefix="/api/v1")
+    app.include_router(profile.router, prefix="/api/v1")
+    app.include_router(profile.skills_router, prefix="/api/v1")
 
     return app

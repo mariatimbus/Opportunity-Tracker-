@@ -11,19 +11,11 @@ from ..core.config import get_settings
 from ..core.database import get_db
 from ..core.errors import APIError
 from ..core.security import create_access_token, hash_password, verify_password
-from ..models import Profile, User
+from ..models import User
 from ..schemas import TokenResponse, UserCreate, UserResponse
-from .deps import get_current_user
+from .deps import get_current_user, get_or_create_profile
 
 router = APIRouter(prefix="/auth", tags=["auth"])
-
-
-def _bootstrap_profile(db: Session, user: User) -> User:
-    """Ensure the user has a profile row; creates an empty one on first use."""
-    if user.profile is None:
-        db.add(Profile(user_id=user.id))
-        db.flush()
-    return user
 
 
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
@@ -45,7 +37,7 @@ def register(
     )
     db.add(user)
     db.flush()
-    _bootstrap_profile(db, user)
+    get_or_create_profile(db, user)
     db.commit()
     return user
 
@@ -68,7 +60,7 @@ def login(
             status_code=status.HTTP_403_FORBIDDEN,
             code="account_disabled",
         )
-    _bootstrap_profile(db, user)
+    get_or_create_profile(db, user)
     db.commit()
     settings = get_settings()
     return TokenResponse(
