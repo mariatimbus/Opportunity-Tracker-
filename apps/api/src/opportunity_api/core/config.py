@@ -27,6 +27,15 @@ class Settings(BaseSettings):
         default="http://localhost:3000",
         validation_alias=AliasChoices("CORS_ORIGINS", "APP_CORS_ORIGINS"),
     )
+    # Dev default only — always override in deployed environments.
+    jwt_secret_key: str = Field(
+        default="change-me-in-production",
+        validation_alias=AliasChoices("APP_JWT_SECRET_KEY"),
+    )
+    jwt_expire_minutes: int = Field(
+        default=60 * 24,
+        validation_alias=AliasChoices("APP_JWT_EXPIRE_MINUTES"),
+    )
 
     @property
     def cors_origin_list(self) -> list[str]:
