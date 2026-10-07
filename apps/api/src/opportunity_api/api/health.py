@@ -22,7 +22,5 @@ def health_db(db: Annotated[Session, Depends(get_db)]) -> dict[str, str]:
     try:
         db.execute(text("SELECT 1"))
     except Exception as exc:
-        raise APIError(
-            "Database unavailable", status_code=503, code="service_unavailable"
-        ) from exc
+        raise APIError("Database unavailable", status_code=503, code="service_unavailable") from exc
     return {"status": "ok"}

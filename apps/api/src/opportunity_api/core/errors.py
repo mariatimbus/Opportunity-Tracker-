@@ -32,8 +32,14 @@ class APIError(Exception):
     status_code: int = status.HTTP_500_INTERNAL_SERVER_ERROR
     code: str = "internal_error"
 
-    def __init__(self, message: str, *, status_code: int | None = None, code: str | None = None,
-                 details: Any = None) -> None:
+    def __init__(
+        self,
+        message: str,
+        *,
+        status_code: int | None = None,
+        code: str | None = None,
+        details: Any = None,
+    ) -> None:
         super().__init__(message)
         self.message = message
         self.details = details
