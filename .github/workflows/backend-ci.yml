@@ -1,0 +1,32 @@
+name: Backend CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check backend exists
+        id: backend
+        working-directory: ${{ github.workspace }}
+        run: echo "exists=$(test -f apps/api/pyproject.toml && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - name: Install uv
+        if: steps.backend.outputs.exists == 'true'
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+      - name: Install dependencies
+        if: steps.backend.outputs.exists == 'true'
+        run: uv sync --all-extras
+      - name: Ruff check
+        if: steps.backend.outputs.exists == 'true'
+        run: uv run ruff check .
+      - name: Pytest
+        if: steps.backend.outputs.exists == 'true'
+        run: uv run pytest
