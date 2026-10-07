@@ -1,5 +1,6 @@
 """Profile model — one-to-one with User."""
 
+import enum
 import uuid
 from typing import TYPE_CHECKING
 
@@ -13,6 +14,13 @@ if TYPE_CHECKING:
     from .user import User
 
 
+class DegreeLevel(enum.StrEnum):
+    """Degree levels the platform tracks (Bachelor/Master)."""
+
+    bachelor = "bachelor"
+    master = "master"
+
+
 class Profile(TimestampMixin, Base):
     __tablename__ = "profiles"
 
@@ -24,5 +32,11 @@ class Profile(TimestampMixin, Base):
     bio: orm.Mapped[str | None] = orm.mapped_column(sa.Text, nullable=True)
     location: orm.Mapped[str | None] = orm.mapped_column(sa.String(255), nullable=True)
     resume_url: orm.Mapped[str | None] = orm.mapped_column(sa.String(512), nullable=True)
+    degree_level: orm.Mapped[DegreeLevel | None] = orm.mapped_column(
+        sa.Enum(DegreeLevel), nullable=True
+    )
+    field_of_study: orm.Mapped[str | None] = orm.mapped_column(sa.String(255), nullable=True)
+    university: orm.Mapped[str | None] = orm.mapped_column(sa.String(255), nullable=True)
+    graduation_year: orm.Mapped[int | None] = orm.mapped_column(sa.Integer, nullable=True)
 
     user: orm.Mapped["User"] = orm.relationship(back_populates="profile")

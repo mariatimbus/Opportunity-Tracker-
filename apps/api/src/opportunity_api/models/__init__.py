@@ -2,13 +2,14 @@
 
 from .application import Application, ApplicationStatus
 from .opportunity import Opportunity, OpportunityType
-from .profile import Profile
+from .profile import DegreeLevel, Profile
 from .skill import Skill, opportunity_skills, user_skills
 from .user import User
 
 __all__ = [
     "Application",
     "ApplicationStatus",
+    "DegreeLevel",
     "Opportunity",
     "OpportunityType",
     "Profile",
