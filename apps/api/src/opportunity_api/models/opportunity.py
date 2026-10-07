@@ -31,9 +31,7 @@ class Opportunity(TimestampMixin, Base):
         sa.UniqueConstraint("source", "source_id", name="uq_opportunity_source_source_id"),
     )
 
-    id: orm.Mapped[uuid.UUID] = orm.mapped_column(
-        sa.Uuid, primary_key=True, default=uuid.uuid4
-    )
+    id: orm.Mapped[uuid.UUID] = orm.mapped_column(sa.Uuid, primary_key=True, default=uuid.uuid4)
     title: orm.Mapped[str] = orm.mapped_column(sa.String(255))
     description: orm.Mapped[str | None] = orm.mapped_column(sa.Text, nullable=True)
     organization: orm.Mapped[str | None] = orm.mapped_column(sa.String(255), nullable=True)

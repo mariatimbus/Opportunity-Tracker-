@@ -30,9 +30,7 @@ class Application(TimestampMixin, Base):
         sa.UniqueConstraint("user_id", "opportunity_id", name="uq_application_user_opportunity"),
     )
 
-    id: orm.Mapped[uuid.UUID] = orm.mapped_column(
-        sa.Uuid, primary_key=True, default=uuid.uuid4
-    )
+    id: orm.Mapped[uuid.UUID] = orm.mapped_column(sa.Uuid, primary_key=True, default=uuid.uuid4)
     user_id: orm.Mapped[uuid.UUID] = orm.mapped_column(
         sa.Uuid, sa.ForeignKey("users.id", ondelete="CASCADE"), index=True
     )

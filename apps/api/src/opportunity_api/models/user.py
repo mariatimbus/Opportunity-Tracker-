@@ -34,9 +34,7 @@ class TimestampMixin:
 class User(TimestampMixin, Base):
     __tablename__ = "users"
 
-    id: orm.Mapped[uuid.UUID] = orm.mapped_column(
-        sa.Uuid, primary_key=True, default=uuid.uuid4
-    )
+    id: orm.Mapped[uuid.UUID] = orm.mapped_column(sa.Uuid, primary_key=True, default=uuid.uuid4)
     email: orm.Mapped[str] = orm.mapped_column(sa.String(255), unique=True, index=True)
     password_hash: orm.Mapped[str] = orm.mapped_column(sa.String(255))
     full_name: orm.Mapped[str] = orm.mapped_column(sa.String(255))

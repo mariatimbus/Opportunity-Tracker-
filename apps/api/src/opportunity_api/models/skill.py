@@ -40,9 +40,7 @@ opportunity_skills = sa.Table(
 class Skill(TimestampMixin, Base):
     __tablename__ = "skills"
 
-    id: orm.Mapped[uuid.UUID] = orm.mapped_column(
-        sa.Uuid, primary_key=True, default=uuid.uuid4
-    )
+    id: orm.Mapped[uuid.UUID] = orm.mapped_column(sa.Uuid, primary_key=True, default=uuid.uuid4)
     name: orm.Mapped[str] = orm.mapped_column(sa.String(100), unique=True, index=True)
 
     users: orm.Mapped[list["User"]] = orm.relationship(

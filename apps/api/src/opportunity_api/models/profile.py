@@ -16,9 +16,7 @@ if TYPE_CHECKING:
 class Profile(TimestampMixin, Base):
     __tablename__ = "profiles"
 
-    id: orm.Mapped[uuid.UUID] = orm.mapped_column(
-        sa.Uuid, primary_key=True, default=uuid.uuid4
-    )
+    id: orm.Mapped[uuid.UUID] = orm.mapped_column(sa.Uuid, primary_key=True, default=uuid.uuid4)
     user_id: orm.Mapped[uuid.UUID] = orm.mapped_column(
         sa.Uuid, sa.ForeignKey("users.id", ondelete="CASCADE"), unique=True
     )

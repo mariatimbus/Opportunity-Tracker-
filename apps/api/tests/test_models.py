@@ -124,8 +124,6 @@ def test_enums_round_trip(session: Session):
 
 
 def test_alembic_migration_files_exist():
-    versions = (
-        Path(__file__).resolve().parents[3] / "database" / "migrations" / "versions"
-    )
+    versions = Path(__file__).resolve().parents[3] / "database" / "migrations" / "versions"
     migrations = [p for p in versions.glob("*.py") if p.name != ".gitkeep"]
     assert len(migrations) >= 1, "expected at least one alembic migration file"
