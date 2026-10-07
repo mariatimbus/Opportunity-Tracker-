@@ -6,6 +6,8 @@ on:
 
 jobs:
   backend:
+    # apps/api lands in A2; skip until the backend exists so early PRs stay green
+    if: hashFiles('apps/api/pyproject.toml') != ''
     runs-on: ubuntu-latest
     defaults:
       run:
