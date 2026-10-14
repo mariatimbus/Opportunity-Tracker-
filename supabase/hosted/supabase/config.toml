@@ -1,0 +1,8 @@
+project_id = "opportunity-tracker-c1-test"
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/callback", "http://127.0.0.1:3000/auth/callback"]
+enable_signup = true
+[auth.email]
+enable_signup = true
+enable_confirmations = true

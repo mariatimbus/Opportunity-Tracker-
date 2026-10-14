@@ -58,8 +58,7 @@ domain API on top of it.
   surface shrinks to "token invalid/expired" (`unauthorized`).
 - Adding OAuth providers, magic links, or email confirmation is a Supabase
   dashboard change, not backend work.
-- Local dev runs against a Supabase project (cloud free tier or
-  `supabase start` CLI); the SQLite fallback remains only for unit tests.
+- Team development runs against the shared hosted Supabase project; the SQLite fallback remains only for unit tests.
 - Custom auth code (passlib, bcrypt, python-multipart) is removed, shrinking the
   dependency tree and the attack surface.
 - If we ever outgrow Supabase Auth, the validation seam (`core/security.py:
