@@ -2,6 +2,9 @@
 
 import uuid
 
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
+
 from opportunity_api.models import User
 from tests.conftest import TEST_JWT_SECRET, mint_token
 
@@ -119,6 +122,65 @@ def test_inactive_user_gets_403(client, db_factory):
     response = client.get("/api/v1/auth/me", headers=_bearer(token))
     assert response.status_code == 403
     assert response.json()["error"]["code"] == "account_disabled"
+
+
+def test_me_recovers_from_concurrent_user_creation(client, db_factory, monkeypatch):
+    """If another worker inserts the user between the lookup and the flush, the
+    IntegrityError is rolled back and the existing row is re-fetched (and the
+    profile bootstrap / commit still work on the post-rollback session)."""
+    user_id = uuid.uuid4()
+    original_get = Session.get
+
+    def racing_get(self, entity, ident, **kwargs):
+        if entity is User and ident == user_id:
+            existing = original_get(self, entity, ident, **kwargs)
+            if existing is None:
+                with db_factory() as session:
+                    session.add(User(id=user_id, email="race@example.com", full_name="Racer"))
+                    session.commit()
+            return existing
+        return original_get(self, entity, ident, **kwargs)
+
+    monkeypatch.setattr(Session, "get", racing_get)
+    token = mint_token(sub=str(user_id), email="ada@example.com", full_name="Ada")
+    response = client.get("/api/v1/auth/me", headers=_bearer(token))
+    assert response.status_code == 200
+    assert response.json()["id"] == str(user_id)
+    with db_factory() as session:
+        user = session.get(User, user_id)
+        assert user is not None
+        assert user.email == "race@example.com"  # first writer wins
+        assert user.profile is not None
+
+
+def test_me_upsert_reraises_when_row_still_missing(db_factory, monkeypatch):
+    """If the re-fetch after rollback still finds nothing, the error propagates."""
+    from fastapi.testclient import TestClient
+
+    from opportunity_api.core.database import get_db
+    from opportunity_api.main import create_app
+
+    user_id = uuid.uuid4()
+
+    def failing_flush(self, objects=None):
+        raise IntegrityError("boom", {}, Exception())
+
+    def empty_get(self, entity, ident, **kwargs):
+        return None
+
+    monkeypatch.setattr(Session, "flush", failing_flush)
+    monkeypatch.setattr(Session, "get", empty_get)
+    app = create_app()
+
+    def override_get_db():
+        with db_factory() as session:
+            yield session
+
+    app.dependency_overrides[get_db] = override_get_db
+    client = TestClient(app, raise_server_exceptions=False)
+    token = mint_token(sub=str(user_id), email="ghost@example.com")
+    response = client.get("/api/v1/auth/me", headers=_bearer(token))
+    assert response.status_code == 500
 
 
 def test_settings_use_supabase_test_config():

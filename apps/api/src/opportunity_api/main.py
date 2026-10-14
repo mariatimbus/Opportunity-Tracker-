@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .api import auth, health, profile
 from .core.config import get_settings
 from .core.errors import install_exception_handlers
+from .core.ratelimit import RateLimitMiddleware
 
 
 def create_app() -> FastAPI:
@@ -23,6 +24,8 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    app.add_middleware(RateLimitMiddleware)
 
     install_exception_handlers(app)
     app.include_router(health.router)

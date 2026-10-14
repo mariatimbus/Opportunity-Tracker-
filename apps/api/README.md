@@ -25,6 +25,8 @@ Environment variables (see `.env.example` at the repo root):
 - `APP_SUPABASE_URL` — your Supabase project URL
 - `APP_SUPABASE_JWT_SECRET` — JWT secret from Supabase Dashboard → Project Settings → API
 - `APP_SUPABASE_JWT_AUDIENCE` — JWT audience to validate (default `authenticated`)
+- `APP_RATE_LIMIT_PER_MINUTE` — per-client-IP request limit per minute (default
+  `240`); `0` or negative disables rate limiting
 
 ## Auth
 

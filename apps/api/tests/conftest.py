@@ -7,6 +7,8 @@ from datetime import UTC, datetime, timedelta
 os.environ["DATABASE_URL"] = "sqlite://"  # in-memory, per-connection
 os.environ["APP_SUPABASE_URL"] = "https://test.supabase.co"
 os.environ["APP_SUPABASE_JWT_SECRET"] = "test-jwt-secret"
+# Rate limiting off by default; the focused 429 test enables it explicitly.
+os.environ["APP_RATE_LIMIT_PER_MINUTE"] = "0"
 
 import jwt as pyjwt
 import pytest

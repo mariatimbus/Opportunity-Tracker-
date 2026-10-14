@@ -36,6 +36,10 @@ class Settings(BaseSettings):
     supabase_jwt_audience: str = Field(
         default="authenticated", validation_alias=AliasChoices("APP_SUPABASE_JWT_AUDIENCE")
     )
+    # Fixed-window per-client-IP limit (requests/minute); 0 or negative disables.
+    rate_limit_per_minute: int = Field(
+        default=240, validation_alias=AliasChoices("APP_RATE_LIMIT_PER_MINUTE")
+    )
 
     @property
     def cors_origin_list(self) -> list[str]:

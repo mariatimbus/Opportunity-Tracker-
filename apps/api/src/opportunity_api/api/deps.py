@@ -6,6 +6,7 @@ from uuid import UUID
 import jwt
 from fastapi import Depends, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from ..core.database import get_db
@@ -37,12 +38,20 @@ def get_current_user(
 
     user = db.get(User, user_id)
     if user is None:
-        # First sight of this Supabase user — mirror the row locally.
+        # First sight of this Supabase user — mirror the row locally. On a
+        # first-request race another worker may have inserted the row already;
+        # the rollback expires all state, so re-fetch a fresh instance.
         metadata = claims.get("user_metadata") or {}
         email = claims.get("email") or metadata.get("email") or ""
         user = User(id=user_id, email=email, full_name=metadata.get("full_name") or "")
         db.add(user)
-        db.flush()
+        try:
+            db.flush()
+        except IntegrityError:
+            db.rollback()
+            user = db.get(User, user_id)
+            if user is None:
+                raise
     if not user.is_active:
         raise APIError(
             "Account is deactivated",
