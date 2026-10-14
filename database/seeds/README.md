@@ -110,7 +110,7 @@ The JSON is syntactically valid, but it is **not yet a fully enriched or fully r
 
 - **C1 (this directory):** Research, clean, document, and review the seed JSON; preserve provenance and unresolved issues.
 - **C2 (separate task):** Map approved fields into Maria's reviewed Supabase/PostgreSQL schema, implement the import, and handle deduplication and errors.
-- **Schema coordination:** The category enum is now decided (11 values, 2026-10-14). Field mappings to the Supabase/PostgreSQL schema (`type` → `opportunity_type`, `source_url` → `url`, review-metadata handling) happen in C2 with Maria's reviewed schema; nullable fields and transformations still need agreement before import.
+- **Schema coordination:** The category enum is now decided (11 values, 2026-10-14). `degree_level` and `study_year` have target columns since migration `20261014233344_opportunity_eligibility_fields` (`opportunities.degree_level` of enum `opportunity_degree_level`, `opportunities.study_year` jsonb — both nullable, `null` = not established). Remaining mappings to agree in C2: review-metadata handling and the `id`/`source`/`source_id` derivation.
 - **Security:** Keep Supabase connection secrets and service-role keys in local environment variables; do not commit `.env` files, tokens, or credentials.
 
 ## Pre-import checklist
