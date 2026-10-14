@@ -22,6 +22,16 @@ Environment variables (see `.env.example` at the repo root):
 - `DATABASE_URL` — SQLAlchemy URL; defaults to a local sqlite file so the app boots
   without Postgres. Use `postgresql+psycopg://...` for the docker-compose db.
 - `CORS_ORIGINS` — comma-separated allowed origins
+- `APP_SUPABASE_URL` — your Supabase project URL
+- `APP_SUPABASE_JWT_SECRET` — JWT secret from Supabase Dashboard → Project Settings → API
+- `APP_SUPABASE_JWT_AUDIENCE` — JWT audience to validate (default `authenticated`)
+
+## Auth
+
+Sign-up and sign-in happen client-side against Supabase Auth. The backend only
+validates Supabase-issued JWT access tokens (sent as `Authorization: Bearer ...`)
+and mirrors users into the local `users` table on first authenticated request.
+Use a Supabase access token in the `/docs` Authorize dialog.
 
 ## Endpoints
 

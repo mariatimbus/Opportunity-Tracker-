@@ -18,6 +18,24 @@ stay in sync.
 - `docs/` — this documentation, including `decisions/` (ADRs)
 - `.github/` — CI workflows, issue templates, PR template
 
+## Platform: Supabase-first
+
+Supabase is the identity and data backbone; the FastAPI backend is a domain API
+on top of it (decided in [ADR 0003](decisions/0003-supabase-first-architecture.md),
+which supersedes ADR 0002's auth section).
+
+- **Supabase Auth (GoTrue) is the only token issuer.** Clients sign up/in
+  directly against Supabase; `apps/api` only validates Supabase-issued JWTs
+  (signature + `iss`/`aud`) and mirrors identities into the local `users` table
+  on first authenticated request. The backend never handles passwords.
+- **Supabase Postgres hosts the domain schema.** SQLAlchemy/Alembic in
+  `database/migrations/` remain the migration toolchain; migrations are applied
+  to the Supabase database.
+- The API stays the primary enforcement point for business rules; row-level
+  security is an optional second line of defense for later.
+- Backend auth config: `APP_SUPABASE_URL`, `APP_SUPABASE_JWT_SECRET`,
+  `APP_SUPABASE_JWT_AUDIENCE` (see `.env.example`).
+
 ## Conventions
 
 - Python backend: Python 3.13, managed with `uv`, linted with `ruff` (config in the repo

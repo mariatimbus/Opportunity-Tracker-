@@ -13,6 +13,10 @@ document require a PR and sign-off from B and C.
 ## Conventions
 
 - **Auth**: `Authorization: Bearer <access_token>` on all endpoints marked 🔒.
+  Tokens are issued by **Supabase Auth** (client-side sign-in), not by this API —
+  see [ADR 0003](decisions/0003-supabase-first-architecture.md). The backend
+  validates signature, `iss`, `aud`, and expiry; an unknown-but-valid identity
+  is mirrored into a local `users` row on first call.
 - **Paths**: plural nouns; multi-word segments use kebab-case (`/job-fairs`).
 - **Fields**: snake_case in JSON; UUIDs as strings; datetimes ISO 8601 UTC (`2026-10-07T12:00:00Z`).
 - **Enums**: lowercase string values (`bachelor`, `internship`, `applied`).
@@ -36,42 +40,26 @@ Every non-2xx response (including framework validation failures):
 | HTTP | code | When |
 | --- | --- | --- |
 | 401 | `unauthorized` | missing/invalid/expired token |
-| 401 | `invalid_credentials` | bad email/password at login |
 | 403 | `account_disabled` | deactivated user |
 | 404 | `not_found` | unknown route |
 | 404 | `skill_not_found` | skill not attached to profile |
-| 409 | `email_taken` | register with existing email |
 | 422 | `validation_error` | schema validation (details = pydantic errors) |
 
 ## Auth
 
-### POST /api/v1/auth/register
-
-```json
-// request
-{"email": "ada@example.com", "password": "supersecret1", "full_name": "Ada Lovelace"}
-// 201 — empty profile is bootstrapped automatically
-{"id": "9f1c…", "email": "ada@example.com", "full_name": "Ada Lovelace", "is_active": true}
-```
-
-### POST /api/v1/auth/login
-
-Form-encoded (`application/x-www-form-urlencoded`), OAuth2 password flow —
-`username` is the email address. This is what the Swagger "Authorize" button uses.
-
-```
-username=ada@example.com&password=supersecret1
-```
-
-```json
-// 200
-{"access_token": "eyJhbGciOi…", "token_type": "bearer", "expires_in": 86400}
-```
+Sign-up and sign-in happen **client-side against Supabase Auth**; this API never
+accepts passwords and never issues tokens. Clients send the Supabase access
+token as a bearer token. The error codes `invalid_credentials` and `email_taken`
+from the previous contract no longer exist — Supabase returns its own errors
+for sign-in/sign-up failures.
 
 ### GET /api/v1/auth/me 🔒
 
+Returns the caller's user record, creating it (plus an empty profile) from the
+token claims on first authenticated call.
+
 ```json
-{"id": "9f1c…", "email": "ada@example.com", "full_name": "Ada Lovelace", "is_active": true}
+{"id": "9f1c…", "email": "ada@example.com", "full_name": null, "is_active": true}
 ```
 
 ## Profile 🔒
@@ -199,3 +187,6 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
 ## Changelog
 
 - 2026-10-07 — frozen v1 contract after A4/A5 landed (auth, profile, skills).
+- 2026-10-14 — auth moved to Supabase per ADR 0003: `POST /auth/register` and
+  `POST /auth/login` removed; tokens are Supabase-issued; `invalid_credentials`
+  and `email_taken` error codes retired.

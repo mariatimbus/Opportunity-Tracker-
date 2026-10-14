@@ -7,7 +7,7 @@ from tests.conftest import auth_headers
 
 @pytest.fixture()
 def headers(client):
-    return auth_headers(client, "ada@example.com", "supersecret1")
+    return auth_headers(client, "ada@example.com")
 
 
 def test_get_profile_bootstraps_empty_profile(client, headers):
@@ -98,8 +98,8 @@ def test_skills_replace_get_create(client, headers):
 
 
 def test_skills_are_per_user(client):
-    headers_a = auth_headers(client, "a@example.com", "password123")
-    headers_b = auth_headers(client, "b@example.com", "password123")
+    headers_a = auth_headers(client, "a@example.com")
+    headers_b = auth_headers(client, "b@example.com")
     client.put("/api/v1/profile/skills", headers=headers_a, json={"names": ["python"]})
 
     response = client.get("/api/v1/profile/skills", headers=headers_b)
