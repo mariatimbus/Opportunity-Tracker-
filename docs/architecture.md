@@ -41,5 +41,5 @@ which supersedes ADR 0002's auth section).
 - Python backend: Python 3.13, managed with `uv`, linted with `ruff` (config in the repo
   root `pyproject.toml`), SQLAlchemy 2.0 typed models, Alembic for migrations.
 - Frontend: Next.js (TBD in a later milestone).
-- Database: Supabase-hosted Postgres 16 (cloud project or `supabase start` CLI)
+- Database: Supabase-hosted PostgreSQL 17 (shared development project)
   for dev; SQLite allowed for tests.

@@ -18,19 +18,19 @@ npx supabase link --project-ref fnldapsomswemayxhayk
 npx supabase migration list --linked
 ```
 
-The database password prompt is private. `.temp/` contains local link state and is ignored. `config.toml` configures the optional local stack, not the hosted project's Auth settings.
+The database password prompt is private. `.temp/` contains local link state and is ignored. `config.toml` identifies the CLI workspace; hosted Auth settings are versioned separately in `supabase/hosted/supabase/config.toml`.
 
 Copy `.env.example` to `.env`. For the backend, set `DATABASE_URL` to the SQLAlchemy psycopg connection string from **Connect** in the dashboard: use `postgresql+psycopg://` and SSL (`?sslmode=require`). Use the session pooler if direct IPv6 is unavailable. Keep the password URL-encoded and server-only. SQLite is a unit-test/offline fallback, not the shared team database. Run backend commands from the repository root with `uv run --project apps/api ...` so the root `.env` is loaded.
 
 For Bianca's web app, use the same project URL and the **publishable** key (or legacy anon key) in `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. They are browser-safe; `service_role`, database passwords, JWT secrets and personal access tokens must never have a `NEXT_PUBLIC_` prefix. The web app is currently a placeholder; configure its Supabase client when implementing it, with these variable names. Signup/login go through Supabase Auth, not a backend password endpoint.
 
-The committed minimal hosted config in `supabase/hosted/supabase/config.toml` declares the development site URL as `http://localhost:3000` and explicitly allow `http://localhost:3000/auth/callback`. Add only the team's actual preview URLs when needed. Enable email/password signup and email confirmation; configure SMTP before expecting production email delivery. Apply only the hosted configuration with `npx supabase config diff --workdir supabase/hosted --project-ref fnldapsomswemayxhayk`, then `npx supabase config push --workdir supabase/hosted --project-ref fnldapsomswemayxhayk`. Undeclared hosted settings remain unchanged. The local stack configuration does not configure hosted Auth automatically.
+The committed minimal hosted config in `supabase/hosted/supabase/config.toml` declares the development site URL as `http://localhost:3000` and explicitly allow `http://localhost:3000/auth/callback`. Add only the team's actual preview URLs when needed. Enable email/password signup and email confirmation; configure SMTP before expecting production email delivery. Apply only the hosted configuration with `npx supabase config diff --workdir supabase/hosted --project-ref fnldapsomswemayxhayk`, then `npx supabase config push --workdir supabase/hosted --project-ref fnldapsomswemayxhayk`. Undeclared hosted settings remain unchanged. Use the hosted configuration commands above to reproduce Auth settings.
 
 This project uses ES256. The backend verifies ES256/RS256 tokens against the configured project JWKS, with issuer/audience/expiry checks and cached public keys. No JWT secret is needed for this project. Legacy HS256 is accepted only when a server-side secret is explicitly configured. Never change project signing keys to work around validation failures.
 
 ## Versioned schema
 
-`supabase/migrations/` is the schema/policy source of truth. The legacy Alembic files remain as historical references; do not run `alembic upgrade head` against this Supabase project. The former Docker/Postgres compose stack is not needed for normal team development.
+`supabase/migrations/` is the schema/policy source of truth. The legacy Alembic files remain as historical references; do not run `alembic upgrade head` against this Supabase project. Team development uses the hosted Supabase database.
 
 1. `20261014175810_initial_schema.sql`: translates the existing models and Alembic degree-field/password-removal/email-index changes; seven domain tables, foreign keys, uniqueness, enums, indexes and timestamp triggers. Identity references `auth.users(id)`.
 2. `20261014181551_rls_policies.sql`: explicit grants and ownership policies.
@@ -48,13 +48,7 @@ npx supabase migration list --linked
 npm run db:test
 ```
 
-Supabase provisions its own Auth schemas/roles; the migrations then create the application schema. Never reset the shared development database. For an optional disposable local Supabase stack (Docker required):
-
-```sh
-npx supabase start
-npx supabase db reset --local
-npx supabase db query --local --file supabase/tests/rls.sql
-```
+Supabase provisions its own Auth schemas/roles; the migrations then create the application schema. Never reset the shared development database.
 
 For later schema edits create a new migration, review the SQL, preview and apply it. Do not edit already applied migration files or rely on SQL Editor-only changes.
 
@@ -74,8 +68,8 @@ All seven tables enable RLS. Ownership uses `auth.uid()`, not editable metadata.
 
 ## Validation recorded
 
-- All migrations replayed on fresh PostgreSQL using PGlite (Supabase-managed Auth/role interfaces stubbed), then the RLS suite passed. Run `npm run db:test:fresh` without Docker.
+- All migrations replayed on fresh PostgreSQL using PGlite (Supabase-managed Auth/role interfaces stubbed), then the RLS suite passed. Run `npm run db:test:fresh` using temporary embedded PostgreSQL.
 - All three migrations applied on the chosen hosted project; `npm run db:test` passed and fixtures rolled back.
 - Hosted Auth config preview has no remaining declared changes; security advisors reported no issues.
-- Full Supabase local-stack reset was not run: Docker Desktop returned HTTP 500. PGlite validates application SQL, not the complete Supabase infrastructure.
+- PGlite validates application SQL with stubbed Auth interfaces; hosted tests exercise real Supabase Auth tables and roles.
 - Maria review, invitations and Bianca's browser signup/login verification remain human integration steps.

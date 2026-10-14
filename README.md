@@ -25,4 +25,4 @@ See `docs/architecture.md` for structure and `docs/contributing.md` for workflow
 
 ## Shared database setup
 
-Follow [the Supabase team guide](supabase/README.md) to connect to the shared development project, apply committed migrations and run RLS tests. Normal team development uses hosted Supabase; no Docker/PostgreSQL compose stack is required.
+Follow [the Supabase team guide](supabase/README.md) to connect to the shared development project, apply committed migrations and run RLS tests. Normal team development uses the shared hosted Supabase project.
