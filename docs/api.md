@@ -43,6 +43,9 @@ Every non-2xx response (including framework validation failures):
 | 403 | `account_disabled` | deactivated user |
 | 404 | `not_found` | unknown route |
 | 404 | `skill_not_found` | skill not attached to profile |
+| 404 | `opportunity_not_found` | unknown opportunity id on application create |
+| 404 | `application_not_found` | unknown id, or owned by another user (indistinguishable) |
+| 409 | `application_exists` | opportunity already tracked by this user |
 | 429 | `rate_limited` | per-IP rate limit exceeded (see `APP_RATE_LIMIT_PER_MINUTE`) |
 | 422 | `validation_error` | schema validation (details = pydantic errors) |
 
@@ -203,12 +206,54 @@ Item shape (same as the detail endpoint):
 `200` with the item shape above; `404 not_found` for a valid but unknown id;
 `422 validation_error` for a malformed UUID.
 
-## Frozen upcoming contracts
+## Applications 🔒
 
-Implemented in a later phase; the shapes below are frozen so B and C can build
-against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity_api/models/`.
+Implemented in A8 (saved opportunities + application tracking). All endpoints
+require a bearer token and are scoped to the current user — an application
+owned by another user is indistinguishable from a missing one (`404`, never
+`403`), mirroring the Supabase RLS policy (defense in depth). `user_id` is
+never exposed in responses.
 
-### GET /api/v1/applications · POST /api/v1/applications · PATCH /api/v1/applications/{id}
+### GET /api/v1/applications
+
+List of the caller's applications, newest first. Optional query param
+`status` (`saved|applied|interview|offer|rejected`) filters by status.
+
+```json
+// 200
+{
+  "items": [{ "…": "application shape below" }],
+  "total": 2
+}
+```
+
+### POST /api/v1/applications
+
+Saves an opportunity (default status `saved`).
+
+```json
+// request
+{"opportunity_id": "1d9a…"}
+```
+
+`201` with the application shape; `404 opportunity_not_found` if the
+opportunity does not exist; `409 application_exists` if it is already tracked
+(one application per (user, opportunity)). An explicit `status`, `notes`, or
+`applied_at` may be sent on create.
+
+### PATCH /api/v1/applications/{id}
+
+Updates `status`, `notes`, and/or `applied_at` (only sent fields change).
+When the status becomes `applied` and no `applied_at` was provided, the server
+stamps the current time. `404 application_not_found` for an unknown id or one
+owned by another user.
+
+### DELETE /api/v1/applications/{id}
+
+Removes the application from the tracker. `204` on success; `404` for an
+unknown id or one owned by another user.
+
+Application shape (all endpoints):
 
 ```json
 {
@@ -218,12 +263,26 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
   "notes": "via referral",
   "applied_at": "2026-10-05T14:00:00Z",
   "created_at": "2026-10-05T14:00:00Z",
-  "updated_at": "2026-10-05T14:00:00Z"
+  "updated_at": "2026-10-05T14:00:00Z",
+  "opportunity": {
+    "id": "1d9a…",
+    "title": "Backend Intern",
+    "organization": "Example Corp",
+    "opportunity_type": "internship",
+    "deadline": "2026-11-30T23:59:59Z"
+  }
 }
 ```
 
-`status` ∈ `saved | applied | interview | offer | rejected`. One application per
-(user, opportunity) — duplicates → 409.
+`status` ∈ `saved | applied | interview | offer | rejected`. `opportunity` is
+an embedded summary so the tracker UI renders without extra lookups.
+
+## Frozen upcoming contracts
+
+Implemented in a later phase; the shapes below are frozen so B and C can build
+against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity_api/models/`.
+
+(none — applications moved out on 2026-10-15)
 
 ## Changelog
 
@@ -244,3 +303,8 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
   `GET /api/v1/opportunities/{id}` implemented per the frozen shape; moved out
   of „Frozen upcoming contracts". Query params documented above; pending B/C
   sign-off.
+- 2026-10-15 — A8: applications endpoints implemented
+  (`GET/POST /api/v1/applications`, `PATCH/DELETE /api/v1/applications/{id}`);
+  moved out of „Frozen upcoming contracts". Responses embed an `opportunity`
+  summary; `applied_at` is auto-stamped on the transition to `applied`;
+  pending B/C sign-off.
