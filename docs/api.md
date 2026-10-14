@@ -43,6 +43,7 @@ Every non-2xx response (including framework validation failures):
 | 403 | `account_disabled` | deactivated user |
 | 404 | `not_found` | unknown route |
 | 404 | `skill_not_found` | skill not attached to profile |
+| 429 | `rate_limited` | per-IP rate limit exceeded (see `APP_RATE_LIMIT_PER_MINUTE`) |
 | 422 | `validation_error` | schema validation (details = pydantic errors) |
 
 ## Auth
@@ -189,4 +190,5 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
 - 2026-10-07 — frozen v1 contract after A4/A5 landed (auth, profile, skills).
 - 2026-10-14 — auth moved to Supabase per ADR 0003: `POST /auth/register` and
   `POST /auth/login` removed; tokens are Supabase-issued; `invalid_credentials`
-  and `email_taken` error codes retired.
+  and `email_taken` error codes retired. Per-IP rate limiting added
+  (`429 rate_limited`, `APP_RATE_LIMIT_PER_MINUTE`, default 240/min).

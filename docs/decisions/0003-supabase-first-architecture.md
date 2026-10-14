@@ -64,3 +64,8 @@ domain API on top of it.
   dependency tree and the attack surface.
 - If we ever outgrow Supabase Auth, the validation seam (`core/security.py:
 decode_supabase_token`) is the only place that knows about the token format.
+- **Revocation lag is inherent to stateless JWTs.** Banning a user in Supabase
+  stops working only after their current access token expires (Supabase default
+  ~1h); the local `is_active` flag covers users disabled in our own database.
+  If that window matters for a feature, shorten the accepted token lifetime in
+  Supabase rather than adding a revocation check to the backend.
