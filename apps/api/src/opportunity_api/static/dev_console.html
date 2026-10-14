@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Opportunity Tracker — Dev Console</title>
+<style>
+  :root { --bg: #0f172a; --card: #1e293b; --fg: #e2e8f0; --mut: #94a3b8; --acc: #38bdf8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.5 system-ui, sans-serif; }
+  header { padding: 12px 20px; border-bottom: 1px solid #334155; display: flex; gap: 12px; align-items: center; }
+  header h1 { font-size: 16px; margin: 0; }
+  #who { color: var(--mut); }
+  main { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px 20px; max-width: 1200px; }
+  section { background: var(--card); border-radius: 8px; padding: 14px 16px; }
+  section h2 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--acc); }
+  label { display: block; color: var(--mut); font-size: 12px; margin: 8px 0 2px; }
+  input, select, textarea { width: 100%; background: #0b1220; color: var(--fg); border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font: inherit; }
+  .row { display: flex; gap: 8px; align-items: end; flex-wrap: wrap; }
+  .row > * { flex: 1; min-width: 90px; }
+  button { background: #0369a1; color: #fff; border: 0; border-radius: 6px; padding: 7px 12px; cursor: pointer; font: inherit; }
+  button:hover { background: #0284c7; }
+  button.sm { padding: 3px 8px; font-size: 12px; }
+  button.danger { background: #b91c1c; } button.danger:hover { background: #dc2626; }
+  #out { grid-column: 1 / -1; background: #020617; border: 1px solid #334155; border-radius: 8px; padding: 14px 16px; min-height: 220px; max-height: 480px; overflow: auto; white-space: pre-wrap; word-break: break-all; font: 12px/1.5 ui-monospace, monospace; margin: 0; }
+  .item { border: 1px solid #334155; border-radius: 6px; padding: 8px 10px; margin-top: 8px; }
+  .item b { color: var(--acc); }
+  .item .meta { color: var(--mut); font-size: 12px; }
+  .hint { color: var(--mut); font-size: 12px; }
+  #left { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Opportunity Tracker — Dev Console</h1>
+  <span id="who">not signed in</span>
+</header>
+<main>
+  <section id="left">
+    <h2>1. Sign in (Supabase Auth)</h2>
+    <div class="row">
+      <div><label>Supabase URL</label><input id="sbUrl"></div>
+      <div><label>Publishable key</label><input id="sbKey" type="password"></div>
+    </div>
+    <div class="row">
+      <div><label>Email</label><input id="email" autocomplete="username"></div>
+      <div><label>Password</label><input id="password" type="password" autocomplete="current-password"></div>
+      <div style="flex:0"><button onclick="signIn()">Sign in</button></div>
+      <div style="flex:0"><button class="danger" onclick="signOut()">Sign out</button></div>
+    </div>
+    <label>…or paste an access token</label>
+    <div class="row">
+      <div><input id="token" placeholder="eyJhbGciOi..."></div>
+      <div style="flex:0"><button onclick="useToken()">Use token</button></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Auth</h2>
+    <button onclick="api('GET','/api/v1/auth/me')">GET /auth/me</button>
+  </section>
+
+  <section>
+    <h2>Profile</h2>
+    <button onclick="api('GET','/api/v1/profile')">GET /profile</button>
+    <div class="row">
+      <div><label>degree_level</label><select id="pDegree"><option value="">—</option><option>bachelor</option><option>master</option></select></div>
+      <div><label>field_of_study</label><input id="pField"></div>
+      <div><label>university</label><input id="pUni"></div>
+      <div><label>graduation_year</label><input id="pYear" type="number"></div>
+    </div>
+    <label>headline</label><input id="pHeadline">
+    <label>location</label><input id="pLocation">
+    <button onclick="patchProfile()">PATCH /profile (sent fields only)</button>
+  </section>
+
+  <section>
+    <h2>Opportunities</h2>
+    <div class="row">
+      <div><label>type</label><select id="oType"><option value="">—</option>
+        <option>internship</option><option>job</option><option>research</option>
+        <option>scholarship</option><option>fellowship</option><option>hackathon</option>
+        <option>competition</option><option>early_career</option><option>open_source</option>
+        <option>grant</option><option>other</option></select></div>
+      <div><label>degree_level</label><select id="oDegree"><option value="">—</option><option>bachelor</option><option>master</option></select></div>
+      <div><label>study_year</label><input id="oYear" type="number" min="1" max="6"></div>
+      <div><label>search</label><input id="oSearch"></div>
+    </div>
+    <button onclick="listOpportunities()">GET /opportunities</button>
+    <div class="row">
+      <div><label>opportunity id</label><input id="oId" placeholder="uuid"></div>
+      <div style="flex:0"><button onclick="api('GET','/api/v1/opportunities/'+document.getElementById('oId').value)">GET by id</button></div>
+    </div>
+    <div id="oppList"></div>
+  </section>
+
+  <section>
+    <h2>Applications (saved opportunities)</h2>
+    <div class="row">
+      <div><label>status filter</label><select id="aStatus"><option value="">all</option>
+        <option>saved</option><option>applied</option><option>interview</option>
+        <option>offer</option><option>rejected</option></select></div>
+      <div style="flex:0"><button onclick="listApplications()">GET /applications</button></div>
+    </div>
+    <p class="hint">Save an opportunity from the Opportunities list, then manage it here.</p>
+    <div id="appList"></div>
+  </section>
+
+  <pre id="out">Ready. Sign in, then click a button.</pre>
+</main>
+
+<script>
+let accessToken = null;
+
+function out(status, body) {
+  const el = document.getElementById('out');
+  const text = typeof body === 'string' ? body : JSON.stringify(body, null, 2);
+  el.textContent = (status ? 'HTTP ' + status + '\n' : '') + text;
+}
+
+async function api(method, path, body) {
+  const headers = { 'Content-Type': 'application/json' };
+  if (accessToken) headers['Authorization'] = 'Bearer ' + accessToken;
+  let status = '';
+  try {
+    const res = await fetch(path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+    status = res.status;
+    const text = await res.text();
+    let parsed; try { parsed = JSON.parse(text); } catch { parsed = text; }
+    out(status, parsed);
+    return { status, body: parsed };
+  } catch (err) {
+    out('', 'Fetch failed: ' + err + '\nIs the API running? (uv run uvicorn opportunity_api.main:app --reload)');
+    return { status: 0, body: null };
+  }
+}
+
+async function init() {
+  try {
+    const res = await fetch('/dev/config');
+    const cfg = await res.json();
+    document.getElementById('sbUrl').value = cfg.supabase_url || '';
+    document.getElementById('sbKey').value = cfg.publishable_key || '';
+  } catch { /* leave fields empty for manual entry */ }
+}
+
+async function signIn() {
+  const base = document.getElementById('sbUrl').value.replace(/\/$/, '');
+  const key = document.getElementById('sbKey').value;
+  const res = await fetch(base + '/auth/v1/token?grant_type=password', {
+    method: 'POST',
+    headers: { 'apikey': key, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: document.getElementById('email').value,
+      password: document.getElementById('password').value,
+    }),
+  });
+  const data = await res.json();
+  if (!res.ok) { out(res.status, data); return; }
+  accessToken = data.access_token;
+  document.getElementById('token').value = accessToken;
+  document.getElementById('who').textContent = 'signed in as ' + data.user.email;
+  out(res.status, { email: data.user.email, expires_in: data.expires_in, note: 'token stored; API calls authorized' });
+}
+
+function useToken() {
+  accessToken = document.getElementById('token').value.trim();
+  document.getElementById('who').textContent = accessToken ? 'using pasted token' : 'not signed in';
+  out('', accessToken ? 'Token set.' : 'Token cleared.');
+}
+
+function signOut() {
+  accessToken = null;
+  document.getElementById('token').value = '';
+  document.getElementById('who').textContent = 'not signed in';
+  out('', 'Signed out.');
+}
+
+function patchProfile() {
+  const body = {};
+  const deg = document.getElementById('pDegree').value;
+  if (deg) body.degree_level = deg;
+  const yr = document.getElementById('pYear').value;
+  if (yr) body.graduation_year = Number(yr);
+  for (const [id, key] of [['pField','field_of_study'],['pUni','university'],['pHeadline','headline'],['pLocation','location']]) {
+    const v = document.getElementById(id).value;
+    if (v) body[key] = v;
+  }
+  api('PATCH', '/api/v1/profile', body);
+}
+
+async function listOpportunities() {
+  const params = new URLSearchParams();
+  for (const [id, key] of [['oType','opportunity_type'],['oDegree','degree_level'],['oYear','study_year'],['oSearch','search']]) {
+    const v = document.getElementById(id).value;
+    if (v) params.set(key, v);
+  }
+  const { status, body } = await api('GET', '/api/v1/opportunities?' + params);
+  const list = document.getElementById('oppList');
+  list.innerHTML = '';
+  if (status !== 200 || !body.items) return;
+  for (const o of body.items) {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = '<b></b> <span class="meta"></span><br>' +
+      '<span class="meta"></span> ';
+    div.querySelector('b').textContent = o.title;
+    div.querySelector('.meta').textContent = `[${o.opportunity_type}] ${o.organization || ''} · deadline: ${o.deadline || '—'}`;
+    const meta2 = document.createElement('span');
+    meta2.className = 'meta';
+    meta2.textContent = o.id;
+    div.appendChild(meta2);
+    const btn = document.createElement('button');
+    btn.className = 'sm';
+    btn.textContent = 'Save';
+    btn.onclick = () => api('POST', '/api/v1/applications', { opportunity_id: o.id });
+    div.appendChild(document.createTextNode(' '));
+    div.appendChild(btn);
+    list.appendChild(div);
+  }
+}
+
+const STATUSES = ['saved', 'applied', 'interview', 'offer', 'rejected'];
+
+async function listApplications() {
+  const s = document.getElementById('aStatus').value;
+  const { status, body } = await api('GET', '/api/v1/applications' + (s ? '?status=' + s : ''));
+  const list = document.getElementById('appList');
+  list.innerHTML = '';
+  if (status !== 200 || !body.items) return;
+  for (const a of body.items) {
+    const div = document.createElement('div');
+    div.className = 'item';
+    const title = a.opportunity ? a.opportunity.title : a.opportunity_id;
+    div.innerHTML = '<b></b> <span class="meta"></span><br>';
+    div.querySelector('b').textContent = title;
+    div.querySelector('.meta').textContent = `status: ${a.status} · applied_at: ${a.applied_at || '—'} · notes: ${a.notes || '—'}`;
+    const sel = document.createElement('select');
+    for (const st of STATUSES) {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = st;
+      if (st === a.status) opt.selected = true;
+      sel.appendChild(opt);
+    }
+    const upd = document.createElement('button');
+    upd.className = 'sm';
+    upd.textContent = 'Update status';
+    upd.onclick = () => api('PATCH', '/api/v1/applications/' + a.id, { status: sel.value });
+    const del = document.createElement('button');
+    del.className = 'sm danger';
+    del.textContent = 'Delete';
+    del.onclick = async () => {
+      await api('DELETE', '/api/v1/applications/' + a.id);
+      listApplications();
+    };
+    div.appendChild(sel);
+    div.appendChild(document.createTextNode(' '));
+    div.appendChild(upd);
+    div.appendChild(document.createTextNode(' '));
+    div.appendChild(del);
+    list.appendChild(div);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
