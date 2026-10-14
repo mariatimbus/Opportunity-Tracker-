@@ -13,6 +13,7 @@ from opportunity_api.models import (
     Application,
     ApplicationStatus,
     Opportunity,
+    OpportunityDegreeLevel,
     OpportunityType,
     Profile,
     Skill,
@@ -121,6 +122,28 @@ def test_enums_round_trip(session: Session):
     fetched = session.scalar(select(Application))
     assert fetched.status == ApplicationStatus.interview
     assert fetched.opportunity.opportunity_type == OpportunityType.internship
+
+
+def test_opportunity_eligibility_fields_round_trip(session: Session):
+    opp = _make_opportunity()
+    opp.degree_level = OpportunityDegreeLevel.both
+    opp.study_year = [2, 3]
+    session.add(opp)
+    session.commit()
+
+    fetched = session.scalar(select(Opportunity))
+    assert fetched.degree_level == OpportunityDegreeLevel.both
+    assert fetched.study_year == [2, 3]
+
+
+def test_opportunity_eligibility_fields_nullable(session: Session):
+    opp = _make_opportunity(url="https://example.com/job/3", source_id="3")
+    session.add(opp)
+    session.commit()
+
+    fetched = session.scalar(select(Opportunity))
+    assert fetched.degree_level is None
+    assert fetched.study_year is None
 
 
 def test_alembic_migration_files_exist():
