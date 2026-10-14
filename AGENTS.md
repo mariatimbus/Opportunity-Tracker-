@@ -56,7 +56,7 @@ Use the correct assignee prefix and exact Notion branch. If the branch exists, c
 
 ## 3. Architecture: Supabase-first
 
-The project uses **Supabase Auth, hosted PostgreSQL, Storage, and Row Level Security (RLS)**. **FastAPI remains for privileged business logic, eligibility, matching, AI, and ingestion.** The older custom JWT auth, local Docker/PostgreSQL, and Alembic workflow are legacy; **do not extend them as the source of truth**.
+The project uses **Supabase Auth, hosted PostgreSQL, Storage, and Row Level Security (RLS)**. **FastAPI remains for privileged business logic, eligibility, matching, AI, and ingestion.** The older custom JWT auth, local PostgreSQL, and Alembic workflow are legacy; **do not extend them as the source of truth**.
 
 - Supabase Auth is the **only** user identity provider. FastAPI should verify Supabase-issued identities/tokens, not create a parallel registration/JWT stack.
 - Commit every schema/index/policy change as a reproducible SQL migration in `supabase/migrations/`. Do not rely on dashboard-only edits.
@@ -147,7 +147,7 @@ After the **28 November 2026** feature freeze, allow only approved release-block
    - no real user data (emails, CVs, personal documents) in seeds or fixtures.
 2. **History check** when commits already exist: `git log -p` over the new commits must not introduce secrets (a leaked secret is not fixed by a later delete — it needs rotation).
 3. **Dependency check** when `pyproject.toml`, `uv.lock`, `package.json`, or lockfiles changed: run `pip-audit` (backend) / `npm audit` (frontend) against the new lockfile and report the result.
-4. **Config/infra review** when CI, Docker, or deployment files changed: no hard-coded credentials, overly broad permissions, wildcard CORS with credentials, or privileged keys in client-side code.
+4. **Config/infra review** when CI, infrastructure, or deployment files changed: no hard-coded credentials, overly broad permissions, wildcard CORS with credentials, or privileged keys in client-side code.
 5. Report the check results explicitly in the completion summary: what was scanned, what ran, and the outcome. If any check cannot run, say so — never claim the check passed when it did not run.
 
 If a secret is found: stop, do not push, and report it to Maria immediately with the file and line.

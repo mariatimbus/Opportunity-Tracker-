@@ -162,11 +162,15 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
   "deadline": "2026-11-30T23:59:59Z",
   "posted_at": "2026-10-01T09:00:00Z",
   "is_active": true,
+  "degree_level": "both",
+  "study_year": [2, 3],
   "skills": [{"id": "7b2d…", "name": "python"}]
 }
 ```
 
-`opportunity_type` ∈ `internship | job | scholarship | hackathon | grant | other`.
+`opportunity_type` ∈ `internship | job | research | scholarship | fellowship | hackathon | competition | early_career | open_source | grant | other` — final vocabulary decided 2026-10-14 (Maria, option A); single source of truth shared with `supabase/migrations` and `database/seeds`.
+
+`degree_level` ∈ `bachelor | master | both`, nullable — eligibility, not the caller's own degree; `null` means not established (never "everyone"). `study_year` is a nullable array of eligible study years (e.g. `[2, 3]`); `null` means not established.
 
 ### GET /api/v1/applications · POST /api/v1/applications · PATCH /api/v1/applications/{id}
 
@@ -192,3 +196,11 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
   `POST /auth/login` removed; tokens are Supabase-issued; `invalid_credentials`
   and `email_taken` error codes retired. Per-IP rate limiting added
   (`429 rate_limited`, `APP_RATE_LIMIT_PER_MINUTE`, default 240/min).
+- 2026-10-14 — `opportunity_type` final vocabulary (11 values) — additive
+  extension plus renames: adds `research`, `competition`, `open_source`;
+  `early_program` renamed to `early_career`. Aligns contract, Supabase enum,
+  FastAPI model, and seed dataset. Pending B (frontend) and C (data) sign-off
+  per ADR 0002.
+- 2026-10-14 — opportunities gain nullable `degree_level`
+  (`bachelor|master|both`) and `study_year` (array of ints) eligibility
+  fields, backing the seed dataset. Additive; pending B/C sign-off.

@@ -1,3 +1,3 @@
-# database/migrations
+# Legacy Alembic migrations
 
-Alembic migrations live here (task A3). Managed from the `apps/api` Python environment.
+Historical reference only. The shared Supabase project uses [versioned Supabase migrations](../../supabase/README.md). Do not apply Alembic to that project. Keep these files for comparison with the original PostgreSQL schema; new schema and RLS changes belong in `supabase/migrations/`.

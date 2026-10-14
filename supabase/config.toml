@@ -1,0 +1,2 @@
+# CLI workspace for hosted Supabase. Auth configuration: supabase/hosted/supabase/config.toml.
+project_id = "Opportunity-Tracker-"
