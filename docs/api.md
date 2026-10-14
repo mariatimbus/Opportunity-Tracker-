@@ -141,12 +141,38 @@ and deduplicated; unknown names create new skill rows (get-or-create).
 
 ### GET /api/v1/skills — catalog of all skills (for pickers)
 
-## Frozen upcoming contracts
+## Opportunities
 
-Implemented in a later phase; the shapes below are frozen so B and C can build
-against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity_api/models/`.
+Implemented in A7 (read-only catalog). Ordered by `posted_at` descending,
+unposted opportunities last.
 
-### GET /api/v1/opportunities · GET /api/v1/opportunities/{id}
+### GET /api/v1/opportunities
+
+Query params (all optional, combined with AND):
+
+| Param | Type | Rule |
+| --- | --- | --- |
+| `page` | int | default `1`, ≥ 1 |
+| `page_size` | int | default `20`, 1–100 |
+| `opportunity_type` | enum | one of the 11 vocabulary values |
+| `degree_level` | enum | `bachelor`/`master` match themselves **and** `both`; `null` (unknown) never matches |
+| `study_year` | int (1–6) | containment: opportunity's `study_year` must include it; `null` (unknown) never matches |
+| `location` | string | case-insensitive substring |
+| `is_active` | bool | exact match |
+| `deadline_after` / `deadline_before` | datetime ISO 8601 | inclusive bounds on `deadline` |
+| `search` | string | case-insensitive substring of `title`, `organization`, or `description` |
+
+```json
+// 200
+{
+  "items": [{"id": "1d9a…", "title": "Backend Intern", "…": "…"}],
+  "page": 1,
+  "page_size": 20,
+  "total": 50
+}
+```
+
+Item shape (same as the detail endpoint):
 
 ```json
 {
@@ -171,6 +197,16 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
 `opportunity_type` ∈ `internship | job | research | scholarship | fellowship | hackathon | competition | early_career | open_source | grant | other` — final vocabulary decided 2026-10-14 (Maria, option A); single source of truth shared with `supabase/migrations` and `database/seeds`.
 
 `degree_level` ∈ `bachelor | master | both`, nullable — eligibility, not the caller's own degree; `null` means not established (never "everyone"). `study_year` is a nullable array of eligible study years (e.g. `[2, 3]`); `null` means not established.
+
+### GET /api/v1/opportunities/{id}
+
+`200` with the item shape above; `404 not_found` for a valid but unknown id;
+`422 validation_error` for a malformed UUID.
+
+## Frozen upcoming contracts
+
+Implemented in a later phase; the shapes below are frozen so B and C can build
+against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity_api/models/`.
 
 ### GET /api/v1/applications · POST /api/v1/applications · PATCH /api/v1/applications/{id}
 
@@ -204,3 +240,7 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
 - 2026-10-14 — opportunities gain nullable `degree_level`
   (`bachelor|master|both`) and `study_year` (array of ints) eligibility
   fields, backing the seed dataset. Additive; pending B/C sign-off.
+- 2026-10-15 — A7: `GET /api/v1/opportunities` (pagination + filters) and
+  `GET /api/v1/opportunities/{id}` implemented per the frozen shape; moved out
+  of „Frozen upcoming contracts". Query params documented above; pending B/C
+  sign-off.
