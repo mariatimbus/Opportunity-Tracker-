@@ -1,39 +1,32 @@
-"""Password hashing and JWT access tokens."""
+"""Validation of Supabase-issued JWT access tokens.
 
-from datetime import UTC, datetime, timedelta
-from typing import Any
-from uuid import UUID
+The backend never issues tokens or handles passwords — Supabase Auth (GoTrue)
+signs access tokens client-side and this module only verifies them.
+"""
 
 import jwt
-from passlib.context import CryptContext
 
 from .config import get_settings
-
-_pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 ALGORITHM = "HS256"
 
 
-def hash_password(password: str) -> str:
-    return _pwd_context.hash(password)
+def decode_supabase_token(token: str) -> dict:
+    """Verify a Supabase-issued JWT and return its claims.
 
-
-def verify_password(plain_password: str, password_hash: str) -> bool:
-    return _pwd_context.verify(plain_password, password_hash)
-
-
-def create_access_token(subject: UUID, expires_delta: timedelta | None = None) -> str:
-    settings = get_settings()
-    expire = datetime.now(UTC) + (expires_delta or timedelta(minutes=settings.jwt_expire_minutes))
-    payload: dict[str, Any] = {"sub": str(subject), "exp": expire}
-    return jwt.encode(payload, settings.jwt_secret_key, algorithm=ALGORITHM)
-
-
-def decode_access_token(token: str) -> UUID:
-    """Decode a token and return the user id it was issued for.
-
-    Raises jwt.PyJWTError on any invalid/expired token.
+    Validates the HS256 signature, `exp`, `iss` (must equal
+    `{supabase_url}/auth/v1`) and `aud`. Raises jwt.PyJWTError on any
+    invalid or expired token.
     """
     settings = get_settings()
-    payload = jwt.decode(token, settings.jwt_secret_key, algorithms=[ALGORITHM])
-    return UUID(payload["sub"])
+    if not settings.supabase_url or not settings.supabase_jwt_secret:
+        raise RuntimeError(
+            "Supabase auth is not configured: set APP_SUPABASE_URL and APP_SUPABASE_JWT_SECRET"
+        )
+    return jwt.decode(
+        token,
+        settings.supabase_jwt_secret,
+        algorithms=[ALGORITHM],
+        audience=settings.supabase_jwt_audience,
+        issuer=f"{settings.supabase_url.rstrip('/')}/auth/v1",
+    )

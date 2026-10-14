@@ -1,13 +1,15 @@
 """Profile and skills endpoint tests."""
 
 import pytest
+from sqlalchemy.orm import Session
 
+from opportunity_api.models import Skill
 from tests.conftest import auth_headers
 
 
 @pytest.fixture()
 def headers(client):
-    return auth_headers(client, "ada@example.com", "supersecret1")
+    return auth_headers(client, "ada@example.com")
 
 
 def test_get_profile_bootstraps_empty_profile(client, headers):
@@ -98,8 +100,8 @@ def test_skills_replace_get_create(client, headers):
 
 
 def test_skills_are_per_user(client):
-    headers_a = auth_headers(client, "a@example.com", "password123")
-    headers_b = auth_headers(client, "b@example.com", "password123")
+    headers_a = auth_headers(client, "a@example.com")
+    headers_b = auth_headers(client, "b@example.com")
     client.put("/api/v1/profile/skills", headers=headers_a, json={"names": ["python"]})
 
     response = client.get("/api/v1/profile/skills", headers=headers_b)
@@ -132,3 +134,24 @@ def test_skills_catalog_lists_all_skills(client, headers):
 def test_skills_endpoints_require_auth(client):
     assert client.get("/api/v1/profile/skills").status_code == 401
     assert client.put("/api/v1/profile/skills", json={"names": ["x"]}).status_code == 401
+
+
+def test_skill_creation_recovers_from_concurrent_insert(client, headers, db_factory, monkeypatch):
+    """If another request inserts the skill between the select and the flush,
+    the flush fails, the transaction rolls back, and the row is re-read."""
+    original_flush = Session.flush
+    inserted = False
+
+    def racing_flush(self, objects=None):
+        nonlocal inserted
+        if not inserted and any(isinstance(obj, Skill) for obj in self.new):
+            inserted = True
+            with db_factory() as session:
+                session.add(Skill(name="rust"))
+                session.commit()
+        return original_flush(self, objects)
+
+    monkeypatch.setattr(Session, "flush", racing_flush)
+    response = client.put("/api/v1/profile/skills", headers=headers, json={"names": ["rust"]})
+    assert response.status_code == 200
+    assert [skill["name"] for skill in response.json()] == ["rust"]
