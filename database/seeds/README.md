@@ -8,21 +8,28 @@ This directory contains `opportunities_seed.json`, the candidate opportunity dat
 - **50 records**, all in one JSON array, from the research spreadsheet prepared on **2026-10-12**.
 - **28** recommended for study-year group `1-2`; **22** for `3-4`.
 - **29 fields** on every record. Values may be `null`, `[]`, or qualified free text when the source does not establish a specific requirement.
-- Current `type` distribution:
+- Current `type` distribution (after the 2026-10-14 vocabulary decision):
 
 | Category (`type`) | Records |
 | :--- | ---: |
 | `internship` | 13 |
-| `early_career` | 10 |
+| `early_career` | 13 |
 | `hackathon` | 9 |
 | `research` | 8 |
 | `competition` | 3 |
-| `campus_ambassador` | 3 |
 | `open_source` | 2 |
 | `job` | 2 |
 | **Total** | **50** |
 
-The original C1 design also anticipated `scholarship`, `conference`, and `summer_school`, but **none of those categories occurs in this snapshot**. The current eight-category vocabulary is a **proposed extension** of the earlier six-category contract; it requires team approval and is not automatically a valid Supabase enum.
+The final `opportunity_type` vocabulary (**11 values**, decided by Maria on
+2026-10-14, option A) is: `internship`, `job`, `research`, `scholarship`,
+`fellowship`, `hackathon`, `competition`, `early_career`, `open_source`,
+`grant`, `other`. It is the single source of truth shared by the Supabase enum
+(`supabase/migrations`), the frozen API contract (`docs/api.md`), and the
+FastAPI model (`OpportunityType`). Seed-specific changes applied here:
+`campus_ambassador` → `early_career` (3 records). Categories with no current
+records (`scholarship`, `fellowship`, `grant`, `other`) remain valid enum
+values for future imports.
 
 ## JSON schema reference
 
@@ -87,7 +94,7 @@ The JSON is syntactically valid, but it is **not yet a fully enriched or fully r
 ## Validation and quality rules
 
 1. **JSON structure:** The file must parse into a top-level array of opportunity objects. Keep the keys and types consistent across records.
-2. **Categories:** Use the documented current seed values, but obtain Maria's approval before defining or changing database enums.
+2. **Categories:** `type` must be one of the 11 final vocabulary values listed above (decided 2026-10-14 by Maria). Do not introduce synonyms or new values without a contract change per ADR 0002.
 3. **Dates:** Non-null `deadline`, `released_date`, and `date_checked` values must be genuine calendar dates in `YYYY-MM-DD` format. A date's format alone does not prove accuracy.
 4. **Source integrity:** Verify that `source_url` points to a relevant official company/organizer listing, not an unrelated homepage. `format_source_url` should substantiate the claimed remote/on-site/hybrid arrangements and duration. If the page is unavailable, flag the record.
 5. **Geographic eligibility:** Check Romania-specific eligibility and any residency, nationality, visa, work authorization, age, or on-site travel conditions. Record only what the official source supports.
@@ -103,7 +110,7 @@ The JSON is syntactically valid, but it is **not yet a fully enriched or fully r
 
 - **C1 (this directory):** Research, clean, document, and review the seed JSON; preserve provenance and unresolved issues.
 - **C2 (separate task):** Map approved fields into Maria's reviewed Supabase/PostgreSQL schema, implement the import, and handle deduplication and errors.
-- **Schema coordination:** Do not create/alter tables or migrations based on this README alone. Agree on the eight category values, nullable fields, review metadata, and any field transformations with Maria first.
+- **Schema coordination:** The category enum is now decided (11 values, 2026-10-14). Field mappings to the Supabase/PostgreSQL schema (`type` → `opportunity_type`, `source_url` → `url`, review-metadata handling) happen in C2 with Maria's reviewed schema; nullable fields and transformations still need agreement before import.
 - **Security:** Keep Supabase connection secrets and service-role keys in local environment variables; do not commit `.env` files, tokens, or credentials.
 
 ## Pre-import checklist
@@ -114,32 +121,3 @@ The JSON is syntactically valid, but it is **not yet a fully enriched or fully r
 - [ ] Unknown or stale application status is handled explicitly; availability is not assumed.
 - [ ] Required/preferred skills and source-backed experience requirements are populated where published.
 - [ ] No unintended duplicate postings exist; official source identifiers are checked.
-Seed data for local development and tests. Placeholder for now.
-
-# Opportunity Seed Dataset
-
-This directory contains the initial seed dataset (`opportunities_seed.json`) used to bootstrap and populate the database (PostgreSQL / Supabase) across development and testing environments.
-
-## Schema Specification
-
-Each opportunity record adheres to the following structure:
-
-| Field | Type | Required | Description / Permitted Values |
-| :--- | :--- | :--- | :--- |
-| `title` | `string` | Yes | Full title of the opportunity |
-| `organization` | `string` | Yes | Sponsoring company, university, or institution name |
-| `type` | `string` | Yes | Canonical category: `internship`, `research`, `scholarship`, `hackathon`, `conference`, `summer_school` |
-| `location` | `string` | Yes | Location format (`City, Country`) or working model: `Remote`, `Hybrid` |
-| `degree_level` | `string` | Yes | Eligible academic degree: `bachelor`, `master`, or `both` |
-| `study_year` | `array[int]` / `null` | No | Target eligible study years (e.g., `[2, 3]`), or `null` if open to all years |
-| `deadline` | `string` (ISO date) | Yes | Strict application deadline in ISO format: `YYYY-MM-DD` |
-| `source_url` | `string` (URL) | Yes | Direct official external link to the opportunity post/application |
-| `description` | `string` | Yes | Clear summary of scope, expectations, and role responsibilities |
-| `required_skills` | `array[string]` | Yes | Normalized key technologies, tools, or domain qualifications |
-
-## Data Validation Rules
-
-1. **Date Format:** The `deadline` field must strictly follow the ISO 8601 calendar date format (`YYYY-MM-DD`).
-2. **Canonical Enums:** The `type` attribute must only contain one of the 6 standardized enum values; synonyms or free-form abbreviations are prohibited.
-3. **Normalized Skills:** All values within `required_skills` must use canonical naming conventions (e.g., `Python`, `C++`, `SQL`, `FastAPI`).
-4. **Source Integrity:** Every record must provide an accessible, valid `source_url`.
