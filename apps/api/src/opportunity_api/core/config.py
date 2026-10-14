@@ -27,14 +27,18 @@ class Settings(BaseSettings):
         default="http://localhost:3000",
         validation_alias=AliasChoices("CORS_ORIGINS", "APP_CORS_ORIGINS"),
     )
-    # Dev default only — always override in deployed environments.
-    jwt_secret_key: str = Field(
-        default="change-me-in-production",
-        validation_alias=AliasChoices("APP_JWT_SECRET_KEY"),
+    # Supabase Auth — tokens are issued by Supabase (GoTrue), the backend only
+    # validates them. Set in every environment (Supabase Project Settings → API).
+    supabase_url: str = Field(default="", validation_alias=AliasChoices("APP_SUPABASE_URL"))
+    supabase_jwt_secret: str = Field(
+        default="", validation_alias=AliasChoices("APP_SUPABASE_JWT_SECRET")
     )
-    jwt_expire_minutes: int = Field(
-        default=60 * 24,
-        validation_alias=AliasChoices("APP_JWT_EXPIRE_MINUTES"),
+    supabase_jwt_audience: str = Field(
+        default="authenticated", validation_alias=AliasChoices("APP_SUPABASE_JWT_AUDIENCE")
+    )
+    # Fixed-window per-client-IP limit (requests/minute); 0 or negative disables.
+    rate_limit_per_minute: int = Field(
+        default=240, validation_alias=AliasChoices("APP_RATE_LIMIT_PER_MINUTE")
     )
 
     @property

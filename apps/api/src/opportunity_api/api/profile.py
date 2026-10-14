@@ -4,6 +4,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, status
 from sqlalchemy import func, select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from ..core.database import get_db
@@ -29,7 +30,14 @@ def _get_or_create_skill(db: Session, name: str) -> Skill:
     if skill is None:
         skill = Skill(name=name)
         db.add(skill)
-        db.flush()
+        try:
+            db.flush()
+        except IntegrityError:
+            # Concurrent request created the skill first; re-read after rollback.
+            db.rollback()
+            skill = db.scalar(select(Skill).where(func.lower(Skill.name) == name))
+            if skill is None:
+                raise
     return skill
 
 

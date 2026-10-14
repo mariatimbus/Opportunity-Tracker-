@@ -17,8 +17,8 @@ This repository is a monorepo:
 ## Quickstart
 
 1. Clone the repo.
-2. `cp .env.example .env` and fill in values.
-3. Start the database: `docker compose up db`
-4. Backend: see `apps/api/README.md` (uses `uv` + Python 3.13).
+2. `cp .env.example .env` and fill in values (Supabase project URL + JWT secret,
+   and `DATABASE_URL` pointing at your Supabase Postgres).
+3. Backend: see `apps/api/README.md` (uses `uv` + Python 3.13).
 
 See `docs/architecture.md` for structure and `docs/contributing.md` for workflow.

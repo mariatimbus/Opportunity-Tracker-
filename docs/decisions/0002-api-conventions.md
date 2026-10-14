@@ -21,7 +21,10 @@ backend change risks silently breaking the frontend.
    - UUIDs as strings, datetimes as ISO 8601 UTC;
    - one error envelope everywhere: `{"error": {"code", "message", "details"}}`;
    - versioned prefix `/api/v1`; breaking changes get a new prefix, never in-place.
-3. **Auth**: OAuth2 password flow (form-encoded login) issuing JWT bearer tokens.
+3. **Auth**: ~~OAuth2 password flow (form-encoded login) issuing JWT bearer tokens.~~
+   **Superseded by [ADR 0003](0003-supabase-first-architecture.md)** — Supabase
+   Auth issues tokens; the backend validates them and only exposes
+   `GET /api/v1/auth/me`.
 4. **Degree vocabulary**: `degree_level` is `"bachelor"` or `"master"` only —
    enforced at the API boundary (422 on violation).
 
