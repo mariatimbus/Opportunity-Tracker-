@@ -35,8 +35,9 @@ class User(TimestampMixin, Base):
     __tablename__ = "users"
 
     id: orm.Mapped[uuid.UUID] = orm.mapped_column(sa.Uuid, primary_key=True, default=uuid.uuid4)
-    email: orm.Mapped[str] = orm.mapped_column(sa.String(255), unique=True, index=True)
-    password_hash: orm.Mapped[str] = orm.mapped_column(sa.String(255))
+    # Not unique: identity is keyed off `id` (the Supabase auth.users UUID), and
+    # tokens without an email claim fall back to "" — duplicates must not crash.
+    email: orm.Mapped[str] = orm.mapped_column(sa.String(255), index=True)
     full_name: orm.Mapped[str] = orm.mapped_column(sa.String(255))
     is_active: orm.Mapped[bool] = orm.mapped_column(sa.Boolean, default=True)
 

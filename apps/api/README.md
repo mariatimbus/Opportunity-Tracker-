@@ -20,8 +20,20 @@ Environment variables (see `.env.example` at the repo root):
 - `APP_NAME` — application name (default `opportunity-api`)
 - `DEBUG` — debug mode (default `false`)
 - `DATABASE_URL` — SQLAlchemy URL; defaults to a local sqlite file so the app boots
-  without Postgres. Use `postgresql+psycopg://...` for the docker-compose db.
+  without Postgres. Point it at your Supabase Postgres for real data.
 - `CORS_ORIGINS` — comma-separated allowed origins
+- `APP_SUPABASE_URL` — your Supabase project URL
+- `APP_SUPABASE_JWT_SECRET` — JWT secret from Supabase Dashboard → Project Settings → API
+- `APP_SUPABASE_JWT_AUDIENCE` — JWT audience to validate (default `authenticated`)
+- `APP_RATE_LIMIT_PER_MINUTE` — per-client-IP request limit per minute (default
+  `240`); `0` or negative disables rate limiting
+
+## Auth
+
+Sign-up and sign-in happen client-side against Supabase Auth. The backend only
+validates Supabase-issued JWT access tokens (sent as `Authorization: Bearer ...`)
+and mirrors users into the local `users` table on first authenticated request.
+Use a Supabase access token in the `/docs` Authorize dialog.
 
 ## Endpoints
 

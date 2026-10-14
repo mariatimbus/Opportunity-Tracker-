@@ -35,7 +35,7 @@ def session():
 
 
 def _make_user(email: str = "ada@example.com") -> User:
-    return User(email=email, password_hash="x", full_name="Ada Lovelace")
+    return User(email=email, full_name="Ada Lovelace")
 
 
 def _make_opportunity(url: str = "https://example.com/job/1", source_id: str = "1") -> Opportunity:
