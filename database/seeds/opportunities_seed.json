@@ -1,6 +1,8 @@
 [
   {
     "title": "Software Engineering Internship 2027",
+    "source": "seed_dataset_v1",
+    "source_id": "software-engineering-internship-2027",
     "organization": "Google",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -13,6 +15,8 @@
   },
   {
     "title": "Backend Engineering Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "backend-engineering-intern",
     "organization": "Bitdefender",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -25,6 +29,8 @@
   },
   {
     "title": "Cloud Infrastructure Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "cloud-infrastructure-intern",
     "organization": "Amazon Web Services",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -37,6 +43,8 @@
   },
   {
     "title": "Undergraduate Research Fellowship in Machine Learning",
+    "source": "seed_dataset_v1",
+    "source_id": "undergraduate-research-fellowship-in-machine-learning",
     "organization": "Faculty of Mathematics and Computer Science, University of Bucharest",
     "type": "research",
     "location": "Bucharest, Romania",
@@ -49,6 +57,8 @@
   },
   {
     "title": "AI Innovation Hackathon 2026",
+    "source": "seed_dataset_v1",
+    "source_id": "ai-innovation-hackathon-2026",
     "organization": "Innovation Labs Romania",
     "type": "hackathon",
     "location": "Bucharest, Romania",
@@ -61,6 +71,8 @@
   },
   {
     "title": "STEM Excellence Scholarship",
+    "source": "seed_dataset_v1",
+    "source_id": "stem-excellence-scholarship",
     "organization": "Romanian Academy",
     "type": "scholarship",
     "location": "Bucharest, Romania",
@@ -73,6 +85,8 @@
   },
   {
     "title": "CERN Openlab Summer Student Programme",
+    "source": "seed_dataset_v1",
+    "source_id": "cern-openlab-summer-student-programme",
     "organization": "CERN",
     "type": "summer_school",
     "location": "Geneva, Switzerland",
@@ -85,6 +99,8 @@
   },
   {
     "title": "European Conference on Machine Learning (ECML-PKDD) Student Volunteer",
+    "source": "seed_dataset_v1",
+    "source_id": "european-conference-on-machine-learning-ecml-pkdd-student-volunteer",
     "organization": "ECML PKDD",
     "type": "conference",
     "location": "Prague, Czechia",
@@ -97,6 +113,8 @@
   },
   {
     "title": "Cybersecurity Operations Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "cybersecurity-operations-intern",
     "organization": "CrowdStrike",
     "type": "internship",
     "location": "Remote",
@@ -109,6 +127,8 @@
   },
   {
     "title": "Frontend Engineering Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "frontend-engineering-intern",
     "organization": "UiPath",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -121,6 +141,8 @@
   },
   {
     "title": "Data Engineering Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "data-engineering-intern",
     "organization": "Adobe",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -133,6 +155,8 @@
   },
   {
     "title": "Computer Vision Research Internship",
+    "source": "seed_dataset_v1",
+    "source_id": "computer-vision-research-internship",
     "organization": "Max Planck Institute for Informatics",
     "type": "research",
     "location": "Saarbrucken, Germany",
@@ -145,6 +169,8 @@
   },
   {
     "title": "Best Student Hackathon 2026",
+    "source": "seed_dataset_v1",
+    "source_id": "best-student-hackathon-2026",
     "organization": "BEST Bucharest",
     "type": "hackathon",
     "location": "Bucharest, Romania",
@@ -157,6 +183,8 @@
   },
   {
     "title": "Google Europe Students with Disabilities Scholarship",
+    "source": "seed_dataset_v1",
+    "source_id": "google-europe-students-with-disabilities-scholarship",
     "organization": "Google",
     "type": "scholarship",
     "location": "Remote",
@@ -169,6 +197,8 @@
   },
   {
     "title": "Distributed Systems Summer School 2027",
+    "source": "seed_dataset_v1",
+    "source_id": "distributed-systems-summer-school-2027",
     "organization": "EPFL",
     "type": "summer_school",
     "location": "Lausanne, Switzerland",
@@ -181,6 +211,8 @@
   },
   {
     "title": "DevFest Student Attendance Grant",
+    "source": "seed_dataset_v1",
+    "source_id": "devfest-student-attendance-grant",
     "organization": "Google Developer Group Bucharest",
     "type": "conference",
     "location": "Bucharest, Romania",
@@ -193,6 +225,8 @@
   },
   {
     "title": "Embedded Systems Firmware Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "embedded-systems-firmware-intern",
     "organization": "NXP Semiconductors",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -205,6 +239,8 @@
   },
   {
     "title": "Natural Language Processing Fellowship",
+    "source": "seed_dataset_v1",
+    "source_id": "natural-language-processing-fellowship",
     "organization": "Politehnica University of Bucharest",
     "type": "research",
     "location": "Bucharest, Romania",
@@ -217,6 +253,8 @@
   },
   {
     "title": "FinTech Solution Hackathon",
+    "source": "seed_dataset_v1",
+    "source_id": "fintech-solution-hackathon",
     "organization": "FinTech Club Romania",
     "type": "hackathon",
     "location": "Cluj-Napoca, Romania",
@@ -229,6 +267,8 @@
   },
   {
     "title": "Women in Tech Scholarship",
+    "source": "seed_dataset_v1",
+    "source_id": "women-in-tech-scholarship",
     "organization": "Palantir Technologies",
     "type": "scholarship",
     "location": "Remote",
@@ -241,6 +281,8 @@
   },
   {
     "title": "Summer School on Formal Methods and Verification",
+    "source": "seed_dataset_v1",
+    "source_id": "summer-school-on-formal-methods-and-verification",
     "organization": "Oxford University",
     "type": "summer_school",
     "location": "Oxford, United Kingdom",
@@ -253,6 +295,8 @@
   },
   {
     "title": "PyCon Balkan Student Grant",
+    "source": "seed_dataset_v1",
+    "source_id": "pycon-balkan-student-grant",
     "organization": "Python Software Foundation",
     "type": "conference",
     "location": "Belgrade, Serbia",
@@ -265,6 +309,8 @@
   },
   {
     "title": "DevOps & SRE Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "devops-sre-intern",
     "organization": "ING Hubs Romania",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -277,6 +323,8 @@
   },
   {
     "title": "Postgraduate Research Assistant in Quantum Computing",
+    "source": "seed_dataset_v1",
+    "source_id": "postgraduate-research-assistant-in-quantum-computing",
     "organization": "Simion Stoilow Institute of Mathematics",
     "type": "research",
     "location": "Bucharest, Romania",
@@ -289,6 +337,8 @@
   },
   {
     "title": "HealthTech Hackathon 2026",
+    "source": "seed_dataset_v1",
+    "source_id": "healthtech-hackathon-2026",
     "organization": "Bucharest Medical University & Tech Hub",
     "type": "hackathon",
     "location": "Bucharest, Romania",
@@ -301,6 +351,8 @@
   },
   {
     "title": "Young Researchers Travel Scholarship",
+    "source": "seed_dataset_v1",
+    "source_id": "young-researchers-travel-scholarship",
     "organization": "IEEE Computer Society",
     "type": "scholarship",
     "location": "Remote",
@@ -313,6 +365,8 @@
   },
   {
     "title": "High Performance Computing Summer School",
+    "source": "seed_dataset_v1",
+    "source_id": "high-performance-computing-summer-school",
     "organization": "PRACE",
     "type": "summer_school",
     "location": "Barcelona, Spain",
@@ -325,6 +379,8 @@
   },
   {
     "title": "EuroCrypt Conference Student Stipend",
+    "source": "seed_dataset_v1",
+    "source_id": "eurocrypt-conference-student-stipend",
     "organization": "IACR",
     "type": "conference",
     "location": "Rome, Italy",
@@ -337,6 +393,8 @@
   },
   {
     "title": "QA Automation & Testing Intern",
+    "source": "seed_dataset_v1",
+    "source_id": "qa-automation-testing-intern",
     "organization": "Playtika",
     "type": "internship",
     "location": "Bucharest, Romania",
@@ -349,6 +407,8 @@
   },
   {
     "title": "Robotics & Autonomous Systems Summer School",
+    "source": "seed_dataset_v1",
+    "source_id": "robotics-autonomous-systems-summer-school",
     "organization": "ETH Zurich",
     "type": "summer_school",
     "location": "Zurich, Switzerland",

@@ -22,6 +22,9 @@ class OpportunityType(enum.StrEnum):
     scholarship = "scholarship"
     hackathon = "hackathon"
     grant = "grant"
+    research = "research"
+    conference = "conference"
+    summer_school = "summer_school"
     other = "other"
 
 
@@ -38,6 +41,8 @@ class Opportunity(TimestampMixin, Base):
     opportunity_type: orm.Mapped[OpportunityType] = orm.mapped_column(
         sa.Enum(OpportunityType, native_enum=True, name="opportunity_type")
     )
+    degree_level: orm.Mapped[str | None] = orm.mapped_column(sa.String(20), nullable=True)
+    study_year: orm.Mapped[list[int] | None] = orm.mapped_column(sa.JSON, nullable=True)
     location: orm.Mapped[str | None] = orm.mapped_column(sa.String(255), nullable=True)
     url: orm.Mapped[str] = orm.mapped_column(sa.String(512), unique=True)
     source: orm.Mapped[str] = orm.mapped_column(sa.String(100))

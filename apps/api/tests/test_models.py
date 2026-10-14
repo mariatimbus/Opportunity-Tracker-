@@ -127,3 +127,38 @@ def test_alembic_migration_files_exist():
     versions = Path(__file__).resolve().parents[3] / "database" / "migrations" / "versions"
     migrations = [p for p in versions.glob("*.py") if p.name != ".gitkeep"]
     assert len(migrations) >= 1, "expected at least one alembic migration file"
+
+
+@pytest.mark.parametrize(
+    "opportunity_type",
+    [OpportunityType.research, OpportunityType.conference, OpportunityType.summer_school],
+)
+def test_new_opportunity_type_enum_members(session: Session, opportunity_type: OpportunityType):
+    opp = _make_opportunity(url=f"https://example.com/opp/{opportunity_type.value}")
+    opp.opportunity_type = opportunity_type
+    session.add(opp)
+    session.commit()
+
+    fetched = session.scalar(select(Opportunity).where(Opportunity.url == opp.url))
+    assert fetched.opportunity_type == opportunity_type
+
+
+def test_opportunity_degree_fields_round_trip(session: Session):
+    opp = _make_opportunity()
+    opp.degree_level = "both"
+    opp.study_year = [2, 3, 4]
+    session.add(opp)
+    session.commit()
+
+    fetched = session.scalar(select(Opportunity))
+    assert fetched.degree_level == "both"
+    assert fetched.study_year == [2, 3, 4]
+
+
+def test_opportunity_degree_fields_nullable(session: Session):
+    session.add(_make_opportunity())
+    session.commit()
+
+    fetched = session.scalar(select(Opportunity))
+    assert fetched.degree_level is None
+    assert fetched.study_year is None

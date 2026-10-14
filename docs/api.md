@@ -155,6 +155,8 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
   "description": "…",
   "organization": "Example Corp",
   "opportunity_type": "internship",
+  "degree_level": "bachelor",
+  "study_year": [2, 3],
   "location": "Berlin",
   "url": "https://example.com/job/1",
   "source": "example",
@@ -166,7 +168,9 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
 }
 ```
 
-`opportunity_type` ∈ `internship | job | scholarship | hackathon | grant | other`.
+`opportunity_type` ∈ `internship | job | scholarship | hackathon | grant | research | conference | summer_school | other`.
+`degree_level` ∈ `bachelor | master | both` or `null`; `study_year` is an array
+of ints or `null` (open to all years).
 
 ### GET /api/v1/applications · POST /api/v1/applications · PATCH /api/v1/applications/{id}
 
@@ -192,3 +196,8 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
   `POST /auth/login` removed; tokens are Supabase-issued; `invalid_credentials`
   and `email_taken` error codes retired. Per-IP rate limiting added
   (`429 rate_limited`, `APP_RATE_LIMIT_PER_MINUTE`, default 240/min).
+- 2026-10-14 — frozen opportunities contract extended (additive, non-breaking):
+  `opportunity_type` now allows all 9 values (`research`, `conference`,
+  `summer_school` added); new nullable `degree_level` (`bachelor | master |
+  both`) and `study_year` (array of ints) fields. Pending B (frontend) and C
+  (data) sign-off per ADR 0002.
