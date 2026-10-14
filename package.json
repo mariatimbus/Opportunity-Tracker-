@@ -1,0 +1,15 @@
+{
+  "name": "opportunity-tracker-workspace",
+  "private": true,
+  "scripts": {
+    "supabase": "supabase",
+    "db:push:preview": "supabase db push --dry-run",
+    "db:push": "supabase db push",
+    "db:test": "supabase db query --linked --file supabase/tests/rls.sql",
+    "db:test:fresh": "node supabase/test-fresh.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.10",
+    "supabase": "2.121.0"
+  }
+}

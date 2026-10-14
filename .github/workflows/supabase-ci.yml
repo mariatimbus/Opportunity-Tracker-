@@ -1,0 +1,14 @@
+name: Supabase schema CI
+on:
+  pull_request:
+    branches: [develop, main]
+permissions:
+  contents: read
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      # GitHub's ubuntu-latest image includes Node.js 20+; no hosted credentials needed.
+      - run: npm ci
+      - run: npm run db:test:fresh
