@@ -17,10 +17,21 @@ if TYPE_CHECKING:
 
 
 class OpportunityType(enum.StrEnum):
+    """Final vocabulary (2026-10-14, Maria, option A) — single source of truth.
+
+    Must stay in sync with supabase/migrations (opportunity_type enum),
+    docs/api.md, and database/seeds. Do not add synonyms.
+    """
+
     internship = "internship"
     job = "job"
+    research = "research"
     scholarship = "scholarship"
+    fellowship = "fellowship"
     hackathon = "hackathon"
+    competition = "competition"
+    early_career = "early_career"
+    open_source = "open_source"
     grant = "grant"
     other = "other"
 
