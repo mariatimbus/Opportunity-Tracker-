@@ -53,6 +53,18 @@ def _error_payload(code: str, message: str, details: Any = None) -> dict[str, An
     return {"error": {"code": code, "message": message, "details": details}}
 
 
+def _serialize_validation_errors(errors: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Make pydantic error dicts JSON-safe (ctx may hold live exception objects)."""
+    serialized = []
+    for error in errors:
+        error = dict(error)
+        ctx = error.get("ctx")
+        if ctx and "error" in ctx:
+            error["ctx"] = {**ctx, "error": str(ctx["error"])}
+        serialized.append(error)
+    return serialized
+
+
 def install_exception_handlers(app: FastAPI) -> None:
     @app.exception_handler(APIError)
     async def api_error_handler(request: Request, exc: APIError) -> JSONResponse:
@@ -67,7 +79,11 @@ def install_exception_handlers(app: FastAPI) -> None:
     ) -> JSONResponse:
         return JSONResponse(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            content=_error_payload("validation_error", "Request validation failed", exc.errors()),
+            content=_error_payload(
+                "validation_error",
+                "Request validation failed",
+                _serialize_validation_errors(exc.errors()),
+            ),
         )
 
     @app.exception_handler(Exception)
