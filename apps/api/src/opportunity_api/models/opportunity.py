@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 
 import sqlalchemy as sa
 from sqlalchemy import orm
+from sqlalchemy.dialects import postgresql
 
 from ..core.database import Base
 from .user import TimestampMixin
@@ -36,6 +37,18 @@ class OpportunityType(enum.StrEnum):
     other = "other"
 
 
+class OpportunityDegreeLevel(enum.StrEnum):
+    """Eligible degree for an opportunity (seed `degree_level`).
+
+    Separate from the profiles `degree_level` enum, which describes the
+    student's own degree and has no `both` value.
+    """
+
+    bachelor = "bachelor"
+    master = "master"
+    both = "both"
+
+
 class Opportunity(TimestampMixin, Base):
     __tablename__ = "opportunities"
     __table_args__ = (
@@ -60,6 +73,13 @@ class Opportunity(TimestampMixin, Base):
         sa.DateTime(timezone=True), nullable=True
     )
     is_active: orm.Mapped[bool] = orm.mapped_column(sa.Boolean, default=True)
+    degree_level: orm.Mapped[OpportunityDegreeLevel | None] = orm.mapped_column(
+        sa.Enum(OpportunityDegreeLevel, native_enum=True, name="opportunity_degree_level"),
+        nullable=True,
+    )
+    study_year: orm.Mapped[list[int] | None] = orm.mapped_column(
+        sa.JSON().with_variant(postgresql.JSONB, "postgresql"), nullable=True
+    )
 
     skills: orm.Mapped[list["Skill"]] = orm.relationship(
         secondary="opportunity_skills", back_populates="opportunities"
