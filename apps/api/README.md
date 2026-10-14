@@ -20,7 +20,7 @@ Environment variables (see `.env.example` at the repo root):
 - `APP_NAME` — application name (default `opportunity-api`)
 - `DEBUG` — debug mode (default `false`)
 - `DATABASE_URL` — SQLAlchemy URL; defaults to a local sqlite file so the app boots
-  without Postgres. Use `postgresql+psycopg://...` for the docker-compose db.
+  without Postgres. Point it at your Supabase Postgres for real data.
 - `CORS_ORIGINS` — comma-separated allowed origins
 - `APP_SUPABASE_URL` — your Supabase project URL
 - `APP_SUPABASE_JWT_SECRET` — JWT secret from Supabase Dashboard → Project Settings → API
