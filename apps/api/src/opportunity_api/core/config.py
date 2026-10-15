@@ -36,6 +36,14 @@ class Settings(BaseSettings):
     supabase_jwt_audience: str = Field(
         default="authenticated", validation_alias=AliasChoices("APP_SUPABASE_JWT_AUDIENCE")
     )
+    # Browser-safe publishable (anon) key — designed to be public; the dev
+    # console uses it to sign in against Supabase Auth from the browser.
+    supabase_publishable_key: str = Field(
+        default="",
+        validation_alias=AliasChoices(
+            "APP_SUPABASE_PUBLISHABLE_KEY", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"
+        ),
+    )
     # Fixed-window per-client-IP limit (requests/minute); 0 or negative disables.
     rate_limit_per_minute: int = Field(
         default=240, validation_alias=AliasChoices("APP_RATE_LIMIT_PER_MINUTE")
