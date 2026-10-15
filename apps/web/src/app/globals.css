@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Brand primitives: keep these values aligned with AGENTS.md. */
+@theme {
+  --color-pale-blue: #c0c9e5;
+  --color-lavender-blue: #b2bcdc;
+  --color-electric-blue: #2862cf;
+  --color-cobalt-blue: #2e46aa;
+  --color-royal-blue: #1f3ca3;
+  --color-indigo: #142a7b;
+  --color-violet: #4a3f74;
+  --color-navy: #29263b;
+  --color-warm-white: #fffbf0;
+
+  --font-sans: Arial, Helvetica, sans-serif;
+  --radius-card: 1rem;
+  --radius-control: 0.5rem;
+}
+
+/* Semantic roles: use these tokens for application UI. */
+@theme inline {
+  --color-background: var(--color-warm-white);
+  --color-surface: var(--color-warm-white);
+  --color-foreground: var(--color-navy);
+  --color-muted: var(--color-violet);
+  --color-primary: var(--color-electric-blue);
+  --color-primary-hover: var(--color-royal-blue);
+  --color-on-primary: var(--color-warm-white);
+  --color-border: var(--color-lavender-blue);
+  --color-focus: var(--color-cobalt-blue);
+}
+
+@layer base {
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--color-pale-blue);
+    color: var(--color-indigo);
+  }
+}
