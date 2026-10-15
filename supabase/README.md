@@ -73,3 +73,7 @@ All seven tables enable RLS. Ownership uses `auth.uid()`, not editable metadata.
 - Hosted Auth config preview has no remaining declared changes; security advisors reported no issues.
 - PGlite validates application SQL with stubbed Auth interfaces; hosted tests exercise real Supabase Auth tables and roles.
 - Maria review, invitations and Bianca's browser signup/login verification remain human integration steps.
+
+## Current C2 workflow
+
+See [the C2 runbook](../database/seeds/README.md) for the current-source audit, approved seed command and frontend query. Current evidence supports 25 of 50 source records; 25 are flagged and 0 are publication-approved. The minimum-40 acceptance check fails. Earlier academic/workbook counts must not be treated as current verified listings. No shared C2 import has been executed.
