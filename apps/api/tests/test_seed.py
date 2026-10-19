@@ -30,11 +30,11 @@ def reviewed():
     return rows, evidence
 
 
-def test_all_50_audited_and_preserved(reviewed):
+def test_original_50_preserved_and_all_records_audited(reviewed):
     rows, evidence = reviewed
-    assert len(rows) == len(evidence) == 50
+    assert len(rows) == len(evidence) == 52
     assert sum(r["previous_group"] == "3-4" for r in evidence) == 22
-    assert sum(r["type"] in {"internship", "job"} for r in rows) == 15
+    assert sum(r["type"] in {"internship", "job"} for r in rows[:50]) == 15
     assert {r["status"] for r in evidence} == {"confirmed", "unknown"}
     assert sum(r["study_year"] is not None for r in rows) == 3
     for row, audit in zip(rows, evidence, strict=True):
@@ -63,7 +63,7 @@ def test_dry_run_offline_without_database(monkeypatch, tmp_path):
     output = tmp_path / "seed.sql"
     assert main(["--sql-output", str(output)]) == 0
     payloads, rejected = prepare()
-    assert rejected == [] and len(payloads) == 50
+    assert rejected == [] and len(payloads) == len(json.loads(SEED.read_text(encoding="utf-8")))
     assert all(not row["is_active"] for row in payloads)
     assert output.read_text(encoding="utf-8") == render_sql(payloads)
     assert render_sql(list(reversed(payloads))) == render_sql(payloads)
@@ -74,7 +74,7 @@ def test_dry_run_offline_without_database(monkeypatch, tmp_path):
 
 def test_identifiers_stable_and_posting_specific(reviewed):
     rows, _ = reviewed
-    assert len({identifiers(row["source_url"]) for row in rows}) == 50
+    assert len({identifiers(row["source_url"]) for row in rows}) == len(rows)
     url = rows[39]["source_url"]
     assert identifiers(url) == identifiers(url + "?utm_source=mail#anchor")
     assert identifiers(url) == identifiers(url.replace("/en/", "/en-gb/"))
@@ -156,8 +156,9 @@ def local_db(tmp_path):
 def test_upsert_rerun_updates_and_preserves_applications(local_db):
     url, engine = local_db
     payloads, _ = prepare()
-    assert apply_seed(payloads, url) == {"inserted": 50, "updated": 0, "unchanged": 0}
-    assert apply_seed(payloads, url) == {"inserted": 0, "updated": 0, "unchanged": 50}
+    count = len(payloads)
+    assert apply_seed(payloads, url) == {"inserted": count, "updated": 0, "unchanged": 0}
+    assert apply_seed(payloads, url) == {"inserted": 0, "updated": 0, "unchanged": count}
     with Session(engine) as session:
         opportunity = session.scalar(
             select(Opportunity).where(Opportunity.source == payloads[0]["source"])
@@ -172,13 +173,13 @@ def test_upsert_rerun_updates_and_preserves_applications(local_db):
     target = next(p for p in changed if p["id"] == str(stored_id))
     target["title"] = "Updated title"
     target["skills"] = ["Python", "SQL"]
-    assert apply_seed(changed, url) == {"inserted": 0, "updated": 1, "unchanged": 49}
+    assert apply_seed(changed, url) == {"inserted": 0, "updated": 1, "unchanged": count - 1}
     with Session(engine) as session:
         assert session.get(Application, application_id).opportunity_id == stored_id
         assert {s.name for s in session.get(Opportunity, stored_id).skills} == {"Python", "SQL"}
-        assert len(session.scalars(select(Opportunity)).all()) == 50
+        assert len(session.scalars(select(Opportunity)).all()) == count
         assert len(session.scalars(select(Skill)).all()) == 2
-    assert apply_seed(changed, url)["unchanged"] == 50
+    assert apply_seed(changed, url)["unchanged"] == count
 
 
 def test_conflicting_external_url_rolls_back_every_row(local_db):
@@ -267,14 +268,20 @@ def test_review_ids_and_provenance(reviewed):
     assert Counter(r["source"] for r in rows) == {
         "maria_europe_master_2026_10_12": 42,
         "seed_supplemental_2026_10_12": 8,
+        "official_review_2026_10_19": 2,
     }
-    assert sum(r["eligibility_review_status"] == "conditional_composite" for r in rows) == 10
+    assert sum(r["eligibility_review_status"] == "conditional_composite" for r in rows[:50]) == 10
     assert rows[48]["degree_level"] is None
     for row in rows:
         assert row["source_id"] == review_identifiers(row["url"], row["source"])[0]
         assert row["ready_for_public_seed"] is False
-        assert row["current_source_review"] == "pending_2026_10_15_recheck"
-        assert row["research_provenance"]["as_of"] == "2026-10-12"
+        assert row["current_source_review"] in {
+            "verified", "flagged", "pending_2026_10_15_recheck"
+        }
+        expected_date = (
+            "2026-10-19" if row["source"] == "official_review_2026_10_19" else "2026-10-12"
+        )
+        assert row["research_provenance"]["as_of"] == expected_date
         assert "NOT" in row["curation_context"]
 
 
@@ -292,7 +299,7 @@ def test_forged_identity_and_readiness_rejected(reviewed):
         {"source_id": "bad"},
         {"url": "https://example.org/different"},
         {"source": "external"},
-        {"ready_for_public_seed": True},
+        {"ready_for_public_seed": True, "current_source_review": "pending"},
         {"study_year_group": "3-4"},
     ):
         row, audit = copy.deepcopy(rows[0]), copy.deepcopy(audits[0])
@@ -331,9 +338,13 @@ def test_old_manual_identity_adoption_preserves_graph(local_db):
 
 
 def test_minimum_40_gate_reports_real_shortfall(tmp_path):
-    from opportunity_api.ingestion.seed import load_verification
+    from opportunity_api.ingestion.seed import is_current_candidate, load_verification
 
-    verified = sum(row["eligible_for_import"] for row in load_verification().values())
+    live = load_verification()
+    verified = sum(
+        is_current_candidate(row, live[row["source_url"]])
+        for row in json.loads(SEED.read_text(encoding="utf-8"))
+    )
     report = tmp_path / "acceptance.json"
     assert main(["--require-minimum", "40", "--report", str(report)]) == (
         0 if verified >= 40 else 1
@@ -351,10 +362,11 @@ def test_approved_only_generation_uses_two_distinct_gates(reviewed, tmp_path):
     rows, academic = copy.deepcopy(reviewed)
     live = load_verification()
     # Explicit synthetic publication approval for an already verified record; local fixture only.
-    target = rows[1]
+    target = rows[3]
+    target["deadline"] = "2099-12-31"  # Synthetic future window, never production approval.
     target["ready_for_public_seed"] = True
     target["current_source_review"] = "verified"
-    academic[1]["record_sha256"] = fingerprint(target)
+    academic[3]["record_sha256"] = fingerprint(target)
     live[target["source_url"]]["record_sha256"] = fingerprint(target)
     seed, audit, verification = (tmp_path / n for n in ["seed.json", "academic.json", "live.json"])
     seed.write_text(json.dumps(rows))
@@ -379,6 +391,11 @@ def test_approved_only_generation_uses_two_distinct_gates(reviewed, tmp_path):
     assert main(args) == 0
     assert output.read_text().count("INSERT INTO public.opportunities") == 1
     assert "TRUE" in output.read_text()
+    # The separate candidate workflow must stay inactive even after publication approval.
+    assert main([arg for arg in args if arg != "--approved-only"]) == 0
+    candidates, rejected = prepare(seed, audit, verification)
+    assert rejected == []
+    assert output.read_text(encoding="utf-8") == render_sql(candidates)
 
 
 def test_native_id_adopts_prior_review_hash_without_losing_fk(local_db):
@@ -413,3 +430,83 @@ def test_public_selection_must_also_meet_minimum(tmp_path):
     result = json.loads(report.read_text())
     assert result["publication_approved"] == 0
     assert "approved selection below minimum" in result["error"]
+
+
+def test_review_corrections_preserve_conditional_eligibility(reviewed):
+    rows, audits = reviewed
+    assert rows[12]["deadline"] == "2026-10-17"  # Registration, not competition day.
+    assert rows[29]["deadline"] == "2027-01-11"  # Official 15:00 CET cutoff.
+    assert rows[15]["deadline"] is None  # UK/Ireland and EU deadlines differ.
+    assert "6 December 2026" in rows[15]["description"]
+    assert "1 February 2027" in rows[15]["description"]
+    assert rows[41]["location"] == "Lisbon, Portugal"
+    assert rows[8]["work_mode"] is None  # Remote header versus campus-based body.
+    assert rows[23]["study_year"] is None  # Year depends on degree duration.
+    assert rows[32]["study_year"] is None and rows[32]["degree_level"] == "both"
+    assert "BY START" in rows[32]["eligibility_notes"]
+    assert audits[32]["checked_on"] == "2026-10-19"
+    assert rows[43]["eligible_countries"] is None  # Citizenship != country of study.
+
+
+@pytest.mark.parametrize(
+    ("outcome", "availability", "deadline", "expected"),
+    [
+        ("verified", "open", "2026-10-18", False),
+        ("verified", "open", "2026-10-19", True),
+        ("verified", "closed", None, False),
+        ("verified", "unverified", None, False),
+        ("flagged", "open", None, False),
+        ("verified", "announced", "2027-01-11", True),
+    ],
+)
+def test_current_count_excludes_closed_flagged_and_expired(
+    outcome, availability, deadline, expected
+):
+    from datetime import date
+
+    from opportunity_api.ingestion.seed import is_current_candidate
+
+    # Even a stale/incorrect eligible_for_import=True cannot bypass the other checks.
+    review = dict(outcome=outcome, availability=availability, eligible_for_import=True)
+    assert is_current_candidate(
+        dict(deadline=deadline), review, on_date=date(2026, 10, 19)
+    ) is expected
+
+
+def test_later_review_flag_preserves_corroborated_native_identity(tmp_path):
+    from opportunity_api.ingestion.seed import VERIFICATION
+
+    before, _ = prepare()
+    ledger = json.loads(VERIFICATION.read_text(encoding="utf-8"))
+    ledger["rows"][0].update(outcome="flagged", eligible_for_import=False)
+    path = tmp_path / "flagged.json"
+    path.write_text(json.dumps(ledger))
+    after, rejected = prepare(verification_path=path)
+    assert rejected == []
+    assert after[0]["source_id"] == before[0]["source_id"] == "blackstone:45529"
+    assert after[0]["id"] == before[0]["id"]
+    assert after[0]["is_active"] is False
+
+
+def test_direct_official_additions_are_not_workbook_eligibility(reviewed):
+    rows, audits = reviewed
+    optiver, cpu = rows[50:]
+    assert optiver["organization"] == "Optiver" and cpu["organization"] == "Qualcomm"
+    for row, audit in zip(rows[50:], audits[50:], strict=True):
+        assert row["source"] == "official_review_2026_10_19"
+        assert row["source_excel_row"] is row["source_excel_sheet"] is None
+        assert row["maria_audit_verdict"] is None
+        assert row["study_year"] is None
+        assert audit["previous_group"] is None
+        assert audit["record_sha256"] == fingerprint(row)
+    assert optiver["degree_level"] is None
+    assert "Penultimate-year" in optiver["eligibility_notes"]
+    assert "2028" in optiver["eligibility_notes"]
+    assert "COMPLETED" in cpu["eligibility_notes"]
+    assert "IDEAL" in cpu["eligibility_notes"]
+    assert cpu["eligible_countries"] is None  # Citizenship is not country-of-study eligibility.
+    payloads, rejected = prepare()
+    assert rejected == []
+    assert payloads[51]["source_id"] == "qualcomm:3093026"
+    assert payloads[43]["source_id"] == "qualcomm:3091774"
+    assert payloads[51]["id"] != payloads[43]["id"]

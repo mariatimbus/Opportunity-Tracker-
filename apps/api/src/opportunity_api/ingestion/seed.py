@@ -20,7 +20,11 @@ SEED = ROOT / "database/seeds/opportunities_seed.json"
 AUDIT = ROOT / "database/seeds/eligibility_audit.json"
 VERIFICATION = ROOT / "database/seeds/source_verification.json"
 SOURCE = "manual_seed_v1"
-SOURCES = {"maria_europe_master_2026_10_12", "seed_supplemental_2026_10_12"}
+SOURCES = {
+    "maria_europe_master_2026_10_12",
+    "seed_supplemental_2026_10_12",
+    "official_review_2026_10_19",
+}
 NAMESPACE = UUID("59a510a0-66f9-5a6a-bfcf-34d9ef2668d8")
 
 
@@ -218,6 +222,17 @@ def normalize(row: dict, evidence: dict) -> dict:
     )
 
 
+def is_current_candidate(row: dict, review: dict, *, on_date: date | None = None) -> bool:
+    """Evidence is separate from an available call and from human publication approval."""
+    deadline = row.get("deadline")
+    return (
+        review["outcome"] == "verified"
+        and review["eligible_for_import"]
+        and review["availability"] in {"open", "rolling", "announced"}
+        and (deadline is None or date.fromisoformat(deadline) >= (on_date or date.today()))
+    )
+
+
 def load_verification(path: Path = VERIFICATION) -> dict:
     data = json.loads(path.read_text(encoding="utf-8-sig"))
     if data.get("version") != 1 or not isinstance(data.get("rows"), list):
@@ -231,6 +246,10 @@ def load_verification(path: Path = VERIFICATION) -> dict:
             raise ValueError("duplicate current-source verification URL")
         if entry.get("outcome") not in {"verified", "flagged"}:
             raise ValueError("invalid source verification outcome")
+        if entry.get("availability") not in {
+            "open", "rolling", "announced", "closed", "unverified"
+        }:
+            raise ValueError("invalid source availability")
         if type(entry.get("eligible_for_import")) is not bool:
             raise ValueError("eligible_for_import must be a boolean")
         if type(entry.get("publication_approved")) is not bool:
@@ -272,7 +291,9 @@ def prepare(
             current = verification.get(row["source_url"])
             if current is None or current.get("record_sha256") != fingerprint(row):
                 raise ValueError("record requires a refreshed current-source review")
-            if current.get("official_source_id") and current["outcome"] == "verified":
+            # A previously corroborated identity survives closure or a later review flag.
+            # Availability changes must not create a new UUID or break saved applications.
+            if current.get("official_source_id"):
                 native = current["official_source_id"]
                 if not isinstance(native, str) or not re.fullmatch(r"[a-z]+:[A-Za-z0-9-]+", native):
                     raise ValueError("invalid official source identifier")
@@ -463,7 +484,9 @@ def main(argv=None) -> int:
     except (OSError, ValueError, KeyError, TypeError):
         print(json.dumps({"error": "seed/audit could not be loaded; inspect local input files"}))
         return 2
-    verified = [p for p in payloads if verification[p["url"]]["eligible_for_import"]]
+    verified = [
+        p for p in payloads if is_current_candidate(raw_rows[p["url"]], verification[p["url"]])
+    ]
     approved = [
         p
         for p in verified
@@ -471,19 +494,22 @@ def main(argv=None) -> int:
         and raw_rows[p["url"]]["ready_for_public_seed"]
         and raw_rows[p["url"]]["current_source_review"] == "verified"
     ]
-    selected = (
-        approved
-        if args.approved_only or (args.apply and not args.include_inactive_candidates)
-        else payloads
-    )
+    publication_mode = args.approved_only or (args.apply and not args.include_inactive_candidates)
+    selected = approved if publication_mode else payloads
     # Source verification and human approval are separate; announced calls stay inactive.
-    for payload in approved:
-        payload["is_active"] = verification[payload["url"]]["availability"] in {"open", "rolling"}
+    # The candidate preview/artifact always stays inactive, including already approved rows.
+    if publication_mode:
+        for payload in approved:
+            payload["is_active"] = verification[payload["url"]]["availability"] in {
+                "open", "rolling"
+            }
     report = dict(
         mode="apply" if args.apply else "dry-run",
         accepted=len(payloads),
         current_verified=len(verified),
-        flagged=len(payloads) - len(verified),
+        flagged=sum(verification[p["url"]]["outcome"] == "flagged" for p in payloads),
+        not_current=len(payloads) - len(verified),
+        closed=sum(verification[p["url"]]["availability"] == "closed" for p in payloads),
         publication_approved=len(approved),
         selected=len(selected),
         rejected=rejected,

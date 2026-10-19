@@ -76,4 +76,8 @@ All seven tables enable RLS. Ownership uses `auth.uid()`, not editable metadata.
 
 ## Current C2 workflow
 
-See [the C2 runbook](../database/seeds/README.md) for the current-source audit, approved seed command and frontend query. Current evidence supports 25 of 50 source records; 25 are flagged and 0 are publication-approved. The minimum-40 acceptance check fails. Earlier academic/workbook counts must not be treated as current verified listings. No shared C2 import has been executed.
+See [the seed guide](../database/seeds/README.md). The 19 October development import contains
+52 inactive candidates, including 40 current verified-source records (34 open/rolling and 6
+announced). Nine unresolved sources and three closed calls remain excluded from that count.
+Source minimum, hosted replay and anonymous Data API reads passed; IDs/timestamps remained
+stable on replay. Publication approval/activation, Maria review and Bianca's UI review are pending.

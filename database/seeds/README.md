@@ -1,109 +1,122 @@
-# C2 repeatable opportunity seed
+# C2 repeatable opportunity seeds
 
-Status: local implementation validated; minimum-40/source approval gate is NOT satisfied.
-Use the existing task branch `feature/dalia-supabase-seed`, whose base matches origin/develop.
-All earlier uncommitted work is retained. No new tables, enums, migrations or API contracts.
+Technical implementation and development import are ready for review (19 October 2026).
+Human review/publication and PR approval/merge are still pending; this is not a claim of Done.
 
-The canonical input is `database/seeds/opportunities_seed.json`. `eligibility_audit.json`
-records academic evidence; `source_verification.json` records current listing/content checks.
-These are distinct from historical workbook verdicts and human publication approval.
-`supabase/seed.sql` is a generated INACTIVE CANDIDATE artifact, not an approved public seed.
-Current per-record review: [SOURCE_VERIFICATION.md](SOURCE_VERIFICATION.md).
+## Dataset and current result
 
-## Actual dataset and verification counts
+- 52 candidates: the original 50 preserved in order plus 2 direct official-source additions.
+- 40 current verified source candidates: 34 open/rolling and 6 explicitly announced.
+- 9 unresolved source cases and 3 closed calls remain preserved and excluded from the threshold.
+- Academic wording separately: 47 confirmed / 5 unknown; this does not certify personal eligibility.
+- 0 publication approvals; every generated and hosted candidate is inactive.
+- Shared development `fnldapsomswemayxhayk`: 52 rows / 52 unique source keys / 40 verified-source rows.
+- Hosted second import: 52 rows, 0 replaced UUIDs and 0 timestamp changes. Anonymous Data API read passed.
+- `npm run db:seed:check`: PASS at 40/40. An approved public seed remains blocked at 0 approved rows.
 
-- 50 source records; all parse and match evidence fingerprints.
-- 25 currently supported listing/programme records; 25 flagged or insufficiently verified.
-- All 9 `Individual verification required` records explicitly flagged in the source ledger.
-- Academic evidence separately: 38 confirmed, 12 unknown; this is not a live availability count.
-- 0 publication-approved records; 0 records imported to shared Supabase by C2.
-- 50 inactive rows imported into temporary PGlite; second import still 50, IDs/timestamps stable.
-- Minimum 40 genuine verified opportunities: FAIL (25/40). No rows relabeled to pad the count.
+The additional roles are Optiver Software Engineer Internship (2027 Start), Amsterdam, and
+Qualcomm CPU Engineering Internship 2027, Cork, requisition 3093026. Their official evidence
+is recorded in the same ledgers; neither is presented as part of Maria's workbook shortlist.
 
-A programme can be verified as announced but not yet open. An opportunity's verified facts
-never imply every student is eligible. Unknown degree/year/country/skills remain unknown.
-Closed/stale/generic/JS-only pages, conflated locations and conflicting dates are not counted.
-Only verified source entries with `eligible_for_import=true` count toward the threshold.
+## Files
 
-## Reproduce locally, without a hosted database connection
+| File | Purpose |
+| --- | --- |
+| `opportunities_seed.json` | Canonical research input, stable URL hashes and per-record provenance. |
+| `eligibility_audit.json` | Academic evidence and exact input fingerprints, used by validation. |
+| `source_verification.json` | Current-source evidence, native posting IDs and publication approval, used by validation. |
+| [ELIGIBILITY_AUDIT.md](ELIGIBILITY_AUDIT.md) | Readable academic audit and representation limits for Maria. |
+| [SOURCE_VERIFICATION.md](SOURCE_VERIFICATION.md) | Source outcomes, dates, changes and remaining blockers for every row. |
+| `reconciliation.json` | Historical reconciliation decisions for the original 50; later official findings take precedence. |
+| `workbook_audit.csv` | Original supplied EUROPE MASTER audit snapshot; not official eligibility or publication approval. |
 
-Prerequisites: Node.js 20+, uv and a supported Python >=3.13. From repository root:
+The original workbook was not supplied. Its June 2029 graduate shortlist is curation context,
+never an official academic-year rule. Historical verdicts are retained as provenance, not approval.
+Input origins: 42 `maria_europe_master_2026_10_12`, 8 `seed_supplemental_2026_10_12`,
+2 `official_review_2026_10_19`. The new records have no Excel row or Maria review verdict.
+
+## Local validation and generation
+
+Prerequisites: Node.js 20+, uv and Python >=3.13. From the repository root:
 
 ```powershell
 npm ci
 uv sync --project apps/api
 npm run db:seed:dry-run
 npm run db:seed:generate
+npm run db:seed:check
 npm run db:test:fresh
 npm run db:test:seed
-uv run --project apps/api pytest
+uv run --project apps/api pytest -q
 uv run --project apps/api ruff check apps/api scripts/validate_c2_seed.py
-npm run db:seed:check
+uv run --project apps/api python scripts/validate_c2_seed.py
 ```
 
-`db:seed:check` currently exits 1 with `minimum not met: 25/40 current verified records`.
-That is an acceptance failure, not a passing test. Technical tests pass independently.
-Generation is deterministic; an automated test compares the SQL artifact to the generator.
-Rejected rows prevent generation/application; DB errors roll back all writes.
+Actual results: 52 accepted, 0 rejected; source minimum passed; 122 Python tests passed
+(79 existing warnings); Ruff passed; fresh migrations/RLS and repeat-seed PGlite tests passed.
+Local first/second imports both contain 52 inactive rows and preserve existing applications.
+An initial Windows sandbox invocation lacked temporary-directory permissions; the suite was
+rerun with the required local execution access and passed. No Docker dependency is needed.
 
-## Fresh hosted project — ONLY after target/seed approval
+`supabase/seed.sql` is a deterministic inactive-candidate artifact generated by the importer.
+Do not hand-edit it. Rejected rows block output/writes; database errors roll back atomically.
+The wrapper validates any nonempty audited input; `db:seed:check` separately enforces 40
+current verified candidates. `flagged` counts unresolved sources, while `not_current` also
+includes closed/expired calls. Per-row review dates are authoritative; recheck before publication.
 
-Do not execute the following against shared resources before Dalia approves. First finish
-source review so >=40 genuine records exist, then obtain explicit publication and target
-approval. Do not convert workbook VERIFIED into approval. A reviewer must update the dataset's
-`ready_for_public_seed`, `current_source_review=verified`, the current-source ledger's
-`publication_approved`, and both evidence fingerprints after verifying the actual record.
-Only rows passing BOTH review/publication gates are selected by the standard seed command.
+## Approved hosted workflow
+
+The 19 October development reconciliation and repeat import were authorized and completed.
+The earlier missing `degree_level` error was fixed by applying the two existing committed
+type/eligibility migrations. No new schema or API changes were introduced by C2.
+
+Future shared writes and public activation require Dalia's approval for the target and selection.
+After actual record review, set `ready_for_public_seed=true`, `current_source_review=verified`,
+and ledger `publication_approved=true`, recording approval evidence and refreshing both input
+fingerprints. Workbook CONFIRMED and source verification alone are not publication approval.
 
 ```powershell
-npx.cmd supabase login
-npx.cmd supabase link --project-ref <approved-fresh-project-ref>
+npx.cmd supabase link --project-ref <approved-project-ref>
 npx.cmd supabase db push --dry-run
 npx.cmd supabase db push
-# Set DATABASE_URL privately to the approved SQLAlchemy psycopg connection; SSL required.
+# Set DATABASE_URL privately to the approved SQLAlchemy psycopg SSL connection.
 npm run db:seed
 npm run db:seed
 ```
 
-`db:seed` validates first, requires 40 verified source records and selects only approved rows.
-It refuses to connect when validation/minimum/publication gates fail. It uses the existing
-psycopg/SQLAlchemy backend dependencies, no dashboard pasting. The pinned CLI (2.121.0)
-supports `db query --linked --file`; after approval an approved-only SQL artifact can instead
-be generated with the importer `--approved-only --require-minimum 40 --sql-output <file>`
-and executed via that CLI. Do not use `db push --include-seed`: the default artifact contains
-inactive candidates. Do not expose DB passwords, personal tokens or privileged keys.
+The standard command requires at least 40 current source candidates AND 40 approved selected
+records before connecting. Announced calls stay inactive; closed, expired and unverified
+records cannot activate. A past date-only deadline is excluded even if its ledger flag is stale.
+Same-day dates are not verified exact closing instants. Source review counts can change over time.
 
-For explicitly approved inactive preview imports only, the importer also supports
-`--apply --include-inactive-candidates`; this is not the public seed command or proof of C2 done.
+For an explicitly approved candidate preview only, use importer `--apply --include-inactive-candidates`
+or the pinned CLI's `db query --linked --file supabase/seed.sql`. The current hosted import used
+the CLI file route. Do not use `db push --include-seed` as a substitute for publication review.
+An approved-only SQL file can be generated with `--approved-only --require-minimum 40 --sql-output <file>`.
+Never expose privileged database credentials or service-role keys to the web app.
 
-## Mapping, identity and corrections
+## Mapping and identity
 
-The JSON's type -> opportunity_type, source_url -> url, nullable degree_level/study_year ->
-existing enum/JSONB. released_date -> posted_at only if recorded, never date_checked.
-Date-only deadlines use UTC midnight as a documented storage convention, not an invented
-official deadline timezone/instant. Contradictory exact deadlines are flagged for review.
-No inferred skill, degree, publication date or study year is filled in.
+`type` maps to `opportunity_type`; `source_url` maps to `url`; degree/year fields use the
+existing nullable enum/JSONB. Only recorded `released_date` maps to `posted_at`, never the
+review date. Date-only deadlines use UTC midnight as a storage convention, not an asserted
+official timezone/instant. Scoped Optiver cohort deadlines remain in notes with flat deadline null.
 
-`source` remains the reconciled workbook/supplemental origin. The research source_id is the
-24-hex canonical URL hash. Where the current official evidence provides a genuine ID, the
-DB import uses that provider ID (for example amazon:10555873 or arm:2026-18044), otherwise
-the stable research URL hash. Eleven corroborated provider IDs are recorded in the current
-ledger; they are not guessed from titles. The earlier native/canonical key and the previous
-reviewed hash key can each be adopted only when source identity AND exact URL match. UUIDs
-are never replaced; application FKs remain valid. External feed URL conflicts fail/rollback.
-Use these explicit reconciliation steps for legitimate corrections; changing an input without
-review/fingerprint refresh is rejected. No-op upserts do not refresh opportunity timestamps.
+Research `source_id` is a deterministic 24-hex canonical-URL hash. For the 18 corroborated native
+posting IDs in the current ledger, the importer uses the provider key (e.g. `qualcomm:3093026`).
+Otherwise it keeps the stable URL hash. A previously corroborated ID survives later closure or
+review flags. Legacy manual/review-hash rows are adopted only by exact source/key/URL match;
+existing UUIDs and application FKs are preserved. Unrelated feed URL conflicts roll back.
+No-op upserts leave timestamps unchanged. Required skill links are reconciled only for owned rows.
+Empty skill arrays mean unrecorded; lists of alternative languages are not flattened into
+multiple mandatory requirements. Unknown experience, degree, country or dates remain null.
 
-Only confirmed mandatory skills populate skill links; unknown/empty means not recorded.
-Provenance stays in JSON/ledgers and does not create schema columns. `description` carries
-academic notes plus separately labeled historical research text. Approved open/rolling
-entries can be active; announced entries stay inactive. Unverified candidates never activate.
-Any exact source/timing/identity correction must be reviewed rather than inferred.
+## Bianca: frontend handoff
 
-## Bianca: query approved active opportunities
-
-Use the existing shared project URL and browser-safe publishable key, through the frontend's
-Supabase client. Never use a service-role key or DATABASE_URL in browser code.
+Use the shared project URL and a browser-safe publishable/anon key through the configured
+Supabase client. The actual hosted anonymous Data API read was verified: 52 candidates,
+40 verified-source URLs and 0 active records. This is an HTTP integration check, not a claim
+that Bianca reviewed the UI. The public catalog query currently returns no active C2 rows.
 
 ```javascript
 const { data, error } = await supabase
@@ -113,105 +126,22 @@ const { data, error } = await supabase
   .order('title');
 ```
 
-Equivalent SQL:
+Development previews can explicitly request inactive rows. Existing API routes remain
+`GET /api/v1/opportunities` and `GET /api/v1/opportunities/{id}`. Use `opportunity_type`;
+`study_year_group` is not an API field. Degree filters include `both`; nulls do not match
+degree/year filters. Years 1-6 use exact array membership, not an inferred minimum year.
 
-```sql
-SELECT id, title, organization, url, degree_level, study_year
-FROM public.opportunities
-WHERE is_active = true
-ORDER BY title;
-```
+Display null eligibility as "Not established - check the official requirements." Notes and
+the official URL remain necessary even for numeric arrays. "Two years completed by start"
+does not mean "currently in year 2". Penultimate/final years depend on degree duration.
+The description separates reviewed academic notes from historical research text. Do not
+interpret a null deadline as rolling recruitment or an empty skill array as no required skills.
 
-The existing RLS/GRANT policies permit catalog SELECT for anon/authenticated. PGlite tests
-exercise anon reads: current candidate seed returns 0 active records; a clearly synthetic
-local approval fixture returns 1, proving permissions without claiming a hosted/browser test.
-The API GET /api/v1/opportunities?is_active=true also uses the existing contract. Null eligibility
-is not unrestricted eligibility; preserve the conditional notes and don't filter by old groups.
+## Remaining human steps
 
-## Remaining blockers and review
-
-25 < 40; resolve 25 flagged source cases or obtain approved replacement source records.
-Do not add invented records. Full reasons/official links are in SOURCE_VERIFICATION.md/json.
-Several sources are JS-only/unavailable, programme pages do not identify a specific call,
-ETH/Saarland describe 2026, and some local descriptions conflate dates/locations.
-Maria must review complex academic-year representation and the UTC date-only convention.
-Shared application and Bianca's actual browser verification await explicit approval/access.
-
-## Frontend handoff details
-
-## Existing API contract (unchanged)
-
-Use `GET /api/v1/opportunities` and `GET /api/v1/opportunities/{id}`. Use
-`opportunity_type` in requests/responses, not the research JSON's `type`.
-Responses include `id`, `source`, `source_id`, title/description/organization/location,
-url, deadline, posted_at, is_active, degree_level, study_year and skills.
-`degree_level` is `bachelor`, `master`, `both` or null. A bachelor/master filter includes
-`both`; null rows do not match a degree filter. `study_year=2` uses exact membership;
-null rows do not match. Unknown rows still appear in the unfiltered catalog.
-
-`study_year_group` is removed from the current JSON and retained ONLY in the audit files. It is not
-an API field or an eligibility restriction. Do not show “only years 3–4,” infer year 2+
-from an internship title, or treat master year 1 as undergraduate year 1. Final-year jobs,
-completed semesters by start, integrated masters and conditional degree lengths cannot
-be reliably filtered by this array. Do not implement a competing interpretation in JS.
-
-## How to display eligibility
-
-- Null year/degree: “Not established — check the official requirements.” This also covers
-  a confirmed rule that the current schema cannot represent accurately; consult the notes.
-- Numeric list: show the supported academic-year dimension, then the extra conditions
-  in description/the official source. It is not a guarantee that the student qualifies.
-- `description` begins with the reviewed academic notes and official evidence URL.
-  Its separately labeled historical research summary is not newly certified evidence.
-- Year-2 encouragement for Arm Graphics applies to an integrated master programme;
-  ordinary bachelor year 2 must not be declared eligible automatically.
-- Four semesters COMPLETED BEFORE START is not “currently in year 2.”
-- Stripe's one university year is a preference, not a hard eligibility cutoff.
-
-All C2 candidates are `is_active=false`. Development previews can request
-`is_active=false`; do not publish them as live opportunities. A future explicit publication
-review must confirm availability, deadline timing, visa/geographical restrictions and
-full requirements. A null deadline does not mean rolling applications. The date-only UTC
-midnight value is not a verified exact closing time. `posted_at` stays null when unknown.
-`skills` includes only evidence-recorded mandatory skills; an empty array is “not recorded,”
-not “no skills required.” The current 50 rows have empty required/suggested skill arrays.
-
-
-
-## Recorded local validation (15 October 2026)
-
-These results were recorded before this documentation cleanup:
-
-- Dry run: 50 accepted, 25 current verified, 25 flagged, 0 approved.
-- Python suite: 113 passed; Ruff passed.
-- Fresh migrations/RLS and repeat seed PGlite tests passed; 50 inactive rows after both runs.
-- Minimum-40 check fails intentionally at 25/40; shared import is not ready.
-- No shared C2 import, commit, push or PR was performed.
-
-## Files to maintain
-
-- `opportunities_seed.json`: canonical input; preserve unrelated local data.
-- `eligibility_audit.json`: academic evidence/fingerprints required by validation.
-- `source_verification.json`: current-source evidence/publication gates required by validation.
-- [ELIGIBILITY_AUDIT.md](ELIGIBILITY_AUDIT.md): readable academic audit and representation limits for Maria.
-- [SOURCE_VERIFICATION.md](SOURCE_VERIFICATION.md): readable current-source audit and blockers.
-- `reconciliation.json`: historical per-record reconciliation decisions; later official evidence in the current ledgers takes precedence.
-- `workbook_audit.csv`: supplied historical EUROPE MASTER review; not official eligibility or publication approval.
-
-Workbook provenance covers 42 rows plus 8 supplemental rows. Maria's June 2029 graduate
-shortlist is curation context, never proof of official academic-year eligibility. The original
-workbook was not supplied. Research provenance and alternative supplied values remain in
-the dataset and reconciliation ledger. Recommendation groups remain historical audit data.
-
-
-## Authorized hosted import attempt (15 October 2026)
-
-Dalia authorized importing the candidates and committing the local implementation.
-The linked development project was fnldapsomswemayxhayk. The inactive SQL seed failed
-because public.opportunities lacks degree_level (PostgreSQL error 42703). The transaction
-rolled back: a follow-up query confirmed 0 total rows and 0 active rows. No schema changes
-were applied. Apply the existing reviewed eligibility/type migrations through the normal
-schema workflow before retrying the import. Unverified records remain unverified/inactive;
-this authorization does not establish official eligibility or meet the minimum-40 criterion.
-Local checks rerun before commit: 113 Python tests passed, Ruff passed, fresh migration/RLS
-and repeat-seed PGlite tests passed. C2 remains In Progress.
+Maria reviews conditional-year representation, date-only storage and the backend/schema
+handoff. No minimum-year schema/API extension was silently introduced. Dalia approves the
+public selection; Bianca verifies the actual frontend display; the PR then needs human review,
+passing checks and an authorized merge to develop. These are pending, not automatically Done.
+The 9 unresolved and 3 closed records are preserved inactive and do not block the now-passing
+40-source gate. Their remaining factual blockers are listed in SOURCE_VERIFICATION.md.

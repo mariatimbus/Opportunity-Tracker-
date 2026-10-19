@@ -18,7 +18,7 @@
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): First or second university year in UK/Europe; anticipated graduation 2028 or 2029. Official indexed posting available; direct page is JS-only.",
-    "application_status": "OPEN NOW",
+    "application_status": "CLOSED",
     "participation_mode": "On-site (London)",
     "work_mode": "on_site",
     "schedule_commitment": "N/A — four-day insight event",
@@ -40,7 +40,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "652bd0f36e744d052ca32156",
     "eligibility_review_status": "year_explicit_but_other_requirements_apply",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -69,7 +69,23 @@
         "schedule_commitment": null,
         "duration_format_notes": "Spring 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Campus_Careers/job/XMLNAME-2027-EMEA-Future-Leaders-Spring-Insight-Programme_45529",
+          "changes": {
+            "application_status": {
+              "before": "OPEN NOW",
+              "after": "CLOSED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -88,7 +104,7 @@
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): IT-oriented bachelor/master students at Romanian faculties, any academic year; teams of 3-5. No numerical year restriction.",
-    "application_status": "REGISTRATION OPEN",
+    "application_status": "CLOSED",
     "participation_mode": "On-site (in person)",
     "work_mode": "on_site",
     "schedule_commitment": "N/A — hackathon",
@@ -110,7 +126,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "ae319ec28c639af331ad0eb1",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -139,7 +155,23 @@
         "schedule_commitment": null,
         "duration_format_notes": "7–8 Nov 2026",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://smarthack.asmi.ro/",
+          "changes": {
+            "application_status": {
+              "before": "REGISTRATION OPEN",
+              "after": "CLOSED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -321,7 +353,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "057118a6d9a392c7e810cbc5",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -352,7 +384,19 @@
         "duration_format_notes": "Oct 2026 registration → 2027 final",
         "format_source_url": "https://regulation.boschfuturemobility.com/",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://regulation.boschfuturemobility.com/data/registrationandselection.html",
+          "changes": {
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -364,13 +408,13 @@
     "study_year": null,
     "deadline": "2026-11-01",
     "source_url": "https://www.jpmorganchase.com/careers/explore-opportunities/programs/spring-insights",
-    "description": "Current Spring Insights technology route fits 2029 graduation.",
+    "description": "London 2027 technology insight programme for students expecting graduation in 2029; coding assessment required; applications may close early as places fill.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Programme page targets students starting full-time careers in two years. Specific 2027 Engineer & Innovate graduation-window requirements could not be confirmed.",
+    "eligibility_notes": "Official academic review (2026-10-19): Student expecting graduation in 2029; computer-science or related courses welcomed. No numerical current-year or bachelor/master-only restriction is stated. Coding assessment is required.",
     "application_status": "OPEN NOW",
     "participation_mode": "Not specified (London programme)",
     "work_mode": null,
@@ -381,7 +425,7 @@
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current Spring Insights technology route fits 2029 graduation.",
+    "verification_notes": "Exact employer requisition 210795482 establishes the 2027 pathway, 2029 graduation and 1 November 2026 cutoff.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -393,7 +437,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "3aead5334009d62abb6aaed0",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -423,7 +467,31 @@
         "schedule_commitment": null,
         "duration_format_notes": "Spring 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210795482/",
+          "changes": {
+            "description": {
+              "before": "Current Spring Insights technology route fits 2029 graduation.",
+              "after": "London 2027 technology insight programme for students expecting graduation in 2029; coding assessment required; applications may close early as places fill."
+            },
+            "eligibility_notes": {
+              "before": "Academic eligibility UNKNOWN (2026-10-15): Programme page targets students starting full-time careers in two years. Specific 2027 Engineer & Innovate graduation-window requirements could not be confirmed.",
+              "after": "Official academic review (2026-10-19): Student expecting graduation in 2029; computer-science or related courses welcomed. No numerical current-year or bachelor/master-only restriction is stated. Coding assessment is required."
+            },
+            "verification_notes": {
+              "before": "Current Spring Insights technology route fits 2029 graduation.",
+              "after": "Exact employer requisition 210795482 establishes the 2027 pathway, 2029 graduation and 1 November 2026 cutoff."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -435,14 +503,14 @@
     "study_year": null,
     "deadline": "2026-11-08",
     "source_url": "https://careers.db.com/students-graduates/your-application/index?language_id=1",
-    "description": "Official application window 2–8 Nov 2026; second year 4-year degree; graduation through Jul 2029.",
+    "description": "London 2027 Technology, Data & Innovation Spring into Banking: application window 2-8 November 2026. First year of a three-year degree OR second year of a four-year degree; completion August 2028-July 2029; further grade/work requirements apply.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): London 2027 Spring into Banking: first year of a three-year degree OR second year of a four-year degree; completion August 2028-July 2029. The old [2] omitted the first-year route.",
-    "application_status": "OPENS 2 NOV",
+    "application_status": "ANNOUNCED - OPENS 2 NOVEMBER 2026",
     "participation_mode": "On-site (in-person workshops, London)",
     "work_mode": "on_site",
     "schedule_commitment": "N/A — four-day insight event",
@@ -452,7 +520,7 @@
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Official application window 2–8 Nov 2026; second year 4-year degree; graduation through Jul 2029.",
+    "verification_notes": "Official London programme table confirms the exact division, application window and degree-duration alternatives.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -464,7 +532,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "831000db34e9834d2fc4783e",
     "eligibility_review_status": "conditional_composite",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -494,7 +562,31 @@
         "duration_format_notes": "Spring 2027",
         "format_source_url": "https://careers.db.com/students-graduates/your-application/index?language_id=1",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://careers.db.com/students-graduates/your-application/index?language_id=1",
+          "changes": {
+            "description": {
+              "before": "Official application window 2–8 Nov 2026; second year 4-year degree; graduation through Jul 2029.",
+              "after": "London 2027 Technology, Data & Innovation Spring into Banking: application window 2-8 November 2026. First year of a three-year degree OR second year of a four-year degree; completion August 2028-July 2029; further grade/work requirements apply."
+            },
+            "application_status": {
+              "before": "OPENS 2 NOV",
+              "after": "ANNOUNCED - OPENS 2 NOVEMBER 2026"
+            },
+            "verification_notes": {
+              "before": "Official application window 2–8 Nov 2026; second year 4-year degree; graduation through Jul 2029.",
+              "after": "Official London programme table confirms the exact division, application window and degree-duration alternatives."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -576,7 +668,7 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://job-boards.greenhouse.io/jetbrains/jobs/4696941101",
-    "description": "Current Europe campus ambassador role for undergrad/grad students.",
+    "description": "Part-time campus ambassador role for European universities. The posting header says Remote, while the body requires campus-based activities; clarify the arrangement with the employer.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
@@ -584,8 +676,8 @@
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): Undergraduate/graduate technical-degree students with software-development background and familiarity with JetBrains tools. No numerical study year stated.",
     "application_status": "OPEN NOW",
-    "participation_mode": "Remote role; campus-based activities",
-    "work_mode": "remote",
+    "participation_mode": "Campus-based part-time role; posting header labels Remote",
+    "work_mode": null,
     "schedule_commitment": "Part-time",
     "duration_format_notes": "Official posting explicitly labels the position remote and part-time, based at the university campus.",
     "format_source_url": "https://job-boards.greenhouse.io/jetbrains/jobs/4696941101",
@@ -593,7 +685,7 @@
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "Individual verification required",
-    "verification_notes": "Current Europe campus ambassador role for undergrad/grad students.",
+    "verification_notes": "Exact Greenhouse posting 4696941101 confirms undergraduate/graduate technical students; header/body arrangement is retained explicitly, not normalized to fully remote.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -605,7 +697,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "42296c0d999f713dea56b517",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -634,7 +726,35 @@
         "schedule_commitment": null,
         "duration_format_notes": null,
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://job-boards.greenhouse.io/jetbrains/jobs/4696941101",
+          "changes": {
+            "description": {
+              "before": "Current Europe campus ambassador role for undergrad/grad students.",
+              "after": "Part-time campus ambassador role for European universities. The posting header says Remote, while the body requires campus-based activities; clarify the arrangement with the employer."
+            },
+            "participation_mode": {
+              "before": "Remote role; campus-based activities",
+              "after": "Campus-based part-time role; posting header labels Remote"
+            },
+            "work_mode": {
+              "before": "remote",
+              "after": null
+            },
+            "verification_notes": {
+              "before": "Current Europe campus ambassador role for undergrad/grad students.",
+              "after": "Exact Greenhouse posting 4696941101 confirms undergraduate/graduate technical students; header/body arrangement is retained explicitly, not normalized to fully remote."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -646,7 +766,7 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://mvp.microsoft.com/studentambassadorsJoin",
-    "description": "Current Microsoft student community has no traditional application gatekeeping.",
+    "description": "Microsoft Student Ambassadors registration is available through the official Student Hub; no application required. Registration activities precede onboarding.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
@@ -663,7 +783,7 @@
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "Individual verification required",
-    "verification_notes": "Current Microsoft student community has no traditional application gatekeeping.",
+    "verification_notes": "Official Microsoft registration instructions explicitly invite students to register now across degree fields and levels; no application required.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -675,7 +795,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "fccbef5b611fdb0b5503df42",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -704,7 +824,27 @@
         "schedule_commitment": null,
         "duration_format_notes": null,
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://learn.microsoft.com/en-us/training/student-hub/become-a-student-ambassador",
+          "changes": {
+            "description": {
+              "before": "Current Microsoft student community has no traditional application gatekeeping.",
+              "after": "Microsoft Student Ambassadors registration is available through the official Student Hub; no application required. Registration activities precede onboarding."
+            },
+            "verification_notes": {
+              "before": "Current Microsoft student community has no traditional application gatekeeping.",
+              "after": "Official Microsoft registration instructions explicitly invite students to register now across degree fields and levels; no application required."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -716,14 +856,14 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://www.startglobal.org/start-hack",
-    "description": "Official START Hack page lists 17–19 Mar 2027 in St. Gallen.",
+    "description": "Organizer announces START Hack 2027 for 17-19 March in St. Gallen. The site mixes an application call-to-action with future-opening notifications, so current registration availability remains unconfirmed.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Programme page describes student-led participation but does not establish a numerical year or bachelor/master eligibility rule.",
-    "application_status": "APPLY NOW",
+    "application_status": "ANNOUNCED - REGISTRATION STATE UNCONFIRMED",
     "participation_mode": "On-site (in person)",
     "work_mode": "on_site",
     "schedule_commitment": "N/A — hackathon",
@@ -745,7 +885,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "e26b0aee1c7857cb698082d6",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -774,7 +914,27 @@
         "schedule_commitment": null,
         "duration_format_notes": "17–19 Mar 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.startglobal.org/start-hack",
+          "changes": {
+            "description": {
+              "before": "Official START Hack page lists 17–19 Mar 2027 in St. Gallen.",
+              "after": "Organizer announces START Hack 2027 for 17-19 March in St. Gallen. The site mixes an application call-to-action with future-opening notifications, so current registration availability remains unconfirmed."
+            },
+            "application_status": {
+              "before": "APPLY NOW",
+              "after": "ANNOUNCED - REGISTRATION STATE UNCONFIRMED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -855,16 +1015,16 @@
     "location": "Online / campus-proctored",
     "degree_level": null,
     "study_year": null,
-    "deadline": "2026-10-31",
+    "deadline": "2026-10-17",
     "source_url": "https://ieeextreme.org/",
-    "description": "IEEEXtreme 20.0 is 31 Oct 2026; eligible IEEE Student membership/team/proctor required.",
+    "description": "IEEEXtreme 20.0 takes place on 31 October 2026. Organizer announcements set participant registration cutoff at 17 October; 31 October is the event/proctor date, not the student application deadline.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): 2026 rules require IEEE Student/Graduate Student membership and team/proctor conditions. Membership grades are not a bachelor/master-only degree restriction.",
-    "application_status": "REGISTER / PREPARE",
+    "application_status": "CLOSED",
     "participation_mode": "Online / campus-proctored",
     "work_mode": "remote",
     "schedule_commitment": "N/A — programming competition",
@@ -874,7 +1034,7 @@
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "Individual verification required",
-    "verification_notes": "IEEEXtreme 20.0 is 31 Oct 2026; eligible IEEE Student membership/team/proctor required.",
+    "verification_notes": "Organizer account confirms 17 October 2026 registration cutoff. Membership/team/proctor conditions remain in the official rules.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -886,7 +1046,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "f43456d27d1b08113dcef3e0",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -916,7 +1076,35 @@
         "duration_format_notes": "31 Oct 2026",
         "format_source_url": "https://ieeextreme.org/",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.linkedin.com/company/ieeextreme",
+          "changes": {
+            "deadline": {
+              "before": "2026-10-31",
+              "after": "2026-10-17"
+            },
+            "description": {
+              "before": "IEEEXtreme 20.0 is 31 Oct 2026; eligible IEEE Student membership/team/proctor required.",
+              "after": "IEEEXtreme 20.0 takes place on 31 October 2026. Organizer announcements set participant registration cutoff at 17 October; 31 October is the event/proctor date, not the student application deadline."
+            },
+            "application_status": {
+              "before": "REGISTER / PREPARE",
+              "after": "CLOSED"
+            },
+            "verification_notes": {
+              "before": "IEEEXtreme 20.0 is 31 Oct 2026; eligible IEEE Student membership/team/proctor required.",
+              "after": "Organizer account confirms 17 October 2026 registration cutoff. Membership/team/proctor conditions remain in the official rules."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -924,20 +1112,20 @@
     "organization": "Citadel / Citadel Securities",
     "type": "early_career",
     "location": "London, UK",
-    "degree_level": null,
+    "degree_level": "bachelor",
     "study_year": [
       1,
       2
     ],
     "deadline": "2027-01-29",
     "source_url": "https://www.citadel.com/careers/programs-and-events/discover-citadel/",
-    "description": "Current EMEA program: first/second year; graduation Dec 2027–Jun 2029; deadline 29 Jan 2027.",
+    "description": "Discover Citadel EMEA is a London event at the end of March 2027. Applicants must be first- or second-year undergraduates graduating December 2028-June 2030; deadline 29 January 2027.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Official academic review (2026-10-15): First- or second-year students; the current programme page gives graduation December 2028-June 2030, superseding the historical date window.",
+    "eligibility_notes": "Official academic review (2026-10-19): First- or second-year undergraduates graduating December 2028-June 2030; region-specific event selection and other programme conditions apply.",
     "application_status": "OPEN NOW",
     "participation_mode": "On-site (London)",
     "work_mode": "on_site",
@@ -948,7 +1136,7 @@
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current EMEA program: first/second year; graduation Dec 2027–Jun 2029; deadline 29 Jan 2027.",
+    "verification_notes": "Official current EMEA event table and graduation window replace the historical 2027-2029 wording.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -960,7 +1148,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "12890d138005c17018420026",
     "eligibility_review_status": "year_explicit_but_other_requirements_apply",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -989,7 +1177,35 @@
         "schedule_commitment": null,
         "duration_format_notes": "End of March 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.citadel.com/careers/programs-and-events/discover-citadel/",
+          "changes": {
+            "degree_level": {
+              "before": null,
+              "after": "bachelor"
+            },
+            "description": {
+              "before": "Current EMEA program: first/second year; graduation Dec 2027–Jun 2029; deadline 29 Jan 2027.",
+              "after": "Discover Citadel EMEA is a London event at the end of March 2027. Applicants must be first- or second-year undergraduates graduating December 2028-June 2030; deadline 29 January 2027."
+            },
+            "eligibility_notes": {
+              "before": "Official academic review (2026-10-15): First- or second-year students; the current programme page gives graduation December 2028-June 2030, superseding the historical date window.",
+              "after": "Official academic review (2026-10-19): First- or second-year undergraduates graduating December 2028-June 2030; region-specific event selection and other programme conditions apply."
+            },
+            "verification_notes": {
+              "before": "Current EMEA program: first/second year; graduation Dec 2027–Jun 2029; deadline 29 Jan 2027.",
+              "after": "Official current EMEA event table and graduation window replace the historical 2027-2029 wording."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1001,14 +1217,14 @@
     "study_year": null,
     "deadline": "2027-02-01",
     "source_url": "https://amgenscholars.com/europe-programme/",
-    "description": "Official Europe programme confirms eligible undergraduate years and 1 Feb 2027 deadline.",
+    "description": "Official Europe programme lists five host institutions and a 1 February 2027 deadline for each; programme dates are TBA. Eligibility depends on current year AND degree duration; host application processes differ.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): At application: year 2 of a three-year bachelor OR years 2-3 of a four-year integrated programme. [2,3] would wrongly include year 3 of a three-year bachelor.",
-    "application_status": "OPENS 1 NOV 2026",
+    "application_status": "ANNOUNCED - HOST APPLICATION STATES VARY",
     "participation_mode": "On-site (host university / laboratory)",
     "work_mode": "on_site",
     "schedule_commitment": "Full-time research programme",
@@ -1030,7 +1246,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "3679dc3566aa7fc0a2554580",
     "eligibility_review_status": "conditional_composite",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1059,7 +1275,27 @@
         "schedule_commitment": null,
         "duration_format_notes": "Summer 2027; host-specific dates",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://amgenscholars.com/europe-programme/",
+          "changes": {
+            "description": {
+              "before": "Official Europe programme confirms eligible undergraduate years and 1 Feb 2027 deadline.",
+              "after": "Official Europe programme lists five host institutions and a 1 February 2027 deadline for each; programme dates are TBA. Eligibility depends on current year AND degree duration; host application processes differ."
+            },
+            "application_status": {
+              "before": "OPENS 1 NOV 2026",
+              "after": "ANNOUNCED - HOST APPLICATION STATES VARY"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1069,9 +1305,9 @@
     "location": "Amsterdam, Netherlands",
     "degree_level": null,
     "study_year": null,
-    "deadline": "2027-02-01",
+    "deadline": null,
     "source_url": "https://www.optiver.com/join-us/jobs/trading/amsterdam/futurefocus-quants-2027/",
-    "description": "European university students graduating 2029; event 10 May 2027; deadline 1 Feb; travel/accommodation covered.",
+    "description": "FutureFocus Quants 2027 has UK/Republic of Ireland weeks beginning 5 or 12 April (deadline 6 December 2026, 23:59 CET) and an EU week beginning 10 May (deadline 1 February 2027, 23:59 CET). Graduation in 2029, university location and travel authorization conditions apply.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
@@ -1082,13 +1318,13 @@
     "participation_mode": "On-site (Optiver Amsterdam HQ)",
     "work_mode": "on_site",
     "schedule_commitment": "N/A — five-day insight programme",
-    "duration_format_notes": "Five-day programme; EU session starts 10 May 2027; travel and lodging covered.",
+    "duration_format_notes": "Five-day programme. UK/Republic of Ireland university cohorts: 5 or 12 April 2027. EU university cohort: 10 May 2027. Cohort deadlines differ.",
     "format_source_url": "https://www.optiver.com/join-us/jobs/trading/amsterdam/futurefocus-quants-2027/",
     "verification_source_url": "https://www.optiver.com/join-us/jobs/trading/amsterdam/futurefocus-quants-2027/",
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "European university students graduating 2029; event 10 May 2027; deadline 1 Feb; travel/accommodation covered.",
+    "verification_notes": "The former single EU date/deadline did not represent all cohorts. A flat deadline is null; exact scoped dates remain in the description.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -1100,7 +1336,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "922a5151eeb687c9b1b7daad",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1129,7 +1365,35 @@
         "schedule_commitment": null,
         "duration_format_notes": "10 May 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.optiver.com/join-us/jobs/trading/amsterdam/futurefocus-quants-2027/",
+          "changes": {
+            "deadline": {
+              "before": "2027-02-01",
+              "after": null
+            },
+            "description": {
+              "before": "European university students graduating 2029; event 10 May 2027; deadline 1 Feb; travel/accommodation covered.",
+              "after": "FutureFocus Quants 2027 has UK/Republic of Ireland weeks beginning 5 or 12 April (deadline 6 December 2026, 23:59 CET) and an EU week beginning 10 May (deadline 1 February 2027, 23:59 CET). Graduation in 2029, university location and travel authorization conditions apply."
+            },
+            "duration_format_notes": {
+              "before": "Five-day programme; EU session starts 10 May 2027; travel and lodging covered.",
+              "after": "Five-day programme. UK/Republic of Ireland university cohorts: 5 or 12 April 2027. EU university cohort: 10 May 2027. Cohort deadlines differ."
+            },
+            "verification_notes": {
+              "before": "European university students graduating 2029; event 10 May 2027; deadline 1 Feb; travel/accommodation covered.",
+              "after": "The former single EU date/deadline did not represent all cohorts. A flat deadline is null; exact scoped dates remain in the description."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1148,7 +1412,7 @@
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): Student status and more than one year remaining until graduation, plus programme account/age conditions. Not a fixed study-year list.",
-    "application_status": "NEXT JULY",
+    "application_status": "CURRENT WINDOW UNCONFIRMED",
     "participation_mode": "Online training + local campus activities",
     "work_mode": "remote",
     "schedule_commitment": "N/A — student leadership programme",
@@ -1170,7 +1434,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "bcdb36708af2ca20331bc997",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1199,7 +1463,23 @@
         "schedule_commitment": null,
         "duration_format_notes": "Applications open every July for one month",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://docs.github.com/en/education/about-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert",
+          "changes": {
+            "application_status": {
+              "before": "NEXT JULY",
+              "after": "CURRENT WINDOW UNCONFIRMED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1240,7 +1520,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "45d89e41c419c9260ebfb57c",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1269,7 +1549,19 @@
         "schedule_commitment": null,
         "duration_format_notes": "12+ week project",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://developers.google.com/open-source/gsoc/timeline",
+          "changes": {
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1361,7 +1653,7 @@
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): Programme explicitly targets first- and second-year university students, including its London tracks.",
-    "application_status": "ACCEPTING / CHECK SESSION AVAILABILITY",
+    "application_status": "SESSION NOT ANNOUNCED",
     "participation_mode": "On-site (London)",
     "work_mode": "on_site",
     "schedule_commitment": "N/A — one-day insight programme",
@@ -1383,7 +1675,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "61bb5a3bba31f53659594035",
     "eligibility_review_status": "year_explicit_but_other_requirements_apply",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1412,7 +1704,23 @@
         "schedule_commitment": null,
         "duration_format_notes": "Upcoming sessions — date TBA",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.janestreet.com/join-jane-street/programs-and-events/bridge/",
+          "changes": {
+            "application_status": {
+              "before": "ACCEPTING / CHECK SESSION AVAILABILITY",
+              "after": "SESSION NOT ANNOUNCED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1431,7 +1739,7 @@
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): General mentorship rules require adult applicants, legal eligibility and project-specific criteria; no universal numerical academic-year rule.",
-    "application_status": "RECURRING / WATCH PROJECTS",
+    "application_status": "PROJECT-SPECIFIC CALL REQUIRED",
     "participation_mode": "Remote (project-dependent)",
     "work_mode": "remote",
     "schedule_commitment": "Full-time or Part-time (project-dependent)",
@@ -1453,7 +1761,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "ca4347fc7e0e57c5b43ac136",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1483,7 +1791,23 @@
         "duration_format_notes": "Spring / Summer / Fall project cycles",
         "format_source_url": "https://www.linuxfoundation.org/about/mentorship-programs/",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.linuxfoundation.org/about/mentorship-programs/",
+          "changes": {
+            "application_status": {
+              "before": "RECURRING / WATCH PROJECTS",
+              "after": "PROJECT-SPECIFIC CALL REQUIRED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1495,14 +1819,14 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://imaginecup.microsoft.com/en-us",
-    "description": "Official site says Imagine Cup 2027 is coming soon; a 2027 category page is live but final cycle rules/deadlines are not yet consistent.",
+    "description": "Official category page advertises the 2027 student startup competition and teams of up to four students. Final cycle rules and a consistent application window have not been established.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Inspected official page did not expose 2027 competition eligibility. Keep degree/year unknown until final rules are available.",
-    "application_status": "2027 PAGE LIVE — FINAL RULES PENDING",
+    "application_status": "2027 RULES / WINDOW UNCONFIRMED",
     "participation_mode": "Online submissions; final-stage format unconfirmed",
     "work_mode": "remote",
     "schedule_commitment": "N/A — staged student competition",
@@ -1524,7 +1848,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "b541f15785ddd9d38235ce96",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1555,7 +1879,27 @@
         "duration_format_notes": "2027 cycle — dates TBA",
         "format_source_url": "https://imaginecup.microsoft.com/en-us",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://imaginecup.microsoft.com/en-us/category/34",
+          "changes": {
+            "description": {
+              "before": "Official site says Imagine Cup 2027 is coming soon; a 2027 category page is live but final cycle rules/deadlines are not yet consistent.",
+              "after": "Official category page advertises the 2027 student startup competition and teams of up to four students. Final cycle rules and a consistent application window have not been established."
+            },
+            "application_status": {
+              "before": "2027 PAGE LIVE — FINAL RULES PENDING",
+              "after": "2027 RULES / WINDOW UNCONFIRMED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1637,13 +1981,13 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://careers.sig.com/global-susquehanna/jobs/11203?lang=en-us",
-    "description": "Current Dublin Discovery: second year of a 3/4-year degree (or third of 5-year); available Summer 2028.",
+    "description": "Dublin Discovery Programme 2027 covers quantitative trading and strategy development. Applicants must be year 2 of a three-/four-year degree OR year 3 of a five-year degree, AND available for a summer 2028 internship; exact event dates/cutoff are not published.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Specific SIG posting could not be retrieved or corroborated on official sources. Historical second-year claim cannot remain a verified [2].",
+    "eligibility_notes": "Official academic review (2026-10-19): Currently year 2 of a three- or four-year degree OR year 3 of a five-year degree, AND available for summer 2028 internships. Numerical eligibility depends on degree duration, so study_year remains null.",
     "application_status": "OPEN NOW / ROLLING",
     "participation_mode": "On-site (Dublin)",
     "work_mode": "on_site",
@@ -1654,7 +1998,7 @@
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current Dublin Discovery: second year of a 3/4-year degree (or third of 5-year); available Summer 2028.",
+    "verification_notes": "Official indexed requisition 11203 confirms conditional academic routes; direct page returns 403. No unconditional [2] or [2,3] eligibility array is justified.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -1666,7 +2010,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "bfe79bbf6f8a6c024faea567",
     "eligibility_review_status": "conditional_composite",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1695,7 +2039,31 @@
         "schedule_commitment": null,
         "duration_format_notes": "2027 multi-day event",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://careers.sig.com/jobs/11203",
+          "changes": {
+            "description": {
+              "before": "Current Dublin Discovery: second year of a 3/4-year degree (or third of 5-year); available Summer 2028.",
+              "after": "Dublin Discovery Programme 2027 covers quantitative trading and strategy development. Applicants must be year 2 of a three-/four-year degree OR year 3 of a five-year degree, AND available for a summer 2028 internship; exact event dates/cutoff are not published."
+            },
+            "eligibility_notes": {
+              "before": "Academic eligibility UNKNOWN (2026-10-15): Specific SIG posting could not be retrieved or corroborated on official sources. Historical second-year claim cannot remain a verified [2].",
+              "after": "Official academic review (2026-10-19): Currently year 2 of a three- or four-year degree OR year 3 of a five-year degree, AND available for summer 2028 internships. Numerical eligibility depends on degree duration, so study_year remains null."
+            },
+            "verification_notes": {
+              "before": "Current Dublin Discovery: second year of a 3/4-year degree (or third of 5-year); available Summer 2028.",
+              "after": "Official indexed requisition 11203 confirms conditional academic routes; direct page returns 403. No unconditional [2] or [2,3] eligibility array is justified."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -1855,7 +2223,7 @@
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Organizer rules page accessible but inspected text did not establish academic eligibility; do not interpret absence in the extract as unrestricted eligibility.",
+    "eligibility_notes": "Official academic review (2026-10-19): Inspected organizer rules describe age 13+ with guardian permission below majority and team/conflict conditions, while the overview says legal majority. No numerical academic year or degree restriction appears; these remain null. Age/deadline contradictions require organizer clarification.",
     "application_status": "2026 competition; check region-specific rules",
     "participation_mode": "Remote (online)",
     "work_mode": "remote",
@@ -1878,7 +2246,7 @@
     "source": "seed_supplemental_2026_10_12",
     "source_id": "c3461e04a60bd95df4be9de2",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -1908,7 +2276,23 @@
         "duration_format_notes": "Submission closes 26 Oct 2026 at 23:45 PDT (as previously recorded).",
         "verification_level": "Web — organiser rules (2026-10-12)",
         "verification_notes": "Supplemental GitHub seed record from develop; not listed in uploaded EUROPE MASTER; current source not rechecked."
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://opencv26.devpost.com/rules",
+          "changes": {
+            "eligibility_notes": {
+              "before": "Academic eligibility UNKNOWN (2026-10-15): Organizer rules page accessible but inspected text did not establish academic eligibility; do not interpret absence in the extract as unrestricted eligibility.",
+              "after": "Official academic review (2026-10-19): Inspected organizer rules describe age 13+ with guardian permission below majority and team/conflict conditions, while the overview says legal majority. No numerical academic year or degree restriction appears; these remain null. Age/deadline contradictions require organizer clarification."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2059,16 +2443,16 @@
     "location": "Dresden, Germany",
     "degree_level": "both",
     "study_year": null,
-    "deadline": "2027-01-12",
+    "deadline": "2027-01-11",
     "source_url": "https://www.digs-ils.phd/join/internship-positions/general-information",
-    "description": "Bachelor/Master; ≥4 semesters completed before start; €930/month; deadline 12 Jan 2027.",
+    "description": "Summer 2027 Dresden student research internship: bachelor/master enrollment, at least four bachelor semesters completed BEFORE START, and enrollment without a master degree at start. Apply by 11 January 2027, 15:00 CET.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): Bachelor/master students must have completed four bachelor semesters BEFORE START and remain enrolled without a master degree at start. A current year-2 applicant may qualify by the future start date.",
-    "application_status": "OPENS 15 OCT",
+    "application_status": "OPEN NOW",
     "participation_mode": "On-site (research groups in Dresden)",
     "work_mode": "on_site",
     "schedule_commitment": "Not specified",
@@ -2078,7 +2462,7 @@
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Bachelor/Master; ≥4 semesters completed before start; €930/month; deadline 12 Jan 2027.",
+    "verification_notes": "Corrected prior 12 January date to the official 11 January 2027, 15:00 CET cutoff. Semester completion is evaluated before start, not application.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2090,7 +2474,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "2ffc93313d53edc373b17633",
     "eligibility_review_status": "conditional_composite",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2119,7 +2503,35 @@
         "schedule_commitment": null,
         "duration_format_notes": "3 months; individual dates",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.digs-ils.phd/join/internship-positions/general-information",
+          "changes": {
+            "deadline": {
+              "before": "2027-01-12",
+              "after": "2027-01-11"
+            },
+            "description": {
+              "before": "Bachelor/Master; ≥4 semesters completed before start; €930/month; deadline 12 Jan 2027.",
+              "after": "Summer 2027 Dresden student research internship: bachelor/master enrollment, at least four bachelor semesters completed BEFORE START, and enrollment without a master degree at start. Apply by 11 January 2027, 15:00 CET."
+            },
+            "application_status": {
+              "before": "OPENS 15 OCT",
+              "after": "OPEN NOW"
+            },
+            "verification_notes": {
+              "before": "Bachelor/Master; ≥4 semesters completed before start; €930/month; deadline 12 Jan 2027.",
+              "after": "Corrected prior 12 January date to the official 11 January 2027, 15:00 CET cutoff. Semester completion is evaluated before start, not application."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2197,17 +2609,17 @@
     "organization": "Amazon",
     "type": "internship",
     "location": "Bucharest, Romania",
-    "degree_level": null,
+    "degree_level": "both",
     "study_year": null,
     "deadline": null,
     "source_url": "https://www.amazon.jobs/en-gb/jobs/10554669/2027-software-dev-engineer-intern-bucharest-romania",
-    "description": "Current official 2027 student SDE role; enrolled Bachelor+ in CS/CE or related. Check location-specific work authorization before applying.",
+    "description": "Official Amazon search result identifies Bucharest 2027 SDE internship 10554669 and requires bachelor degree or above enrollment in CS/CE/related fields at application, CS fundamentals and programming experience. Detailed posting could not be retrieved; further role-specific conditions remain unconfirmed.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Posting ID appears on the official Bucharest listing, but its detailed requirements could not be retrieved. Do not reuse another Amazon location as proof for this role.",
+    "eligibility_notes": "Official academic review (2026-10-19): Official indexed search result for exact Bucharest requisition 10554669 requires bachelor degree or above enrollment in CS/CE/related fields at application. No numerical year in the available text; detailed conditions, including any return-to-study rule, remain unverified.",
     "application_status": "OPEN NOW / ROLLING",
     "participation_mode": "On-site",
     "work_mode": "on_site",
@@ -2218,7 +2630,7 @@
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current official 2027 student SDE role; enrolled Bachelor+ in CS/CE or related. Check location-specific work authorization before applying.",
+    "verification_notes": "Official search result exposes academic/basic qualifications for exact 10554669. Detailed page/API returns 404; no conditions copied from Poland or Iasi.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2230,7 +2642,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "ba2479eb01485240368c9491",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2260,7 +2672,35 @@
         "duration_format_notes": "Summer 2027",
         "format_source_url": "https://www.amazon.jobs/en-gb/jobs/10554669/2027-software-dev-engineer-intern-bucharest-romania",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.amazon.jobs/en/search?base_query=intern+software+engineer",
+          "changes": {
+            "degree_level": {
+              "before": null,
+              "after": "both"
+            },
+            "description": {
+              "before": "Current official 2027 student SDE role; enrolled Bachelor+ in CS/CE or related. Check location-specific work authorization before applying.",
+              "after": "Official Amazon search result identifies Bucharest 2027 SDE internship 10554669 and requires bachelor degree or above enrollment in CS/CE/related fields at application, CS fundamentals and programming experience. Detailed posting could not be retrieved; further role-specific conditions remain unconfirmed."
+            },
+            "eligibility_notes": {
+              "before": "Academic eligibility UNKNOWN (2026-10-15): Posting ID appears on the official Bucharest listing, but its detailed requirements could not be retrieved. Do not reuse another Amazon location as proof for this role.",
+              "after": "Official academic review (2026-10-19): Official indexed search result for exact Bucharest requisition 10554669 requires bachelor degree or above enrollment in CS/CE/related fields at application. No numerical year in the available text; detailed conditions, including any return-to-study rule, remain unverified."
+            },
+            "verification_notes": {
+              "before": "Current official 2027 student SDE role; enrolled Bachelor+ in CS/CE or related. Check location-specific work authorization before applying.",
+              "after": "Official search result exposes academic/basic qualifications for exact 10554669. Detailed page/API returns 404; no conditions copied from Poland or Iasi."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2268,28 +2708,28 @@
     "organization": "ETH Zurich",
     "type": "research",
     "location": "Zurich, Switzerland",
-    "degree_level": null,
+    "degree_level": "both",
     "study_year": null,
     "deadline": null,
     "source_url": "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
-    "description": "Opens early Nov 2026; CS/related; two years completed by program start; graduation after fellowship year.",
+    "description": "ETH announces its 2027 fellowship for 1 July-28 August (dates TBC); application opening is beginning November 2026, closing mid-December with exact date TBD. Bachelor/master students need two years completed BY START and graduation in the following year or later.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): The inspected ETH page describes the CLOSED 2026 cycle: bachelor/master enrollment, two years completed BY START and later graduation. 2027 conditions are not yet verified.",
+    "eligibility_notes": "Official academic review (2026-10-19): Bachelor/master enrollment in CS or closely related fields; two study years completed BY START and graduation in the fellowship-following year or later. Full July/August attendance required. This does not imply currently being in year 2 or a fixed [3,4] list.",
     "application_status": "OPENS EARLY NOV 2026",
     "participation_mode": "On-site (Zurich; attendance required)",
     "work_mode": "on_site",
     "schedule_commitment": "Full-time programme commitment; weekly hours not stated",
-    "duration_format_notes": "Full two months, July–August 2027; physical presence required.",
+    "duration_format_notes": "Programme announced for 1 July-28 August 2027 (TBC); full July/August presence required.",
     "format_source_url": "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
     "verification_source_url": "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED — WATCH",
     "c1_readiness": "Important academic-year eligibility conditions",
-    "verification_notes": "Opens early Nov 2026; CS/related; two years completed by program start; graduation after fellowship year.",
+    "verification_notes": "The official page now explicitly describes 2027. Applications are not yet open and no exact December cutoff is invented.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2301,7 +2741,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "2db89bbeeb2863db18835e3a",
     "eligibility_review_status": "conditional_composite",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2330,7 +2770,39 @@
         "schedule_commitment": null,
         "duration_format_notes": "Summer 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
+          "changes": {
+            "degree_level": {
+              "before": null,
+              "after": "both"
+            },
+            "description": {
+              "before": "Opens early Nov 2026; CS/related; two years completed by program start; graduation after fellowship year.",
+              "after": "ETH announces its 2027 fellowship for 1 July-28 August (dates TBC); application opening is beginning November 2026, closing mid-December with exact date TBD. Bachelor/master students need two years completed BY START and graduation in the following year or later."
+            },
+            "eligibility_notes": {
+              "before": "Academic eligibility UNKNOWN (2026-10-15): The inspected ETH page describes the CLOSED 2026 cycle: bachelor/master enrollment, two years completed BY START and later graduation. 2027 conditions are not yet verified.",
+              "after": "Official academic review (2026-10-19): Bachelor/master enrollment in CS or closely related fields; two study years completed BY START and graduation in the fellowship-following year or later. Full July/August attendance required. This does not imply currently being in year 2 or a fixed [3,4] list."
+            },
+            "duration_format_notes": {
+              "before": "Full two months, July–August 2027; physical presence required.",
+              "after": "Programme announced for 1 July-28 August 2027 (TBC); full July/August presence required."
+            },
+            "verification_notes": {
+              "before": "Opens early Nov 2026; CS/related; two years completed by program start; graduation after fellowship year.",
+              "after": "The official page now explicitly describes 2027. Applications are not yet open and no exact December cutoff is invented."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2408,18 +2880,18 @@
     "organization": "NXP Semiconductors",
     "type": "internship",
     "location": "Bucharest, Romania",
-    "degree_level": null,
+    "degree_level": "both",
     "study_year": null,
     "deadline": null,
     "source_url": "https://nxp.wd3.myworkdayjobs.com/careers/job/Bucharest/System-Engineer-Intern_R-10064103-1",
-    "description": "Current official NXP student role; confirm exact Summer 2027 timing.",
+    "description": "Official indexed NXP requisition R-10064103 is a Bucharest AI/ML vision internship requiring a bachelor/master degree or near graduation; it is not proof that any current student qualifies. Current availability and Summer 2027 timing are unconfirmed.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Workday page yielded no readable posting. Historical technical-student eligibility remains unverified.",
-    "application_status": "OPEN NOW",
+    "eligibility_notes": "Official academic review (2026-10-19): Indexed official R-10064103 requires bachelor/master degree or graduating soon in a relevant discipline. It does not state that all currently enrolled students qualify or define a numerical year. Current availability is separately unverified.",
+    "application_status": "CURRENT AVAILABILITY UNCONFIRMED",
     "participation_mode": "Hybrid (work-from-home policy)",
     "work_mode": "hybrid",
     "schedule_commitment": "Part-time or Full-time (posting lists Full-time)",
@@ -2429,7 +2901,7 @@
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current official NXP student role; confirm exact Summer 2027 timing.",
+    "verification_notes": "Indexed official posting is two months old; live Workday page has no readable text and public posting API returns 403. Do not certify current availability from cached text.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2441,7 +2913,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "5c2c5592c41b0a07c0f2d560",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2472,7 +2944,39 @@
         "duration_format_notes": null,
         "format_source_url": "https://nxp.wd3.myworkdayjobs.com/careers/job/Bucharest/System-Engineer-Intern_R-10064103-1",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://nxp.wd3.myworkdayjobs.com/en-US/careers/job/System-Engineer-Intern_R-10064103-1",
+          "changes": {
+            "degree_level": {
+              "before": null,
+              "after": "both"
+            },
+            "description": {
+              "before": "Current official NXP student role; confirm exact Summer 2027 timing.",
+              "after": "Official indexed NXP requisition R-10064103 is a Bucharest AI/ML vision internship requiring a bachelor/master degree or near graduation; it is not proof that any current student qualifies. Current availability and Summer 2027 timing are unconfirmed."
+            },
+            "eligibility_notes": {
+              "before": "Academic eligibility UNKNOWN (2026-10-15): Workday page yielded no readable posting. Historical technical-student eligibility remains unverified.",
+              "after": "Official academic review (2026-10-19): Indexed official R-10064103 requires bachelor/master degree or graduating soon in a relevant discipline. It does not state that all currently enrolled students qualify or define a numerical year. Current availability is separately unverified."
+            },
+            "application_status": {
+              "before": "OPEN NOW",
+              "after": "CURRENT AVAILABILITY UNCONFIRMED"
+            },
+            "verification_notes": {
+              "before": "Current official NXP student role; confirm exact Summer 2027 timing.",
+              "after": "Indexed official posting is two months old; live Workday page has no readable text and public posting API returns 403. Do not certify current availability from cached text."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2492,16 +2996,16 @@
     "released_date": null,
     "eligibility_notes": "Official academic review (2026-10-15): Official Workday JSON confirms exact Sibiu internship, bachelor/master enrollment, and one-year contract with part/full-time possibilities; no numerical study year.",
     "application_status": "OPEN NOW",
-    "participation_mode": "Hybrid (work-from-home policy)",
-    "work_mode": "hybrid",
-    "schedule_commitment": "Part-time or Full-time (posting lists Full-time)",
-    "duration_format_notes": "Up to one year; official posting mentions a work-from-home policy and part-time/full-time possibilities.",
+    "participation_mode": "Not established from current posting",
+    "work_mode": null,
+    "schedule_commitment": "Full-time (employer posting metadata)",
+    "duration_format_notes": "Duration and work-from-home arrangement are not established in the current retrieved posting; do not reuse the older one-year statement.",
     "format_source_url": "https://nxp.wd3.myworkdayjobs.com/en-US/careers/job/Web-Application-Developer_R-10062194-1",
     "verification_source_url": "https://nxp.wd3.myworkdayjobs.com/en-US/careers/job/Web-Application-Developer_R-10062194-1",
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current official NXP internship listing; confirm exact Summer 2027 timing.",
+    "verification_notes": "Current public employer JSON confirms exact requisition and bachelor/master enrollment. Older one-year/part-time/work-from-home assertions were not re-established.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2513,7 +3017,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "a16fcde41b33647b9cd97a88",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2543,7 +3047,39 @@
         "schedule_commitment": null,
         "duration_format_notes": null,
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://nxp.wd3.myworkdayjobs.com/wday/cxs/nxp/careers/job/Web-Application-Developer_R-10062194-1",
+          "changes": {
+            "participation_mode": {
+              "before": "Hybrid (work-from-home policy)",
+              "after": "Not established from current posting"
+            },
+            "work_mode": {
+              "before": "hybrid",
+              "after": null
+            },
+            "schedule_commitment": {
+              "before": "Part-time or Full-time (posting lists Full-time)",
+              "after": "Full-time (employer posting metadata)"
+            },
+            "duration_format_notes": {
+              "before": "Up to one year; official posting mentions a work-from-home policy and part-time/full-time possibilities.",
+              "after": "Duration and work-from-home arrangement are not established in the current retrieved posting; do not reuse the older one-year statement."
+            },
+            "verification_notes": {
+              "before": "Current official NXP internship listing; confirm exact Summer 2027 timing.",
+              "after": "Current public employer JSON confirms exact requisition and bachelor/master enrollment. Older one-year/part-time/work-from-home assertions were not re-established."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2625,13 +3161,13 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://www.second-foundation.eu/position/software-engineering-intern",
-    "description": "Current Prague Summer 2027 software engineering internship.",
+    "description": "Software Engineering Intern for summer 2027 in Prague. Official indexed role requires relevant degree pursuit and in-person summer availability; no numerical study-year or degree-level minimum is stated.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
     "years_of_experience": null,
     "released_date": null,
-    "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Official page loaded navigation without readable role requirements. Historical current-student claim not reverified.",
+    "eligibility_notes": "Official academic review (2026-10-19): Currently pursuing CS, mathematics, physics or a related degree, with coding/CS fundamentals and onsite availability in Prague for summer 2027. No numerical year or bachelor/master-specific restriction is stated.",
     "application_status": "OPEN NOW / ROLLING",
     "participation_mode": "On-site (Prague)",
     "work_mode": "on_site",
@@ -2642,7 +3178,7 @@
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current Prague Summer 2027 software engineering internship.",
+    "verification_notes": "Recovered the exact official indexed role text; direct extraction remains navigation-only. Employer announcement independently corroborates 2027 summer recruiting.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2654,7 +3190,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "6af3f923d450f63f745dd06e",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2683,7 +3219,31 @@
         "schedule_commitment": null,
         "duration_format_notes": "Summer 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://www.second-foundation.eu/position/software-engineering-intern",
+          "changes": {
+            "description": {
+              "before": "Current Prague Summer 2027 software engineering internship.",
+              "after": "Software Engineering Intern for summer 2027 in Prague. Official indexed role requires relevant degree pursuit and in-person summer availability; no numerical study-year or degree-level minimum is stated."
+            },
+            "eligibility_notes": {
+              "before": "Academic eligibility UNKNOWN (2026-10-15): Official page loaded navigation without readable role requirements. Historical current-student claim not reverified.",
+              "after": "Official academic review (2026-10-19): Currently pursuing CS, mathematics, physics or a related degree, with coding/CS fundamentals and onsite availability in Prague for summer 2027. No numerical year or bachelor/master-specific restriction is stated."
+            },
+            "verification_notes": {
+              "before": "Current Prague Summer 2027 software engineering internship.",
+              "after": "Recovered the exact official indexed role text; direct extraction remains navigation-only. Employer announcement independently corroborates 2027 summer recruiting."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2695,7 +3255,7 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://stripe.com/careers/listing/software-engineer-intern/8130807",
-    "description": "Stripe currently lists a Software Engineer Intern role in Bucharest; exact 2027 term/timing should be confirmed.",
+    "description": "Active Software Engineer Intern posting in Bucharest. Bachelor/master pursuit in CS/math/related fields is required. One university year OR equivalent experience is PREFERRED; no specific 2027 internship term is published.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
@@ -2712,7 +3272,7 @@
     "verification_level": "Maria's audit; recheck the link before importing",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Stripe currently lists a Software Engineer Intern role in Bucharest; exact 2027 term/timing should be confirmed.",
+    "verification_notes": "Exact current Stripe page confirms Bucharest and required/preferred criteria. Internship year/start/end dates are not established.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2724,7 +3284,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "df82226a2263a4f77429dca7",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2755,7 +3315,27 @@
         "duration_format_notes": null,
         "format_source_url": "https://stripe.com/careers/search?query=software",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://stripe.com/careers/listing/software-engineer-intern/8130807",
+          "changes": {
+            "description": {
+              "before": "Stripe currently lists a Software Engineer Intern role in Bucharest; exact 2027 term/timing should be confirmed.",
+              "after": "Active Software Engineer Intern posting in Bucharest. Bachelor/master pursuit in CS/math/related fields is required. One university year OR equivalent experience is PREFERRED; no specific 2027 internship term is published."
+            },
+            "verification_notes": {
+              "before": "Stripe currently lists a Software Engineer Intern role in Bucharest; exact 2027 term/timing should be confirmed.",
+              "after": "Exact current Stripe page confirms Bucharest and required/preferred criteria. Internship year/start/end dates are not established."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -2902,12 +3482,12 @@
     "title": "Software Engineer Intern 2027",
     "organization": "Cloudflare",
     "type": "internship",
-    "location": "Lisbon, Portugal / London, UK",
+    "location": "Lisbon, Portugal",
     "degree_level": null,
     "study_year": null,
     "deadline": null,
     "source_url": "https://job-boards.greenhouse.io/cloudflare/jobs/8245197",
-    "description": "Current 2027 SWE internships in Lisbon/London; summer May–Sep, minimum 12 weeks.",
+    "description": "Cloudflare 2027 internship in Lisbon only: winter/spring January-May or summer May-September; full-time 40 hours/week, minimum 12 weeks, office 3-5 days/week, no remote/part-time option. University/program enrollment and return-to-study are checked in the application.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
@@ -2924,7 +3504,7 @@
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "VERIFIED",
     "c1_readiness": "C1 candidate",
-    "verification_notes": "Current 2027 SWE internships in Lisbon/London; summer May–Sep, minimum 12 weeks.",
+    "verification_notes": "Corrected conflated Lisbon/London location. Exact Greenhouse posting 8245197 is Lisbon-specific and states rolling recruitment.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -2936,7 +3516,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "dbe886a5ab0a8d2c6fab7dd0",
     "eligibility_review_status": "study_year_unspecified_or_unbounded",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -2966,7 +3546,31 @@
         "schedule_commitment": null,
         "duration_format_notes": "Summer 2027 (May–Sep; minimum 12 weeks)",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://job-boards.greenhouse.io/cloudflare/jobs/8245197",
+          "changes": {
+            "location": {
+              "before": "Lisbon, Portugal / London, UK",
+              "after": "Lisbon, Portugal"
+            },
+            "description": {
+              "before": "Current 2027 SWE internships in Lisbon/London; summer May–Sep, minimum 12 weeks.",
+              "after": "Cloudflare 2027 internship in Lisbon only: winter/spring January-May or summer May-September; full-time 40 hours/week, minimum 12 weeks, office 3-5 days/week, no remote/part-time option. University/program enrollment and return-to-study are checked in the application."
+            },
+            "verification_notes": {
+              "before": "Current 2027 SWE internships in Lisbon/London; summer May–Sep, minimum 12 weeks.",
+              "after": "Corrected conflated Lisbon/London location. Exact Greenhouse posting 8245197 is Lisbon-specific and states rolling recruitment."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -3048,7 +3652,7 @@
     "study_year": null,
     "deadline": null,
     "source_url": "https://qualcomm.wd12.myworkdayjobs.com/en-US/External/job/FY27-Intern---Software-Engineering-Internship-2027---6-months--Cork_3091774",
-    "description": "Official Qualcomm role is live in Cork and requires completed second Bachelor year; Qualcomm's EMEA policy also says Ireland interns must be EU citizens. Keep only if both conditions are satisfied and a later 2027 start is available.",
+    "description": "FY27 six-month software engineering internship in Cork, with starts as early as January 2027. The role requires second bachelor year COMPLETED; second master year is IDEAL. Qualcomm EMEA policy separately requires EU citizenship for Ireland interns and a term remaining after internship. A later Summer 2027 start is not guaranteed.",
     "required_skills": [],
     "suggested_skills": [],
     "eligible_countries": null,
@@ -3065,7 +3669,7 @@
     "verification_level": "Web recheck + Maria's audit",
     "maria_audit_verdict": "CONDITIONAL",
     "c1_readiness": "Individual verification required",
-    "verification_notes": "Official Qualcomm role is live in Cork and requires completed second Bachelor year; Qualcomm's EMEA policy also says Ireland interns must be EU citizens. Keep only if both conditions are satisfied and a later 2027 start is available.",
+    "verification_notes": "Exact employer API confirms requisition 3091774. Official EMEA internship policy confirms Ireland EU-citizenship rule; later start availability remains unknown.",
     "source_origin": "Maria EUROPE MASTER",
     "date_checked": "2026-10-12",
     "source_excel_sheet": "EUROPE MASTER",
@@ -3077,7 +3681,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "695f00771f7f143eaf9fc1d0",
     "eligibility_review_status": "conditional_composite",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "verified",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -3106,7 +3710,27 @@
         "schedule_commitment": null,
         "duration_format_notes": "6 months; starts can be as early as Jan 2027",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://qualcomm.wd12.myworkdayjobs.com/wday/cxs/qualcomm/External/job/FY27-Intern---Software-Engineering-Internship-2027---6-months--Cork_3091774",
+          "changes": {
+            "description": {
+              "before": "Official Qualcomm role is live in Cork and requires completed second Bachelor year; Qualcomm's EMEA policy also says Ireland interns must be EU citizens. Keep only if both conditions are satisfied and a later 2027 start is available.",
+              "after": "FY27 six-month software engineering internship in Cork, with starts as early as January 2027. The role requires second bachelor year COMPLETED; second master year is IDEAL. Qualcomm EMEA policy separately requires EU citizenship for Ireland interns and a term remaining after internship. A later Summer 2027 start is not guaranteed."
+            },
+            "verification_notes": {
+              "before": "Official Qualcomm role is live in Cork and requires completed second Bachelor year; Qualcomm's EMEA policy also says Ireland interns must be EU citizens. Keep only if both conditions are satisfied and a later 2027 start is available.",
+              "after": "Exact employer API confirms requisition 3091774. Official EMEA internship policy confirms Ireland EU-citizenship rule; later start availability remains unknown."
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "verified"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -3125,7 +3749,7 @@
     "years_of_experience": null,
     "released_date": null,
     "eligibility_notes": "Academic eligibility UNKNOWN (2026-10-15): Page currently gives filled 2026 openings and says new openings in 2027. Historical programme targets masters and undergraduates after end of year 2; 2027 conditions unconfirmed.",
-    "application_status": "WATCH 2027 OPENINGS",
+    "application_status": "2027 CALL NOT PUBLISHED",
     "participation_mode": "Not specified (Saarbrücken host lab)",
     "work_mode": null,
     "schedule_commitment": "Not specified",
@@ -3147,7 +3771,7 @@
     "source": "maria_europe_master_2026_10_12",
     "source_id": "6989772d18214438b7d4b714",
     "eligibility_review_status": "conditional_composite",
-    "current_source_review": "pending_2026_10_15_recheck",
+    "current_source_review": "flagged",
     "ready_for_public_seed": false,
     "research_provenance": {
       "workbook": "Maria_Europe_All_Opportunities_2026-10-12_VERIFIED (1)(1).xlsx",
@@ -3177,7 +3801,23 @@
         "schedule_commitment": null,
         "duration_format_notes": "Typically May–Sep",
         "verification_level": "Excel EUROPE MASTER audit as of 2026-10-12; not a live 2026-10-15 recheck"
-      }
+      },
+      "official_review_updates": [
+        {
+          "checked_on": "2026-10-19",
+          "evidence_url": "https://hci.cs.uni-saarland.de/hci-internship/",
+          "changes": {
+            "application_status": {
+              "before": "WATCH 2027 OPENINGS",
+              "after": "2027 CALL NOT PUBLISHED"
+            },
+            "current_source_review": {
+              "before": "pending_2026_10_15_recheck",
+              "after": "flagged"
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -3532,6 +4172,107 @@
         "verification_level": "Web — company listing (2026-10-12)",
         "verification_notes": "Supplemental GitHub seed record from develop; not listed in uploaded EUROPE MASTER; current source not rechecked."
       }
+    }
+  },
+  {
+    "title": "Software Engineer Internship (2027 Start)",
+    "organization": "Optiver",
+    "type": "internship",
+    "location": "Amsterdam, Netherlands",
+    "degree_level": null,
+    "study_year": null,
+    "deadline": null,
+    "source_url": "https://www.optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/",
+    "description": "Ten-week 2027 software engineering internship in Amsterdam; penultimate-year study and 2028 graduation/full-time availability required. Programming proficiency may be demonstrated in languages such as C++, Python or Java; these are alternatives, not three universally mandatory skill tags. Application assessments must be completed within seven days if selected; prior Optiver technology assessments/interviews within eight months trigger a reapplication waiting period. No exact application cutoff or start date is stated.",
+    "required_skills": [],
+    "suggested_skills": [],
+    "eligible_countries": null,
+    "years_of_experience": null,
+    "released_date": null,
+    "eligibility_notes": "Official academic review (2026-10-19): Penultimate-year CS/Computer Engineering or equivalent student, able to start full-time after graduation in 2028. Programme-relative year and graduation window cannot be represented as a fixed numeric study-year list. Degree level and an exact application deadline are not stated.",
+    "application_status": "OPEN NOW",
+    "participation_mode": "Not established beyond the listed office location",
+    "work_mode": null,
+    "schedule_commitment": "Not specified",
+    "duration_format_notes": "Ten weeks; exact 2027 start date not established.",
+    "format_source_url": "https://www.optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/",
+    "verification_source_url": "https://www.optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/",
+    "verification_level": "official_source_review",
+    "maria_audit_verdict": null,
+    "c1_readiness": null,
+    "verification_notes": "Direct official-source addition; no workbook verdict or publication approval. Skills alternatives are retained in notes, not flattened into required-skill links.",
+    "source_origin": "C2 direct official review — 19 October 2026",
+    "date_checked": "2026-10-19",
+    "source_excel_sheet": null,
+    "source_excel_row": null,
+    "eligibility_confidence": "CONFIRMED_WITH_CONDITIONS",
+    "university_summer_2027_fit": null,
+    "curation_context": "Direct official review; NOT selected from Maria's June 2029 shortlist and NOT proof of eligibility for every student.",
+    "url": "https://www.optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/",
+    "source": "official_review_2026_10_19",
+    "source_id": "d370c20a27f90b857098fa87",
+    "eligibility_review_status": "conditional_composite",
+    "current_source_review": "verified",
+    "ready_for_public_seed": false,
+    "research_provenance": {
+      "kind": "direct_official_source_addition",
+      "as_of": "2026-10-19",
+      "workbook": null,
+      "evidence_urls": [
+        "https://www.optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/"
+      ],
+      "reason": "Additional genuine source candidate; original 50 records preserved. No personal eligibility or publication approval inferred."
+    }
+  },
+  {
+    "title": "FY27 Intern - CPU Engineering Internship 2027 - 6 months, Cork",
+    "organization": "Qualcomm",
+    "type": "internship",
+    "location": "Cork, Ireland",
+    "degree_level": "both",
+    "study_year": null,
+    "deadline": null,
+    "source_url": "https://qualcomm.wd12.myworkdayjobs.com/en-US/External/job/FY27-Intern---CPU-Engineering-Internship-2027---6-months--Cork_3093026",
+    "description": "Six-month full-time FY27 CPU engineering internship in Cork, covering CPU RTL design, verification, power and performance. Exact public Workday requisition 3093026 is accepting applications. Starts may be as early as January 2027; a summer start is not guaranteed. The role lists experience/coursework in one or more relevant hardware/coding areas, rather than requiring every language listed. Ireland citizenship and return-to-study conditions are in the official EMEA policy.",
+    "required_skills": [],
+    "suggested_skills": [],
+    "eligible_countries": null,
+    "years_of_experience": null,
+    "released_date": null,
+    "eligibility_notes": "Official academic review (2026-10-19): The exact role requires second bachelor year COMPLETED; second master year is IDEAL. Bachelor/master enrollment in electrical/computer engineering is preferred, while the EMEA internship policy requires current degree enrollment and at least a term remaining afterward. Ireland EU-citizenship condition is separately established by the official policy. No unconditional current-year list is justified.",
+    "application_status": "OPEN NOW",
+    "participation_mode": "Not established beyond the listed office location",
+    "work_mode": null,
+    "schedule_commitment": "Full-time",
+    "duration_format_notes": "Six months; starts as early as January 2027. Later start availability unknown.",
+    "format_source_url": "https://qualcomm.wd12.myworkdayjobs.com/wday/cxs/qualcomm/External/job/FY27-Intern---CPU-Engineering-Internship-2027---6-months--Cork_3093026",
+    "verification_source_url": "https://qualcomm.wd12.myworkdayjobs.com/wday/cxs/qualcomm/External/job/FY27-Intern---CPU-Engineering-Internship-2027---6-months--Cork_3093026",
+    "verification_level": "official_source_review",
+    "maria_audit_verdict": null,
+    "c1_readiness": null,
+    "verification_notes": "Direct official-source addition; no workbook verdict or publication approval. Skills alternatives are retained in notes, not flattened into required-skill links.",
+    "source_origin": "C2 direct official review — 19 October 2026",
+    "date_checked": "2026-10-19",
+    "source_excel_sheet": null,
+    "source_excel_row": null,
+    "eligibility_confidence": "CONFIRMED_WITH_CONDITIONS",
+    "university_summer_2027_fit": null,
+    "curation_context": "Direct official review; NOT selected from Maria's June 2029 shortlist and NOT proof of eligibility for every student.",
+    "url": "https://qualcomm.wd12.myworkdayjobs.com/en-US/External/job/FY27-Intern---CPU-Engineering-Internship-2027---6-months--Cork_3093026",
+    "source": "official_review_2026_10_19",
+    "source_id": "6d1ef0c3d301e106889d2038",
+    "eligibility_review_status": "conditional_composite",
+    "current_source_review": "verified",
+    "ready_for_public_seed": false,
+    "research_provenance": {
+      "kind": "direct_official_source_addition",
+      "as_of": "2026-10-19",
+      "workbook": null,
+      "evidence_urls": [
+        "https://qualcomm.wd12.myworkdayjobs.com/wday/cxs/qualcomm/External/job/FY27-Intern---CPU-Engineering-Internship-2027---6-months--Cork_3093026",
+        "https://www.qualcomm.com/company/careers/internships-and-early-in-career-opportunities/emea"
+      ],
+      "reason": "Additional genuine source candidate; original 50 records preserved. No personal eligibility or publication approval inferred."
     }
   }
 ]

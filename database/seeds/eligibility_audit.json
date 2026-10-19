@@ -27,7 +27,7 @@
       "finding": "First or second university year in UK/Europe; anticipated graduation 2028 or 2029. Official indexed posting available; direct page is JS-only.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "714b179ee5cfc0244e8d1359943e2eca4540b2be7f93573b530e8fd1d8a5aaf2",
+      "record_sha256": "22ced5d2256e5a15f99c38c972949a1022314c50d952080f89da8a8f29ec775c",
       "workbook_audit": {
         "record": "1",
         "title": "2027 EMEA Future Leaders Spring Insight",
@@ -65,7 +65,7 @@
       "finding": "IT-oriented bachelor/master students at Romanian faculties, any academic year; teams of 3-5. No numerical year restriction.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "4177f0208c377f853be62299f73ceba618fa57b073dcb5ce67136db4960d91a7",
+      "record_sha256": "45fc684b352e3a53fd1dcfbec08ddcaec214785d83c320d43a223f94be7af030",
       "workbook_audit": {
         "record": "2",
         "title": "SmartHack 2026",
@@ -179,7 +179,7 @@
       "finding": "Team leader/members must be higher-education bachelor/master students or in a recognized development programme. No numerical year restriction.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "a4025d7d0650d677428fcbeb7ad024a5af8e3f70ec39a3c2f8004a3a4f9eff53",
+      "record_sha256": "813348824722ad155ecddde40b1034420696faa7ad028426292d9d1f9e0322f1",
       "workbook_audit": {
         "record": "5",
         "title": "Bosch Future Mobility Challenge 2027",
@@ -210,14 +210,14 @@
       "previous_eligibility_notes": "Explicit 2029 graduation; CS/related welcomed",
       "study_year": null,
       "degree_level": null,
-      "status": "unknown",
+      "status": "confirmed",
       "rule_kind": "graduation_window",
-      "evidence_url": "https://www.jpmorganchase.com/careers/explore-opportunities/programs/spring-insights",
-      "checked_on": "2026-10-15",
-      "finding": "Programme page targets students starting full-time careers in two years. Specific 2027 Engineer & Innovate graduation-window requirements could not be confirmed.",
+      "evidence_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210795482/",
+      "checked_on": "2026-10-19",
+      "finding": "Student expecting graduation in 2029; computer-science or related courses welcomed. No numerical current-year or bachelor/master-only restriction is stated. Coding assessment is required.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "af8b42d843a1bd7b4886bcc700571d7eeb9eebb59d53869ee020382c67fab99b",
+      "record_sha256": "2af9bd74dcaacd25dcfb3fa117f34169716b44bc7246c2cf02ac1bea5c58ddca",
       "workbook_audit": {
         "record": "6",
         "title": "2027 Spring Insights — Engineer & Innovate",
@@ -236,7 +236,18 @@
       },
       "workbook_source": "maria_europe_master_2026_10_12",
       "workbook_source_id": "3aead5334009d62abb6aaed0",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "unknown",
+          "rule_kind": "graduation_window",
+          "finding": "Programme page targets students starting full-time careers in two years. Specific 2027 Engineer & Innovate graduation-window requirements could not be confirmed.",
+          "degree_level": null,
+          "study_year": null,
+          "evidence_url": "https://www.jpmorganchase.com/careers/explore-opportunities/programs/spring-insights"
+        }
+      ]
     },
     {
       "record_number": 7,
@@ -257,7 +268,7 @@
       "finding": "London 2027 Spring into Banking: first year of a three-year degree OR second year of a four-year degree; completion August 2028-July 2029. The old [2] omitted the first-year route.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "a4a4aab7f64d4a0ceda0ea45c36392bb1373afc906379f4680a14ccaec7e2915",
+      "record_sha256": "ebc6e53ae6a0bd4e77e2848a8d8a51ffe6583a02449f38305ce98bfa32032bc8",
       "workbook_audit": {
         "record": "7",
         "title": "2027 Spring into Banking — Technology, Data & Innovation",
@@ -333,7 +344,7 @@
       "finding": "Undergraduate/graduate technical-degree students with software-development background and familiarity with JetBrains tools. No numerical study year stated.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "29eeee0ea933df7758696cc2d8e5ae89e79a39e770af1c65702463d143e541a8",
+      "record_sha256": "e812b2f0f56231b70177639f73f301d8a59ac6a544215bc43a6f6f38f68a3d24",
       "workbook_audit": {
         "record": "9",
         "title": "Campus Ambassador — Universities in Europe",
@@ -371,7 +382,7 @@
       "finding": "Official Student Hub allows students across degree fields and levels, including two-/four-year institutions and part-/full-time study. No numerical study year restriction.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "eea0a8affa912d6b858f99e16910dd12e6efc7da150030b7ed237520a99fb12b",
+      "record_sha256": "ca1eb04f7bb6be1097c8541cdd2425912f6ce61ebfb6dd346294653abb01833e",
       "workbook_audit": {
         "record": "10",
         "title": "Microsoft Student Ambassadors",
@@ -409,7 +420,7 @@
       "finding": "Programme page describes student-led participation but does not establish a numerical year or bachelor/master eligibility rule.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "89a2f3f04fc154aac9b0ec9a6b286e68f8774a83e2a9cd9d13a8b7f3703db9eb",
+      "record_sha256": "45a086c8b16fd313804db515ea46a1d147c6ee21a43b357db5273b3611cfe5dc",
       "workbook_audit": {
         "record": "11",
         "title": "START Hack 2027",
@@ -485,7 +496,7 @@
       "finding": "2026 rules require IEEE Student/Graduate Student membership and team/proctor conditions. Membership grades are not a bachelor/master-only degree restriction.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "978df8d73f568e32bedbd6e2f1a6840f1f63245ce5954c477ccab6abcc4e8b98",
+      "record_sha256": "065d99812b353a565487313c2d4a1ba9d5449f9b34393795aad68fd78dbda0e9",
       "workbook_audit": {
         "record": "13",
         "title": "IEEEXtreme 20.0",
@@ -521,15 +532,15 @@
         1,
         2
       ],
-      "degree_level": null,
+      "degree_level": "bachelor",
       "status": "confirmed",
       "rule_kind": "exact_years",
       "evidence_url": "https://www.citadel.com/careers/programs-and-events/discover-citadel/",
-      "checked_on": "2026-10-15",
-      "finding": "First- or second-year students; the current programme page gives graduation December 2028-June 2030, superseding the historical date window.",
+      "checked_on": "2026-10-19",
+      "finding": "First- or second-year undergraduates graduating December 2028-June 2030; region-specific event selection and other programme conditions apply.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "a7016a4df52b4d410b09a5afddf2ae41d81aae98c191e7a3e5f2caf98b0cf67b",
+      "record_sha256": "3285588465cf74e22f62f3919d073ad829a5b6a4064e1be8d6a457e7da6fca9e",
       "workbook_audit": {
         "record": "14",
         "title": "Discover Citadel — EMEA",
@@ -548,7 +559,21 @@
       },
       "workbook_source": "maria_europe_master_2026_10_12",
       "workbook_source_id": "12890d138005c17018420026",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "confirmed",
+          "rule_kind": "exact_years",
+          "finding": "First- or second-year students; the current programme page gives graduation December 2028-June 2030, superseding the historical date window.",
+          "degree_level": null,
+          "study_year": [
+            1,
+            2
+          ],
+          "evidence_url": "https://www.citadel.com/careers/programs-and-events/discover-citadel/"
+        }
+      ]
     },
     {
       "record_number": 15,
@@ -570,7 +595,7 @@
       "finding": "At application: year 2 of a three-year bachelor OR years 2-3 of a four-year integrated programme. [2,3] would wrongly include year 3 of a three-year bachelor.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "4b0c1a4141943686165cb92bae542d913a843738bdd64110e565940c5354e18d",
+      "record_sha256": "6da8e9312e0fa5c8bd2c4b584f6e9a4a1b819a0d8d3e2ad4c8c8a5ae5c397a88",
       "workbook_audit": {
         "record": "15",
         "title": "Amgen Scholars Europe Programme 2027",
@@ -608,7 +633,7 @@
       "finding": "Graduation in 2029 and university enrollment in UK/Ireland/Europe. No numerical year stated.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "d1aeb776feab7b6daaae527868a02982be520addc5dbe5bba0a0b1b143fdf7f2",
+      "record_sha256": "a21890440e7119e298cdae551bc618c81a239d08a288d56511fbd06b5c5b4100",
       "workbook_audit": {
         "record": "16",
         "title": "FutureFocus: Quants 2027",
@@ -646,7 +671,7 @@
       "finding": "Student status and more than one year remaining until graduation, plus programme account/age conditions. Not a fixed study-year list.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "51d05a7f9c3638bd3e79fff479f6fec1a00ef6f325a457da094a23c6796a9968",
+      "record_sha256": "3b48dd51b8f6a0ad9c1c4cd624e8141e0bcf563c2c6a00a7d3f0900fb85accf8",
       "workbook_audit": {
         "record": "17",
         "title": "GitHub Campus Experts",
@@ -684,7 +709,7 @@
       "finding": "General GSoC FAQ requires adult students or open-source beginners and legal eligibility. The 2027 cycle is not confirmed; do not transfer previous-cycle rules as verified 2027 eligibility.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "52fb27562a482d7a8cbd1181fa947f10b40bad295c7364a2fee409c6be15b798",
+      "record_sha256": "2955c8e0d6f9947228f6b414c858ace6f1620bb96ce26ad60a6930bf7a268ba1",
       "workbook_audit": {
         "record": "18",
         "title": "Google Summer of Code 2027",
@@ -766,7 +791,7 @@
       "finding": "Programme explicitly targets first- and second-year university students, including its London tracks.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "493f7f57a0ebd08c0e621eb98eda4d7cefe952c8534ef53348e408756a251fce",
+      "record_sha256": "870de3836b04976cd4b3f6c880fc097ba56b11828a44e6f3f66f4e84ad82ccff",
       "workbook_audit": {
         "record": "20",
         "title": "Bridge — London",
@@ -804,7 +829,7 @@
       "finding": "General mentorship rules require adult applicants, legal eligibility and project-specific criteria; no universal numerical academic-year rule.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "13861683fa07811155424fcfae310eda16070b341ca83b44f1b079b8571d5b6a",
+      "record_sha256": "3f6584601c07b857bbe750fa9a06cd94ef5b1a90e2c9c56b7d85101a0e546c4d",
       "workbook_audit": {
         "record": "21",
         "title": "LFX Mentorship",
@@ -842,7 +867,7 @@
       "finding": "Inspected official page did not expose 2027 competition eligibility. Keep degree/year unknown until final rules are available.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "807f93f20c3c78e5544d97031280b547c87b6d2e752a69365079bebe2d09df44",
+      "record_sha256": "ddca8eab808a942a64788fcb8f6c965b80a014136eef0361ebb747640413852c",
       "workbook_audit": {
         "record": "22",
         "title": "Imagine Cup 2027",
@@ -916,14 +941,14 @@
       "previous_eligibility_notes": "Second year of a 3- or 4-year degree and available for Summer 2028 internship",
       "study_year": null,
       "degree_level": null,
-      "status": "unknown",
-      "rule_kind": "unknown",
-      "evidence_url": "https://careers.sig.com/global-susquehanna/jobs/11203?lang=en-us",
-      "checked_on": "2026-10-15",
-      "finding": "Specific SIG posting could not be retrieved or corroborated on official sources. Historical second-year claim cannot remain a verified [2].",
+      "status": "confirmed",
+      "rule_kind": "degree_duration_alternatives",
+      "evidence_url": "https://careers.sig.com/jobs/11203",
+      "checked_on": "2026-10-19",
+      "finding": "Currently year 2 of a three- or four-year degree OR year 3 of a five-year degree, AND available for summer 2028 internships. Numerical eligibility depends on degree duration, so study_year remains null.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "803e0f070dfcfdbabe27418d94448244da5a11d96e0f2c27dbd7273ca2b1761e",
+      "record_sha256": "5e73dda0237e4d084d0d29d3227c6845bcf053684a654de179c2f53e64b9f404",
       "workbook_audit": {
         "record": "24",
         "title": "Discovery Programme — Quantitative Trading & Strategy Development",
@@ -942,7 +967,18 @@
       },
       "workbook_source": "maria_europe_master_2026_10_12",
       "workbook_source_id": "bfe79bbf6f8a6c024faea567",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "unknown",
+          "rule_kind": "unknown",
+          "finding": "Specific SIG posting could not be retrieved or corroborated on official sources. Historical second-year claim cannot remain a verified [2].",
+          "degree_level": null,
+          "study_year": null,
+          "evidence_url": "https://careers.sig.com/global-susquehanna/jobs/11203?lang=en-us"
+        }
+      ]
     },
     {
       "record_number": 25,
@@ -1030,14 +1066,14 @@
       "previous_eligibility_notes": "Refer to the official rules; no study-year requirement confirmed.",
       "study_year": null,
       "degree_level": null,
-      "status": "unknown",
-      "rule_kind": "unknown",
+      "status": "confirmed",
+      "rule_kind": "none_published",
       "evidence_url": "https://opencv26.devpost.com/rules",
-      "checked_on": "2026-10-15",
-      "finding": "Organizer rules page accessible but inspected text did not establish academic eligibility; do not interpret absence in the extract as unrestricted eligibility.",
+      "checked_on": "2026-10-19",
+      "finding": "Inspected organizer rules describe age 13+ with guardian permission below majority and team/conflict conditions, while the overview says legal majority. No numerical academic year or degree restriction appears; these remain null. Age/deadline contradictions require organizer clarification.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "a9ad3c5bc0a777114b865ddd36201ed25717d933457b9c4acf884686647ddb58",
+      "record_sha256": "6fbf62785cc4cc9811e798d147ffa1f5eef755d10544085ac4cf60c2af6b9966",
       "workbook_audit": {
         "record": "27",
         "title": "OpenCV AI Competition 2026",
@@ -1056,7 +1092,18 @@
       },
       "workbook_source": "seed_supplemental_2026_10_12",
       "workbook_source_id": "c3461e04a60bd95df4be9de2",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "unknown",
+          "rule_kind": "unknown",
+          "finding": "Organizer rules page accessible but inspected text did not establish academic eligibility; do not interpret absence in the extract as unrestricted eligibility.",
+          "degree_level": null,
+          "study_year": null,
+          "evidence_url": "https://opencv26.devpost.com/rules"
+        }
+      ]
     },
     {
       "record_number": 28,
@@ -1151,7 +1198,7 @@
       "finding": "Bachelor/master students must have completed four bachelor semesters BEFORE START and remain enrolled without a master degree at start. A current year-2 applicant may qualify by the future start date.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "c64aa01d0ea668b36f12e68007334bc5b76ce859fadd8854b3167b491cf474c1",
+      "record_sha256": "2dddeb58d0da51fa5066d3eb9c126349cd4c73f19734caa782ccaf55bbfdcf7d",
       "workbook_audit": {
         "record": "30",
         "title": "Student Research Internship — Summer 2027",
@@ -1219,15 +1266,15 @@
       "previous_degree_level": "bachelor",
       "previous_eligibility_notes": "Enrolled bachelor's student in CS/CE; exact study year not explicitly required.",
       "study_year": null,
-      "degree_level": null,
-      "status": "unknown",
-      "rule_kind": "unknown",
-      "evidence_url": "https://www.amazon.jobs/en-gb/jobs/10554669/2027-software-dev-engineer-intern-bucharest-romania",
-      "checked_on": "2026-10-15",
-      "finding": "Posting ID appears on the official Bucharest listing, but its detailed requirements could not be retrieved. Do not reuse another Amazon location as proof for this role.",
+      "degree_level": "both",
+      "status": "confirmed",
+      "rule_kind": "none_published",
+      "evidence_url": "https://www.amazon.jobs/en/search?base_query=intern+software+engineer",
+      "checked_on": "2026-10-19",
+      "finding": "Official indexed search result for exact Bucharest requisition 10554669 requires bachelor degree or above enrollment in CS/CE/related fields at application. No numerical year in the available text; detailed conditions, including any return-to-study rule, remain unverified.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "f2076861fb6ed9951c660eebc2e546eee621c80629e8fe7a7801bcd4e0d5b99b",
+      "record_sha256": "ce3f21c66aec675908ffdfb9c5ce90c78ecef27fb6c13a66bb2a71cdb1edd40c",
       "workbook_audit": {
         "record": "32",
         "title": "2027 Software Development Engineer Intern",
@@ -1246,7 +1293,18 @@
       },
       "workbook_source": "maria_europe_master_2026_10_12",
       "workbook_source_id": "ba2479eb01485240368c9491",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "unknown",
+          "rule_kind": "unknown",
+          "finding": "Posting ID appears on the official Bucharest listing, but its detailed requirements could not be retrieved. Do not reuse another Amazon location as proof for this role.",
+          "degree_level": null,
+          "study_year": null,
+          "evidence_url": "https://www.amazon.jobs/en-gb/jobs/10554669/2027-software-dev-engineer-intern-bucharest-romania"
+        }
+      ]
     },
     {
       "record_number": 33,
@@ -1257,15 +1315,15 @@
       "previous_degree_level": null,
       "previous_eligibility_notes": "At least two years of university completed by the start date; check all other requirements.",
       "study_year": null,
-      "degree_level": null,
-      "status": "unknown",
-      "rule_kind": "previous_cycle",
+      "degree_level": "both",
+      "status": "confirmed",
+      "rule_kind": "completed_years_by_start",
       "evidence_url": "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
-      "checked_on": "2026-10-15",
-      "finding": "The inspected ETH page describes the CLOSED 2026 cycle: bachelor/master enrollment, two years completed BY START and later graduation. 2027 conditions are not yet verified.",
+      "checked_on": "2026-10-19",
+      "finding": "Bachelor/master enrollment in CS or closely related fields; two study years completed BY START and graduation in the fellowship-following year or later. Full July/August attendance required. This does not imply currently being in year 2 or a fixed [3,4] list.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "5fdd957fce87b06b41f97c9788c8848975112f2842641b8b4470ba053549e04d",
+      "record_sha256": "075cd2ac63420118e77867865acd3f4b92b73e807e14c1dca5f522f4b2df3e99",
       "workbook_audit": {
         "record": "33",
         "title": "Student Summer Research Fellowship (SSRF) 2027",
@@ -1284,7 +1342,18 @@
       },
       "workbook_source": "maria_europe_master_2026_10_12",
       "workbook_source_id": "2db89bbeeb2863db18835e3a",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "unknown",
+          "rule_kind": "previous_cycle",
+          "finding": "The inspected ETH page describes the CLOSED 2026 cycle: bachelor/master enrollment, two years completed BY START and later graduation. 2027 conditions are not yet verified.",
+          "degree_level": null,
+          "study_year": null,
+          "evidence_url": "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html"
+        }
+      ]
     },
     {
       "record_number": 34,
@@ -1333,15 +1402,15 @@
       "previous_degree_level": null,
       "previous_eligibility_notes": "Current technical student",
       "study_year": null,
-      "degree_level": null,
-      "status": "unknown",
-      "rule_kind": "unknown",
-      "evidence_url": "https://nxp.wd3.myworkdayjobs.com/careers/job/Bucharest/System-Engineer-Intern_R-10064103-1",
-      "checked_on": "2026-10-15",
-      "finding": "Workday page yielded no readable posting. Historical technical-student eligibility remains unverified.",
+      "degree_level": "both",
+      "status": "confirmed",
+      "rule_kind": "near_graduation",
+      "evidence_url": "https://nxp.wd3.myworkdayjobs.com/en-US/careers/job/System-Engineer-Intern_R-10064103-1",
+      "checked_on": "2026-10-19",
+      "finding": "Indexed official R-10064103 requires bachelor/master degree or graduating soon in a relevant discipline. It does not state that all currently enrolled students qualify or define a numerical year. Current availability is separately unverified.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "31225a4407b8eaab2fec165d802552014b599e3a587891cd61c468b6380c5d04",
+      "record_sha256": "bf61c2626bc46357ac7ef2cc6a8cba092bb8b4b8bd9d048c3df60d9a86b9ae0d",
       "workbook_audit": {
         "record": "35",
         "title": "System Engineer Intern — AI/ML Vision",
@@ -1360,7 +1429,18 @@
       },
       "workbook_source": "maria_europe_master_2026_10_12",
       "workbook_source_id": "5c2c5592c41b0a07c0f2d560",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "unknown",
+          "rule_kind": "unknown",
+          "finding": "Workday page yielded no readable posting. Historical technical-student eligibility remains unverified.",
+          "degree_level": null,
+          "study_year": null,
+          "evidence_url": "https://nxp.wd3.myworkdayjobs.com/careers/job/Bucharest/System-Engineer-Intern_R-10064103-1"
+        }
+      ]
     },
     {
       "record_number": 36,
@@ -1379,7 +1459,7 @@
       "finding": "Official Workday JSON confirms exact Sibiu internship, bachelor/master enrollment, and one-year contract with part/full-time possibilities; no numerical study year.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "f1017c39bb638eabc89b259fb6f32723b39798844a39922f717846010c264faf",
+      "record_sha256": "47841760c7989a033335fa5fca714466a34a48ae06c4c4ae464bdd1707eb23b2",
       "workbook_audit": {
         "record": "36",
         "title": "Web Application Developer Intern",
@@ -1448,14 +1528,14 @@
       "previous_eligibility_notes": "Current CS/Math/Physics/related student; C-family + DS&A",
       "study_year": null,
       "degree_level": null,
-      "status": "unknown",
-      "rule_kind": "unknown",
+      "status": "confirmed",
+      "rule_kind": "none_published",
       "evidence_url": "https://www.second-foundation.eu/position/software-engineering-intern",
-      "checked_on": "2026-10-15",
-      "finding": "Official page loaded navigation without readable role requirements. Historical current-student claim not reverified.",
+      "checked_on": "2026-10-19",
+      "finding": "Currently pursuing CS, mathematics, physics or a related degree, with coding/CS fundamentals and onsite availability in Prague for summer 2027. No numerical year or bachelor/master-specific restriction is stated.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "b23dd636eb26d055bdc556ba59e34448d265bca30ffb1b01710c01b9c1e94581",
+      "record_sha256": "cc8ab4648f1ba262a33d73ded38515b114a0f1d0ab56199bf729f045459bfa70",
       "workbook_audit": {
         "record": "38",
         "title": "Software Engineering Intern — Summer 2027",
@@ -1474,7 +1554,18 @@
       },
       "workbook_source": "maria_europe_master_2026_10_12",
       "workbook_source_id": "6af3f923d450f63f745dd06e",
-      "ready_for_public_seed": false
+      "ready_for_public_seed": false,
+      "review_history": [
+        {
+          "checked_on": "2026-10-15",
+          "status": "unknown",
+          "rule_kind": "unknown",
+          "finding": "Official page loaded navigation without readable role requirements. Historical current-student claim not reverified.",
+          "degree_level": null,
+          "study_year": null,
+          "evidence_url": "https://www.second-foundation.eu/position/software-engineering-intern"
+        }
+      ]
     },
     {
       "record_number": 39,
@@ -1493,7 +1584,7 @@
       "finding": "CS/math-related bachelor/master pursuit is mandatory; at least one university year OR equivalent work experience is PREFERRED, not a mandatory year-2 minimum.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "59a26b94b845f85ee9303e69245703f3e02e57fca28433b6afceb04227edaaf7",
+      "record_sha256": "0ccc683d6592992c6306fa0dcbbf96e4d01cc515cb2550fc93363d5df80a7320",
       "workbook_audit": {
         "record": "39",
         "title": "Software Engineer Intern",
@@ -1607,7 +1698,7 @@
       "finding": "Relevant degree/program enrollment and returning to the programme after internship. No specific bachelor/master level or numerical year minimum stated.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "b226aee819908ce073873cb11b56eec3dd6c387bd2d2b7328266663c899d29ff",
+      "record_sha256": "76b37f346cde5d733b519caf2b225f7e6fde26111830f7c56d4ceb4e812534cc",
       "workbook_audit": {
         "record": "42",
         "title": "Software Engineer Intern 2027",
@@ -1683,7 +1774,7 @@
       "finding": "Official indexed posting requires second BACHELOR year already COMPLETED; second MASTER year is IDEAL, not mandatory. Start as early as January 2027. Not simply currently in bachelor year 2.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "ccac367483188afad1c99ed078cfab262cbe30a085a05153b457bbbdd4a238c5",
+      "record_sha256": "8eca90b9afb47abe6c0c4734c907f0ee639e74e3f30a431dfcc4e0bf4dbbbfba",
       "workbook_audit": {
         "record": "44",
         "title": "FY27 Software Engineering Internship — Cloud AI / 5G",
@@ -1721,7 +1812,7 @@
       "finding": "Page currently gives filled 2026 openings and says new openings in 2027. Historical programme targets masters and undergraduates after end of year 2; 2027 conditions unconfirmed.",
       "import_active": false,
       "scope": "academic eligibility only; availability and full legal/geographic requirements not certified",
-      "record_sha256": "a404fbd18f6955ab7024ebb9873a6e8f6ba32c351dd09afd526729e8e4f81bc9",
+      "record_sha256": "1e4b43db1d6d1b8e89d245a569b560b801528d01c159e274b90d3250fab192c2",
       "workbook_audit": {
         "record": "45",
         "title": "HCI Research Internship 2027",
@@ -1931,7 +2022,55 @@
       "workbook_source": "seed_supplemental_2026_10_12",
       "workbook_source_id": "6f9fca9abf4ad9c46610c6a8",
       "ready_for_public_seed": false
+    },
+    {
+      "record_number": 51,
+      "title": "Software Engineer Internship (2027 Start)",
+      "source_url": "https://www.optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/",
+      "previous_group": null,
+      "previous_study_year": null,
+      "previous_degree_level": null,
+      "previous_eligibility_notes": null,
+      "study_year": null,
+      "degree_level": null,
+      "status": "confirmed",
+      "rule_kind": "programme_relative_year",
+      "evidence_url": "https://www.optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/",
+      "checked_on": "2026-10-19",
+      "finding": "Penultimate-year CS/Computer Engineering or equivalent student, able to start full-time after graduation in 2028. Programme-relative year and graduation window cannot be represented as a fixed numeric study-year list. Degree level and an exact application deadline are not stated.",
+      "import_active": false,
+      "scope": "Academic wording only; personal legal eligibility and publication approval remain separate.",
+      "record_sha256": "2b5e61bb7b90cc4354e472c75b028840f509e014f877c56ea69498859f84f424",
+      "workbook_audit": null,
+      "workbook_source": null,
+      "workbook_source_id": null,
+      "ready_for_public_seed": false
+    },
+    {
+      "record_number": 52,
+      "title": "FY27 Intern - CPU Engineering Internship 2027 - 6 months, Cork",
+      "source_url": "https://qualcomm.wd12.myworkdayjobs.com/en-US/External/job/FY27-Intern---CPU-Engineering-Internship-2027---6-months--Cork_3093026",
+      "previous_group": null,
+      "previous_study_year": null,
+      "previous_degree_level": null,
+      "previous_eligibility_notes": null,
+      "study_year": null,
+      "degree_level": "both",
+      "status": "confirmed",
+      "rule_kind": "completed_years_and_preference",
+      "evidence_url": "https://qualcomm.wd12.myworkdayjobs.com/wday/cxs/qualcomm/External/job/FY27-Intern---CPU-Engineering-Internship-2027---6-months--Cork_3093026",
+      "checked_on": "2026-10-19",
+      "finding": "The exact role requires second bachelor year COMPLETED; second master year is IDEAL. Bachelor/master enrollment in electrical/computer engineering is preferred, while the EMEA internship policy requires current degree enrollment and at least a term remaining afterward. Ireland EU-citizenship condition is separately established by the official policy. No unconditional current-year list is justified.",
+      "import_active": false,
+      "scope": "Academic wording only; personal legal eligibility and publication approval remain separate.",
+      "record_sha256": "f5654fbe5e9460610376de7821c806f9438a81844188b58fb702a2e7a2fb9647",
+      "workbook_audit": null,
+      "workbook_source": null,
+      "workbook_source_id": null,
+      "ready_for_public_seed": false
     }
   ],
-  "reconciliation_baseline_sha256": "f8d8820dd46d1a85d05d34288857b3943cede6f196680bcc0a79bb18cae919d1"
+  "reconciliation_baseline_sha256": "f8d8820dd46d1a85d05d34288857b3943cede6f196680bcc0a79bb18cae919d1",
+  "last_updated": "2026-10-19",
+  "review_scope": "Initial academic audit date is retained in checked_on; subsequent evidence checks and current claims use each row checked_on and review_history."
 }

@@ -12,11 +12,11 @@ def main():
     parser.add_argument("--audit", type=Path, default=AUDIT)
     args = parser.parse_args()
     payloads, rejected = prepare(args.seed, args.audit)
-    if rejected or len(payloads) != 50:
+    if rejected or not payloads:
         print({"accepted": len(payloads), "rejected": rejected})
         return 1
     print(
-        "PASS: 50 audited records; run db:seed:check for source/publication gates"
+        f"PASS: {len(payloads)} audited records; run db:seed:check for source/publication gates"
     )
     return 0
 
