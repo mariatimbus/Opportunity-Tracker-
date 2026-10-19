@@ -152,6 +152,14 @@ After the **28 November 2026** feature freeze, allow only approved release-block
 
 If a secret is found: stop, do not push, and report it to Maria immediately with the file and line.
 
+## Frontend design system (mandatory)
+
+- Keep every screen minimalist: generous whitespace, clear typography, restrained borders, simple layouts, and few visual accents. Avoid decorative gradients, heavy shadows, and unnecessary animation.
+- Always respect the supplied brand palette. CSS tokens live in `apps/web/src/app/globals.css`; use semantic Tailwind utilities (`bg-background`, `text-foreground`, `text-muted`, `bg-primary`, `border-border`) instead of hard-coded colors in components.
+- Palette: pale blue / Bleu pal `#C0C9E5`; lavender blue / Bleu lavanda `#B2BCDC`; electric blue / Albastru electric `#2862CF`; cobalt blue / Albastru cobalt `#2E46AA`; royal blue / Albastru regal `#1F3CA3`; indigo `#142A7B`; violet / Mov violet `#4A3F74`; navy / Bleumarin `#29263B`; warm white / Alb cald `#FFFBF0`.
+- Default roles: warm white background/surface, navy main text, violet secondary text, electric blue primary actions, royal blue hover, lavender blue borders, cobalt blue focus ring. Pale/lavender blue are accents, not body text colors on light backgrounds.
+- Preserve readable contrast, visible keyboard focus, semantic HTML, and responsive layouts. Respect reduced-motion preferences when adding animation. Do not introduce another palette or automatic dark theme without an explicit user request.
+
 ## 10. Reference
 
 - Repository: https://github.com/mariatimbus/Opportunity-Tracker-
