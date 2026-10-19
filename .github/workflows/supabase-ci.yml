@@ -12,3 +12,4 @@ jobs:
       # GitHub's ubuntu-latest image includes Node.js 20+; no hosted credentials needed.
       - run: npm ci
       - run: npm run db:test:fresh
+      - run: npm run db:test:seed

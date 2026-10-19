@@ -1,0 +1,1 @@
+"""Manual, reviewed opportunity ingestion."""

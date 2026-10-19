@@ -6,7 +6,12 @@
     "db:push:preview": "supabase db push --dry-run",
     "db:push": "supabase db push",
     "db:test": "supabase db query --linked --file supabase/tests/rls.sql",
-    "db:test:fresh": "node supabase/test-fresh.mjs"
+    "db:test:fresh": "node supabase/test-fresh.mjs",
+    "db:test:seed": "node supabase/test-seed.mjs",
+    "db:seed:dry-run": "uv run --project apps/api python -m opportunity_api.ingestion.seed",
+    "db:seed:generate": "uv run --project apps/api python -m opportunity_api.ingestion.seed --sql-output supabase/seed.sql",
+    "db:seed:check": "uv run --project apps/api python -m opportunity_api.ingestion.seed --require-minimum 40",
+    "db:seed": "uv run --project apps/api python -m opportunity_api.ingestion.seed --approved-only --require-minimum 40 --apply"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.10",
