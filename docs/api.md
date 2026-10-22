@@ -206,6 +206,53 @@ Item shape (same as the detail endpoint):
 `200` with the item shape above; `404 not_found` for a valid but unknown id;
 `422 validation_error` for a malformed UUID.
 
+### GET /api/v1/opportunities/{id}/eligibility 🔒
+
+A9 eligibility assessment of the opportunity against the caller's profile
+(full rule set: degree level, study year, graduation year, location — every
+rule reports `eligible | possibly_eligible | not_eligible | unknown` with a
+human-readable reason; facts the source never stated stay `unknown`).
+
+```json
+// 200
+{
+  "status": "possibly_eligible",
+  "reasons": [
+    { "rule": "degree_level", "status": "eligible", "reason": "Bachelor students are accepted" },
+    { "rule": "study_year", "status": "unknown", "reason": "Student study year is not known" },
+    { "rule": "graduation_year", "status": "unknown", "reason": "No structured graduation restriction available" },
+    { "rule": "location", "status": "eligible", "reason": "Remote opportunity; no location barrier" }
+  ]
+}
+```
+
+The profile currently carries `degree_level`, `graduation_year` and
+`location`; `study_year` has no profile field yet, so that rule is always
+`unknown` until the schema grows.
+
+### GET /api/v1/opportunities/{id}/match 🔒
+
+A10 explainable match score, gated by A9 eligibility (degree level, study
+year, location rules only — graduation cannot gate matching without a
+structured source). `not_eligible` always scores `0`;
+`possibly_eligible`/`unknown` caps the score at `49`; `eligible` is
+uncapped (max 100). The optional `ai` component (A11/A12, Ollama
+embeddings) is `0` when Ollama is not configured — the deterministic core
+is the product, AI is a bonus.
+
+```json
+// 200
+{
+  "score": 54,
+  "eligibility": "eligible",
+  "components": { "skills": 12, "field_fit": 25, "interests": 10, "location": 7, "ai": 0 },
+  "reasons": ["Skill overlap: Python, SQL", "Field of study matches: computer science", "Remote-friendly location"]
+}
+```
+
+Both endpoints: `401 unauthorized` without a bearer token; `404 not_found`
+for a valid but unknown id.
+
 ## Applications 🔒
 
 Implemented in A8 (saved opportunities + application tracking). All endpoints
@@ -308,3 +355,10 @@ against them now. They mirror the SQLAlchemy models in `apps/api/src/opportunity
   moved out of „Frozen upcoming contracts". Responses embed an `opportunity`
   summary; `applied_at` is auto-stamped on the transition to `applied`;
   pending B/C sign-off.
+- 2026-10-22 — A9/A10/A11: `GET /api/v1/opportunities/{id}/eligibility` (A9
+  rule-by-rule eligibility with reasons) and `GET /api/v1/opportunities/{id}/match`
+  (explainable score gated by eligibility; optional Ollama `ai` component via
+  `APP_OLLAMA_URL`, deterministic-only when unset). Profile-driven:
+  `study_year` and `interests` are not profile fields yet, so the study-year
+  rule stays `unknown` and the interests component is always 0 until the
+  profile schema grows; pending B/C sign-off.
