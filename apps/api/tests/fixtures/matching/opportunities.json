@@ -1,0 +1,42 @@
+{
+  "swe_intern_remote": {
+    "title": "Software Engineering Intern",
+    "description": "Build ML models in Python with our computer science AI research team on data pipelines.",
+    "location": "Remote",
+    "degree_level": "both",
+    "study_year": [1, 2, 3],
+    "skills": ["python", "machine learning", "sql"]
+  },
+  "swe_intern_any_year": {
+    "title": "Software Engineering Intern",
+    "description": "Build ML models in Python with our computer science AI research team on data pipelines.",
+    "location": "Remote",
+    "degree_level": "both",
+    "study_year": null,
+    "skills": ["python", "machine learning", "sql"]
+  },
+  "swe_intern_master_only": {
+    "title": "Software Engineering Intern",
+    "description": "Build ML models in Python with our computer science AI research team on data pipelines.",
+    "location": "Remote",
+    "degree_level": "master",
+    "study_year": [1, 2, 3],
+    "skills": ["python", "machine learning", "sql"]
+  },
+  "mech_intern_cluj": {
+    "title": "Mechanical Engineering Intern",
+    "description": "CAD design for automotive projects.",
+    "location": "Cluj, Romania",
+    "degree_level": "master",
+    "study_year": [1, 2],
+    "skills": ["CAD", "SolidWorks"]
+  },
+  "marketing_intern": {
+    "title": "Marketing Intern",
+    "description": "Social media and brand campaigns for students.",
+    "location": "Berlin, Germany",
+    "degree_level": "both",
+    "study_year": [1, 2, 3, 4],
+    "skills": []
+  }
+}

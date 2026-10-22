@@ -1,0 +1,20 @@
+{
+  "ana": {
+    "degree_level": "bachelor",
+    "study_year": 2,
+    "graduation_year": 2029,
+    "location": "Bucharest, Romania",
+    "field_of_study": "Computer Science",
+    "skills": ["Python", "SQL", "Java"],
+    "interests": ["AI", "research"]
+  },
+  "viktor": {
+    "degree_level": "master",
+    "study_year": null,
+    "graduation_year": null,
+    "location": "Cluj, Romania",
+    "field_of_study": "Mechanical Engineering",
+    "skills": ["CAD"],
+    "interests": ["automotive"]
+  }
+}
