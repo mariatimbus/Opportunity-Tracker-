@@ -40,6 +40,12 @@ class Settings(BaseSettings):
     rate_limit_per_minute: int = Field(
         default=240, validation_alias=AliasChoices("APP_RATE_LIMIT_PER_MINUTE")
     )
+    # Optional AI matching (A11/A12). Empty ollama_url disables the AI
+    # component entirely; the deterministic matching core keeps working.
+    ollama_url: str = Field(default="", validation_alias=AliasChoices("APP_OLLAMA_URL"))
+    ollama_embed_model: str = Field(
+        default="nomic-embed-text", validation_alias=AliasChoices("APP_OLLAMA_EMBED_MODEL")
+    )
 
     @property
     def cors_origin_list(self) -> list[str]:
@@ -48,4 +54,5 @@ class Settings(BaseSettings):
 
 @lru_cache
 def get_settings() -> Settings:
+    # Cached so repeated calls (e.g. per-request in RateLimitMiddleware) don't re-parse env.
     return Settings()

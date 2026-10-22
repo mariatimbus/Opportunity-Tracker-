@@ -37,6 +37,7 @@ def test_eligible_match_scores_components():
         "field_fit": 25,  # "computer science" phrase present
         "interests": 10,  # AI + research (5 each)
         "location": 7,  # remote-friendly
+        "ai": 0,
     }
     assert result.score == 54
     assert any("Skill overlap" in reason for reason in result.reasons)
@@ -73,6 +74,7 @@ def test_unconfirmed_below_cap_is_not_lifted():
         "field_fit": 25,  # "mechanical engineering" phrase in title
         "interests": 5,  # automotive
         "location": 10,  # exact Cluj, Romania match
+        "ai": 0,
     }
     assert result.score == 46
 
@@ -87,6 +89,7 @@ def test_no_overlap_scores_zero():
         "field_fit": 0,
         "interests": 0,
         "location": 0,
+        "ai": 0,
     }
 
 

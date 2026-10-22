@@ -1,7 +1,11 @@
-"""Explainable matching engine v1 (A10).
+"""Explainable matching engine (A10 deterministic core + A11/A12 AI bonus).
 
-Ranks one opportunity for one student with a deterministic, explainable
-score — no AI, no embeddings (those come in A11/A12).
+Ranks one opportunity for one student with an explainable score. The v1
+deterministic components (skills, field fit, interests, location) are the
+core and work with no external services; the optional AI similarity
+component (A11/A12, Ollama embeddings) can raise strong textual matches
+that keyword scoring undervalues, and is skipped silently when the
+embedder is unavailable.
 
 The A9 eligibility engine is the gate:
 
@@ -40,6 +44,7 @@ from opportunity_api.schemas.matching import (
     MatchResult,
 )
 
+from .ai import AIScorer
 from .scoring import score_field_fit, score_interests, score_location, score_skills
 
 GATE_RULES = (check_degree_level, check_study_year, check_location)
@@ -72,8 +77,14 @@ def score_match(
     profile: MatchingProfile,
     opportunity: MatchingOpportunity,
     eligibility: EligibilityResult | None = None,
+    ai: AIScorer | None = None,
 ) -> MatchResult:
-    """Deterministic, explainable score for one (student, opportunity) pair."""
+    """Deterministic, explainable score for one (student, opportunity) pair.
+
+    ``ai`` is optional: when given, its similarity component is added on
+    top of the deterministic components; when absent or unavailable the
+    score is the pure v1 deterministic result.
+    """
     if eligibility is None:
         eligibility = evaluate(
             to_student_input(profile),
@@ -82,6 +93,13 @@ def score_match(
         )
 
     components, reasons = _components(profile, opportunity)
+    if ai is not None:
+        ai_points, ai_reason = ai.score(profile, opportunity)
+        components.ai = ai_points
+        if ai_reason is not None:
+            reasons.append(ai_reason)
+        elif ai_points == 0:
+            reasons.append("AI similarity unavailable; deterministic components only")
 
     if eligibility.status == EligibilityStatus.not_eligible:
         failed = next(
@@ -96,7 +114,7 @@ def score_match(
             reasons=[gate_reason],
         )
 
-    score = sum(components.model_dump().values())
+    score = min(100, sum(components.model_dump().values()))
     if eligibility.status in _NOT_ELIGIBLE_GATE:
         score = min(score, UNCONFIRMED_CAP)
         reasons.append("Eligibility not fully confirmed; score capped")

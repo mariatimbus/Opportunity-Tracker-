@@ -13,12 +13,13 @@ from opportunity_api.schemas.eligibility import EligibilityStatus
 
 
 class ComponentScores(BaseModel):
-    """Points per explainable component. Each is capped in ``scoring.py``."""
+    """Points per explainable component. Caps live in ``scoring.py``/``ai.py``."""
 
     skills: int = 0
     field_fit: int = 0
     interests: int = 0
     location: int = 0
+    ai: int = 0
 
 
 class MatchResult(BaseModel):
