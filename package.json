@@ -11,7 +11,12 @@
     "db:seed:dry-run": "uv run --project apps/api python -m opportunity_api.ingestion.seed",
     "db:seed:generate": "uv run --project apps/api python -m opportunity_api.ingestion.seed --sql-output supabase/seed.sql",
     "db:seed:check": "uv run --project apps/api python -m opportunity_api.ingestion.seed --require-minimum 40",
-    "db:seed": "uv run --project apps/api python -m opportunity_api.ingestion.seed --approved-only --require-minimum 40 --apply"
+    "db:seed": "uv run --project apps/api python -m opportunity_api.ingestion.seed --approved-only --require-minimum 40 --apply",
+    "verify": "npm run verify:backend && npm run verify:ingestion && npm run verify:web && npm run verify:db",
+    "verify:backend": "uv run --directory apps/api ruff check . && uv run --directory apps/api pytest",
+    "verify:ingestion": "uv run --directory apps/api python -m opportunity_api.ingestion.smoke",
+    "verify:web": "npm --prefix apps/web run lint && npm --prefix apps/web run typecheck && npm --prefix apps/web run build",
+    "verify:db": "npm run db:test:fresh && npm run db:test:seed"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.10",

@@ -1,0 +1,36 @@
+name: Ingestion smoke CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+    paths:
+      - "apps/api/src/opportunity_api/ingestion/**"
+      - "apps/api/tests/fixtures/ingestion_smoke.json"
+      - "apps/api/tests/test_ingestion*.py"
+      - "services/ingestion/**"
+      - ".github/workflows/ingestion-ci.yml"
+  workflow_dispatch:
+
+# Least-privilege token: this workflow only needs to read the repo.
+permissions:
+  contents: read
+
+jobs:
+  ingestion-smoke:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5
+        with:
+          python-version: "3.13"
+      - name: Install dependencies
+        run: uv sync --all-extras
+      - name: Ingestion pipeline dry-run over fixtures
+        # Runs the full A15 pipeline (scope → normalize → dedupe → validate)
+        # in dry-run mode against a throwaway in-memory sqlite DB. Fails on
+        # broken fixtures, pipeline regressions or zero-output sources.
+        run: uv run python -m opportunity_api.ingestion.smoke

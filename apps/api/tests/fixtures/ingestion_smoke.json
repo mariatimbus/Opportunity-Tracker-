@@ -1,0 +1,69 @@
+{
+  "sources": [
+    {
+      "name": "smoke",
+      "records": [
+        {
+          "source": "smoke",
+          "source_id": "smoke-1",
+          "source_url": "https://example.com/smoke/jobs/1",
+          "title": "Software Engineering Intern",
+          "organization": "Acme",
+          "description": "Python and cloud internship for Bachelor students.",
+          "location": "Berlin, Germany",
+          "deadline_raw": "2027-01-15",
+          "degree_level_raw": "bachelor or master",
+          "study_year_raw": "2-3"
+        },
+        {
+          "source": "smoke",
+          "source_id": "smoke-2",
+          "source_url": "https://example.com/smoke/jobs/2",
+          "title": "Working Student Data Engineering",
+          "organization": "Acme",
+          "description": "SQL and Python pipelines.",
+          "location": "Remote",
+          "deadline_raw": null,
+          "degree_level_raw": null,
+          "study_year_raw": null
+        },
+        {
+          "source": "smoke",
+          "source_id": "smoke-3",
+          "source_url": "https://example.com/smoke/jobs/3",
+          "title": "Werkstudent Softwareentwicklung",
+          "organization": "Beispiel GmbH",
+          "description": "Java backend work.",
+          "location": "Munich, Germany",
+          "deadline_raw": "2026-12-01",
+          "degree_level_raw": "bachelor",
+          "study_year_raw": null
+        },
+        {
+          "source": "smoke",
+          "source_id": "smoke-4",
+          "source_url": "https://example.com/smoke/jobs/4",
+          "title": "Senior Software Engineer",
+          "organization": "Acme",
+          "description": "Staff-level Python role.",
+          "location": "Berlin, Germany",
+          "deadline_raw": null,
+          "degree_level_raw": null,
+          "study_year_raw": null
+        },
+        {
+          "source": "smoke",
+          "source_id": "smoke-5",
+          "source_url": "https://example.com/smoke/jobs/5",
+          "title": "Software Engineering Intern",
+          "organization": "Acme",
+          "description": "Python internship.",
+          "location": "Austin, TX, USA",
+          "deadline_raw": null,
+          "degree_level_raw": null,
+          "study_year_raw": null
+        }
+      ]
+    }
+  ]
+}
