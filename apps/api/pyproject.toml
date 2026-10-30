@@ -19,6 +19,7 @@ dev = [
     "pytest>=8",
     "httpx>=0.27",
     "ruff>=0.6",
+    "pytest-cov>=7.1.0",
 ]
 
 [build-system]
@@ -37,3 +38,4 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "--cov=opportunity_api --cov-report=term --cov-fail-under=80"
